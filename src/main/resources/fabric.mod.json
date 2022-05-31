@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "peculiarpieces",
+  "version": "${version}",
+  "name": "Peculiar Pieces",
+  "description": "A collection of useful gizmos!",
+  "authors": [
+    "AmyMialee"
+  ],
+  "contact": {
+    "homepage": "https://github.com/AmyMialeeMods/peculiar-pieces",
+    "issues": "https://github.com/AmyMialeeMods/peculiar-pieces/issues"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/peculiarpieces/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "amymialee.peculiarpieces.PeculiarPiecesClient"
+    ],
+    "main": [
+      "amymialee.peculiarpieces.PeculiarPieces"
+    ]
+  },
+  "mixins": [
+    "peculiarpieces.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "trinkets": ">=3.0.0",
+    "visiblebarriers": ">=1.5.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/P4dUsxv6An"
+      }
+    }
+  }
+}
