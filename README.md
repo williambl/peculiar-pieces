@@ -1,16 +1,12 @@
-# Halfdoors
+# Peculiar Pieces
 
-Halfdoors is a little mod which adds a new door variation to the game, Halfdoors!
-
-They act just as normal doors but with a single block in height.
-
-<img src="https://github.com/AmyMialeeMods/half-doors/raw/main/assets/doors.png"><br><br>
+Peculiar Pieces is a small mod which adds a collection of useful items to the game.
 
 <table align="center">
     <tr>
         <th><b>Join my Discord</b></th>
-        <th><b>Find the mod on Curseforge!</b></th>
-        <th><b>Find the mod on Modrinth!</b></th>
+        <th><b>Find the mod on Curseforge!</b><br>When it's out.</th>
+        <th><b>Find the mod on Modrinth!</b><br>When it's out.</th>
     </tr>
     <tr>
         <th>
@@ -19,12 +15,12 @@ They act just as normal doors but with a single block in height.
             </a>
         </th>
         <th>
-            <a href="https://www.curseforge.com/minecraft/mc-mods/half-doors">
+            <a href="https://www.curseforge.com/minecraft/mc-mods/peculiar-pieces">
                 <img src="https://cdn.discordapp.com/attachments/793182374410059887/923990008543711282/anvil.svg" width="150" height="150">
             </a>
         </th>
         <th>
-            <a href="https://modrinth.com/mod/half-doors">
+            <a href="https://modrinth.com/mod/peculiar-pieces">
                 <img src="https://docs.modrinth.com/img/logo.svg" width="150" height="150">
             </a>
         </th>
