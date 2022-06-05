@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "minecraft:player",
-    "taterzens:npc"
+    {
+      "id": "taterzens:npc",
+      "required": false
+    }
   ]
 }
