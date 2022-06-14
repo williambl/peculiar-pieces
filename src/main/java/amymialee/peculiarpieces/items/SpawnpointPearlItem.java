@@ -41,6 +41,7 @@ public class SpawnpointPearlItem extends Item {
                 } else {
                     WarpManager.queueTeleport(user, serverWorld.getSpawnPos());
                 }
+                return TypedActionResult.success(user.getStackInHand(hand));
             }
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
