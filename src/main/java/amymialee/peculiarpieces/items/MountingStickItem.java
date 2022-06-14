@@ -1,6 +1,7 @@
 package amymialee.peculiarpieces.items;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.Vec3d;
 
 public class MountingStickItem extends Item {
     public MountingStickItem(Settings settings) {
@@ -19,14 +19,13 @@ public class MountingStickItem extends Item {
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity livingEntity, Hand hand) {
         if (!livingEntity.getType().isIn(PeculiarPieces.MOUNT_BLACKLIST) && !user.getItemCooldownManager().isCoolingDown(this)) {
-            if (user.getFirstPassenger() != null) {
+            if (user.hasPassengers() && user.getFirstPassenger() != null) {
                 if (!livingEntity.hasPassengers()) {
                     user.getFirstPassenger().startRiding(livingEntity, true);
                 }
             } else {
-                if (!user.hasPassengers()) {
-                    livingEntity.startRiding(user, true);
-                }
+                livingEntity.dismountVehicle();
+                livingEntity.startRiding(user, true);
             }
             user.getItemCooldownManager().set(this, 4);
         }
@@ -41,10 +40,7 @@ public class MountingStickItem extends Item {
                 Entity passenger = user.getFirstPassenger();
                 if (passenger != null) {
                     passenger.dismountVehicle();
-                    Vec3d hitPos = context.getHitPos();
-                    passenger.setPos(hitPos.x, hitPos.y, hitPos.z);
-                    passenger.resetPosition();
-                    passenger.setPosition(hitPos);
+                    WarpManager.queueTeleport(passenger, context.getHitPos());
                 }
                 user.getItemCooldownManager().set(this, 4);
             }

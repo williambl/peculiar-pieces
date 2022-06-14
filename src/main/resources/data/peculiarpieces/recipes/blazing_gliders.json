@@ -3,7 +3,7 @@
   "pattern": [
     "G G",
     "BSB",
-    "D D"
+    "G G"
   ],
   "key": {
     "B": {
@@ -11,9 +11,6 @@
     },
     "G": {
       "item": "minecraft:gold_nugget"
-    },
-    "D": {
-      "item": "minecraft:diamond"
     },
     "S": {
       "item": "peculiarpieces:slippery_shoes"

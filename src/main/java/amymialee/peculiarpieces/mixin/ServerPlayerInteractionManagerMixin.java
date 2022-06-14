@@ -1,6 +1,6 @@
 package amymialee.peculiarpieces.mixin;
 
-import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.registry.PeculiarItems;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -22,7 +22,7 @@ public class ServerPlayerInteractionManagerMixin {
     @Inject(method = "setGameMode", at = @At("TAIL"))
     protected void PeculiarPieces$FlightRingGameModeChange(GameMode gameMode, GameMode previousGameMode, CallbackInfo ci) {
         Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-        if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarPieces.FLIGHT_RING)) {
+        if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.FLIGHT_RING)) {
             player.getAbilities().allowFlying = true;
         }
     }

@@ -1,7 +1,7 @@
 package amymialee.peculiarpieces.mixin;
 
-import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.items.TransportPearlItem;
+import amymialee.peculiarpieces.registry.PeculiarItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -21,7 +21,7 @@ public abstract class ItemStackMixin {
 
     @Inject(method = "setCustomName", at = @At("TAIL"))
     public void PeculiarPieces$TransPearlNameStorage(Text name, CallbackInfoReturnable<ItemStack> cir) {
-        if (this.getItem() == PeculiarPieces.TRANS_PEARL && name != null) {
+        if (this.getItem() == PeculiarItems.TRANS_PEARL && name != null) {
             NbtCompound compound = getOrCreateNbt();
             compound.putString("pp:stone_name_%d".formatted(TransportPearlItem.getSlot((ItemStack) ((Object) this))), name.getString());
         }
@@ -29,7 +29,7 @@ public abstract class ItemStackMixin {
 
     @Inject(method = "removeCustomName", at = @At("TAIL"))
     public void PeculiarPieces$TransPearlNameRemoval(CallbackInfo ci) {
-        if (this.getItem() == PeculiarPieces.TRANS_PEARL) {
+        if (this.getItem() == PeculiarItems.TRANS_PEARL) {
             NbtCompound compound = getOrCreateNbt();
             compound.remove("pp:stone_name_%d".formatted(TransportPearlItem.getSlot((ItemStack) ((Object) this))));
         }

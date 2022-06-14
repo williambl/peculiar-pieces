@@ -10,6 +10,7 @@
     "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
+    "RedstoneWireBlockMixin",
     "ServerPlayerInteractionManagerMixin"
   ],
   "injectors": {

@@ -1,6 +1,8 @@
 package amymialee.peculiarpieces.blockentities;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.registry.PeculiarBlocks;
+import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
 import amymialee.peculiarpieces.items.PositionPearlItem;
@@ -25,19 +27,19 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
     private DefaultedList<ItemStack> inventory;
 
     public WarpBlockEntity(BlockPos pos, BlockState state) {
-        super(PeculiarPieces.WARP_BLOCK_ENTITY, pos, state);
+        super(PeculiarBlocks.WARP_BLOCK_ENTITY, pos, state);
         this.inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     }
 
     public void onEntityCollided(Entity entity) {
         ItemStack stack = inventory.get(0);
-        if (stack.isOf(PeculiarPieces.POS_PEARL) || stack.isOf(PeculiarPieces.CONSUMABLE_POS_PEARL)) {
+        if (stack.isOf(PeculiarItems.POS_PEARL) || stack.isOf(PeculiarItems.CONSUMABLE_POS_PEARL)) {
             NbtCompound compound = stack.getOrCreateNbt();
             if (compound.contains("pp:stone")) {
                 BlockPos pos = PositionPearlItem.readStone(stack);
                 WarpManager.queueTeleport(entity, Vec3d.ofBottomCenter(pos));
             }
-        } else if (stack.isOf(PeculiarPieces.CHECKPOINT_PEARL)) {
+        } else if (stack.isOf(PeculiarItems.CHECKPOINT_PEARL)) {
             if (entity instanceof PlayerEntity player && player instanceof CheckpointPlayerWrapper checkPlayer) {
                 Vec3d checkpointPos = checkPlayer.getCheckpointPos();
                 if (checkpointPos != null) {

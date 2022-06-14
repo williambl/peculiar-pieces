@@ -1,6 +1,6 @@
 package amymialee.peculiarpieces.mixin;
 
-import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.registry.PeculiarItems;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.Entity;
@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin extends Entity {
     public float PeculiarPieces$SlipperyShoesSlipping(float p) {
         if (((Entity) this) instanceof LivingEntity livingEntity) {
             Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(livingEntity);
-            if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarPieces.SLIPPERY_SHOES)) {
+            if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.SLIPPERY_SHOES)) {
                 return 1f / 0.91f;
             }
         }
