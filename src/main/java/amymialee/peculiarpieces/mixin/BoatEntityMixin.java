@@ -25,7 +25,7 @@ public abstract class BoatEntityMixin extends Entity {
         yawVelocity = MathHelper.clamp(yawVelocity, -90, 90);
     }
 
-    @Inject(method = "method_7548", at = @At("TAIL"), cancellable = true)
+    @Inject(method = "getNearbySlipperiness", at = @At("TAIL"), cancellable = true)
     public void PeculiarPieces$BoatSlipperinessCap(CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(Math.min(cir.getReturnValue(), 1));
     }

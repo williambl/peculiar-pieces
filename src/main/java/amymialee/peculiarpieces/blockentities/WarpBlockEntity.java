@@ -19,7 +19,6 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -50,7 +49,7 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
                 Vec3d checkpointPos = checkPlayer.getCheckpointPos();
                 if (checkpointPos != null) {
                     WarpManager.queueTeleport(entity, checkpointPos);
-                    player.sendMessage(new TranslatableText("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
+                    player.sendMessage(Text.translatable("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
                 }
             }
         } else if (stack.isOf(PeculiarItems.SPAWNPOINT_PEARL)) {
@@ -69,7 +68,7 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
                     } else {
                         WarpManager.queueTeleport(entity, serverWorld.getSpawnPos());
                     }
-                    player.sendMessage(new TranslatableText("%s.spawnpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
+                    player.sendMessage(Text.translatable("%s.spawnpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
                 }
             }
         }
@@ -87,7 +86,7 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
     }
 
     protected Text getContainerName() {
-        return new TranslatableText("peculiarpieces.container.warp_block");
+        return Text.translatable("peculiarpieces.container.warp_block");
     }
 
     protected DefaultedList<ItemStack> getInvStackList() {

@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
@@ -30,6 +29,6 @@ public class BigDropperBlockEntity extends DispenserBlockEntity {
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("container.dropper");
+        return Text.translatable("container.dropper");
     }
 }

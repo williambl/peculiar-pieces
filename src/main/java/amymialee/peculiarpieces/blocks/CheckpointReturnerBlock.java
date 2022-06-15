@@ -6,7 +6,7 @@ import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -25,7 +25,7 @@ public class CheckpointReturnerBlock extends AbstractCheckpointBlock {
             Vec3d checkpointPos = checkPlayer.getCheckpointPos();
             if (checkpointPos != null && checkpointPos.distanceTo(entity.getPos()) > 2) {
                 WarpManager.queueTeleport(player, checkpointPos);
-                player.sendMessage(new TranslatableText("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
+                player.sendMessage(Text.translatable("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
             }
         }
     }

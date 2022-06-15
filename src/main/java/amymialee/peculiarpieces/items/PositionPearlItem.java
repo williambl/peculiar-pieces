@@ -11,7 +11,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -64,10 +63,10 @@ public class PositionPearlItem extends Item {
         NbtCompound compound = stack.getOrCreateNbt();
         BlockPos pos = NbtHelper.toBlockPos(compound.getCompound("pp:stone"));
         if (!pos.equals(BlockPos.ORIGIN)) {
-            tooltip.add(new TranslatableText("Position: x%d, y%d, z%d".formatted(pos.getX(), pos.getY(), pos.getZ())).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("Position: x%d, y%d, z%d".formatted(pos.getX(), pos.getY(), pos.getZ())).formatted(Formatting.GRAY));
         } else {
-            tooltip.add(new TranslatableText("peculiarpieces.pearl.empty").formatted(Formatting.GRAY));
-            tooltip.add(new TranslatableText("peculiarpieces.pearl.bind_stone").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("peculiarpieces.pearl.empty").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("peculiarpieces.pearl.bind_stone").formatted(Formatting.GRAY));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }
