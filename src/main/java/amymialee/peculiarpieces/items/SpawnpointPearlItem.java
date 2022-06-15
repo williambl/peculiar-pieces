@@ -23,12 +23,10 @@ public class SpawnpointPearlItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
-
         if (!world.isClient) {
             if (world instanceof ServerWorld serverWorld) {
                 ServerPlayerEntity player = ((ServerPlayerEntity) user);
                 Optional<Vec3d> spawnpoint = PlayerEntity.findRespawnPosition(serverWorld, player.getSpawnPointPosition(), 0, false, true);
-
                 if (spawnpoint.isPresent()) {
                     RegistryKey<World> spawnDim = player.getSpawnPointDimension();
                     if (spawnDim != player.getWorld().getRegistryKey()) {

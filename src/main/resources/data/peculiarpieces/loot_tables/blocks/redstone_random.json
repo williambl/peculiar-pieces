@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "peculiarpieces:redstone_clamp"
+          "name": "peculiarpieces:redstone_random"
         }
       ],
       "conditions": [

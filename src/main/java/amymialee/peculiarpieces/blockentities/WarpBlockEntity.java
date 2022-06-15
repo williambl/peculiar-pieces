@@ -1,11 +1,11 @@
 package amymialee.peculiarpieces.blockentities;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.items.PositionPearlItem;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
-import amymialee.peculiarpieces.items.PositionPearlItem;
+import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
@@ -16,12 +16,18 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.World;
+
+import java.util.Optional;
 
 public class WarpBlockEntity extends LootableContainerBlockEntity {
     private DefaultedList<ItemStack> inventory;
@@ -45,6 +51,25 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
                 if (checkpointPos != null) {
                     WarpManager.queueTeleport(entity, checkpointPos);
                     player.sendMessage(new TranslatableText("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
+                }
+            }
+        } else if (stack.isOf(PeculiarItems.SPAWNPOINT_PEARL)) {
+            if (!entity.world.isClient) {
+                if (world instanceof ServerWorld serverWorld && entity instanceof ServerPlayerEntity player) {
+                    Optional<Vec3d> spawnpoint = PlayerEntity.findRespawnPosition(serverWorld, player.getSpawnPointPosition(), 0, false, true);
+                    if (spawnpoint.isPresent()) {
+                        RegistryKey<World> spawnDim = player.getSpawnPointDimension();
+                        if (spawnDim != player.getWorld().getRegistryKey()) {
+                            ServerWorld level = serverWorld.getServer().getWorld(spawnDim);
+                            if (!(level == null)) {
+                                player.moveToWorld(level);
+                            }
+                        }
+                        WarpManager.queueTeleport(entity, spawnpoint.get());
+                    } else {
+                        WarpManager.queueTeleport(entity, serverWorld.getSpawnPos());
+                    }
+                    player.sendMessage(new TranslatableText("%s.spawnpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
                 }
             }
         }

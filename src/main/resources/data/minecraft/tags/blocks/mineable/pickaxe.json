@@ -1,6 +1,13 @@
 {
   "replace": false,
   "values": [
-    "peculiarpieces:slippery_stone"
+    "peculiarpieces:slippery_stone",
+    "peculiarpieces:warp_block",
+    "peculiarpieces:big_dropper",
+    "peculiarpieces:big_dispenser",
+    "peculiarpieces:player_plate",
+    "peculiarpieces:invisible_player_plate",
+    "peculiarpieces:invisible_plate_heavy",
+    "peculiarpieces:invisible_plate_light"
   ]
 }

@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "peculiarpieces:redstone_static"
+          "name": "peculiarpieces:big_dispenser"
         }
       ],
       "conditions": [

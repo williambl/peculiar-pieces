@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "peculiarpieces:block/big_dropper_top",
+    "front": "peculiarpieces:block/big_dispenser_front",
+    "side": "peculiarpieces:block/big_dropper_side"
+  }
+}

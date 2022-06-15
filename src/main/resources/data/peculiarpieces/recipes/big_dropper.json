@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DDD",
+    "BCB",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "tag": "peculiarpieces:deepslate_blocks"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    },
+    "C": {
+      "item": "minecraft:dropper"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:big_dropper"
+  }
+}

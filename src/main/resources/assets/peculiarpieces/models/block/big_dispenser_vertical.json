@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/orientable_vertical",
+  "textures": {
+    "front": "peculiarpieces:block/big_dispenser_front_vertical",
+    "side": "peculiarpieces:block/big_dropper_top"
+  }
+}

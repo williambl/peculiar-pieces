@@ -2,19 +2,7 @@ package amymialee.peculiarpieces.registry;
 
 import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.blockentities.WarpBlockEntity;
-import amymialee.peculiarpieces.blocks.CheckpointBlock;
-import amymialee.peculiarpieces.blocks.CheckpointRemoverBlock;
-import amymialee.peculiarpieces.blocks.CheckpointReturnerBlock;
-import amymialee.peculiarpieces.blocks.FastTargetBlock;
-import amymialee.peculiarpieces.blocks.InvertedRedstoneLampBlock;
-import amymialee.peculiarpieces.blocks.OpenPressurePlate;
-import amymialee.peculiarpieces.blocks.RedstoneClampBlock;
-import amymialee.peculiarpieces.blocks.RedstoneFilterBlock;
-import amymialee.peculiarpieces.blocks.RedstoneHurdleBlock;
-import amymialee.peculiarpieces.blocks.RedstoneMonoBlock;
-import amymialee.peculiarpieces.blocks.RedstoneRandomizerBlock;
-import amymialee.peculiarpieces.blocks.RedstoneStaticBlock;
-import amymialee.peculiarpieces.blocks.WarpBlock;
+import amymialee.peculiarpieces.blocks.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -38,7 +26,7 @@ public class PeculiarBlocks {
     public static final Block INVISIBLE_PLATE_LIGHT = registerBlock("invisible_plate_light", new OpenPressurePlate(true, 0, FabricBlockSettings.of(Material.WOOD, Blocks.TINTED_GLASS.getDefaultMapColor()).noCollision().strength(0.5F).sounds(BlockSoundGroup.GLASS)));
     public static final Block INVISIBLE_PLATE_HEAVY = registerBlock("invisible_plate_heavy", new OpenPressurePlate(true, 1, FabricBlockSettings.of(Material.STONE, Blocks.TINTED_GLASS.getDefaultMapColor()).noCollision().strength(0.5F).sounds(BlockSoundGroup.GLASS)));
     public static final Block INVISIBLE_PLAYER_PLATE = registerBlock("invisible_player_plate", new OpenPressurePlate(true, 2, FabricBlockSettings.of(Material.STONE, Blocks.TINTED_GLASS.getDefaultMapColor()).noCollision().strength(0.5F).sounds(BlockSoundGroup.GLASS)));
-    public static final Block PLAYER_PLATE = registerBlock("player_plate", new OpenPressurePlate(false, 2, FabricBlockSettings.of(Material.STONE, Blocks.TINTED_GLASS.getDefaultMapColor()).noCollision().strength(0.5F).sounds(BlockSoundGroup.GLASS)));
+    public static final Block PLAYER_PLATE = registerBlock("player_plate", new OpenPressurePlate(false, 2, FabricBlockSettings.of(Material.STONE, Blocks.OBSIDIAN.getDefaultMapColor()).noCollision().strength(0.5F).sounds(BlockSoundGroup.STONE)));
 
     public static final Block SLIPPERY_STONE = registerBlock("slippery_stone", new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.25F, 4.0F).slipperiness(1f / 0.91f)));
     public static final Block INVERTED_REDSTONE_LAMP = registerBlock("inverted_redstone_lamp", new InvertedRedstoneLampBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(state -> state.get(Properties.LIT) ? 15 : 0).strength(0.3f).sounds(BlockSoundGroup.GLASS).allowsSpawning((a, b, c, d) -> true)));
@@ -55,6 +43,12 @@ public class PeculiarBlocks {
     public static final Block REDSTONE_STATIC = registerBlock("redstone_static", new RedstoneStaticBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
     public static final Block REDSTONE_MONO = registerBlock("redstone_mono", new RedstoneMonoBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
     public static final Block REDSTONE_RANDOM = registerBlock("redstone_random", new RedstoneRandomizerBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block BIG_DROPPER = registerBlock("big_dropper", new BigDropperBlock(FabricBlockSettings.copy(Blocks.DROPPER)));
+    public static BlockEntityType<BigDropperBlockEntity> BIG_DROPPER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dropper", FabricBlockEntityTypeBuilder.create(BigDropperBlockEntity::new, BIG_DROPPER).build(null));
+    public static final Block BIG_DISPENSER = registerBlock("big_dispenser", new BigDispenserBlock(FabricBlockSettings.copy(Blocks.DISPENSER)));
+    public static BlockEntityType<BigDispenserBlockEntity> BIG_DISPENSER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dispenser", FabricBlockEntityTypeBuilder.create(BigDispenserBlockEntity::new, BIG_DISPENSER).build(null));
+
 
     public static void init() {}
 

@@ -19,6 +19,8 @@
   "block.peculiarpieces.redstone_static" : "Redstone Static",
   "block.peculiarpieces.redstone_mono" : "Redstone Mono",
   "block.peculiarpieces.redstone_random" : "Redstone Random",
+  "block.peculiarpieces.big_dropper" : "Big Dropper",
+  "block.peculiarpieces.big_dispenser" : "Big Dispenser",
 
   "item.peculiarpieces.checkpoint_pearl" : "Checkpoint Pearl",
   "item.peculiarpieces.transport_pearl" : "Transport Pearl",
@@ -34,11 +36,13 @@
   "trinkets.slot.ring.flight_ring" : "Flight Ring",
   "tag.trinkets.feet.shoes" : "Shoes",
   "tag.trinkets.ring.flight_ring" : "Flight Ring",
+  "tag.peculiarpieces.deepslate_blocks" : "Deepslate",
 
   "peculiarpieces.pearl.empty" : "Empty.",
   "peculiarpieces.transport_pearl.empty" : "%s: Empty.",
   "peculiarpieces.pearl.bind" : "Shift click to bind to a location.",
   "peculiarpieces.pearl.bind_stone" : "Shift click on a lodestone to bind to it's location.",
   "peculiarpieces.checkpoint_cleared" : "Checkpoint Cleared",
-  "peculiarpieces.checkpoint_returned" : "Returned To Checkpoint"
+  "peculiarpieces.checkpoint_returned" : "Returned To Checkpoint",
+  "peculiarpieces.spawnpoint_returned" : "Returned To Spawnpoint"
 }

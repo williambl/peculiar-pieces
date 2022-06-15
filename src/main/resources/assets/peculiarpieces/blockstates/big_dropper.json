@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "peculiarpieces:block/big_dropper_vertical",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "peculiarpieces:block/big_dropper",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "peculiarpieces:block/big_dropper"
+    },
+    "facing=south": {
+      "model": "peculiarpieces:block/big_dropper",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "peculiarpieces:block/big_dropper_vertical"
+    },
+    "facing=west": {
+      "model": "peculiarpieces:block/big_dropper",
+      "y": 270
+    }
+  }
+}
