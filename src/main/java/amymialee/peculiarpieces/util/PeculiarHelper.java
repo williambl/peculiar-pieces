@@ -1,5 +1,13 @@
 package amymialee.peculiarpieces.util;
 
+import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.registry.PeculiarItems;
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
+import net.minecraft.entity.player.PlayerEntity;
+
+import java.util.Optional;
+
 public class PeculiarHelper {
     public static int clampLoop(int start, int end, int input) {
         if (input < start) {
@@ -8,5 +16,28 @@ public class PeculiarHelper {
             return clampLoop(start, end, input - (end - start + 1));
         }
         return input;
+    }
+
+    @SuppressWarnings("RedundantIfStatement")
+    public static boolean shouldFly(PlayerEntity player) {
+        if (player.isCreative() || player.isSpectator()) {
+            return true;
+        }
+        if (player.hasStatusEffect(PeculiarPieces.FLIGHT)) {
+            return true;
+        }
+        Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
+        if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.FLIGHT_RING)) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void updateFlight(PlayerEntity player) {
+        player.getAbilities().allowFlying = shouldFly(player);
+        if (!player.getAbilities().allowFlying) {
+            player.getAbilities().flying = false;
+        }
+        player.sendAbilitiesUpdate();
     }
 }

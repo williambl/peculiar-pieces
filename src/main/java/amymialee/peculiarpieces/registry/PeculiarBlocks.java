@@ -49,6 +49,7 @@ public class PeculiarBlocks {
     public static final Block BIG_DISPENSER = registerBlock("big_dispenser", new BigDispenserBlock(FabricBlockSettings.copy(Blocks.DISPENSER)));
     public static BlockEntityType<BigDispenserBlockEntity> BIG_DISPENSER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dispenser", FabricBlockEntityTypeBuilder.create(BigDispenserBlockEntity::new, BIG_DISPENSER).build(null));
 
+    public static final Block SURVIVOR_BARRIER = registerBlock("survivor_barrier", new BlockItem(new SurvivorBarrierBlock(FabricBlockSettings.of(Material.STONE).noCollision()), new FabricItemSettings().rarity(Rarity.EPIC).group(PeculiarPieces.PIECES_GROUP)));
 
     public static void init() {}
 

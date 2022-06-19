@@ -67,7 +67,6 @@ public class TransportPearlItem extends Item {
 
     private static void incrementSlot(ItemStack stack) {
         NbtCompound mainCompound = stack.getOrCreateNbt();
-
         {
             NbtCompound nbtCompound = stack.getSubNbt("display");
             if (nbtCompound != null) {
@@ -83,9 +82,7 @@ public class TransportPearlItem extends Item {
                 }
             }
         }
-
         stack.getOrCreateNbt().putInt("pp:selected", PeculiarHelper.clampLoop(0, 7, getSlot(stack) + 1));
-
         {
             if (mainCompound.contains("pp:stone_name_%d".formatted(getSlot(stack)))) {
                 stack.setCustomName(Text.literal(mainCompound.getString("pp:stone_name_%d".formatted(getSlot(stack)))).fillStyle(Style.EMPTY.withItalic(false)));

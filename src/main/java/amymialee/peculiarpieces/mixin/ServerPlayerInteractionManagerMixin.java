@@ -1,8 +1,6 @@
 package amymialee.peculiarpieces.mixin;
 
-import amymialee.peculiarpieces.registry.PeculiarItems;
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketsApi;
+import amymialee.peculiarpieces.util.PeculiarHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
 import net.minecraft.world.GameMode;
@@ -13,17 +11,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Optional;
-
 @Mixin(ServerPlayerInteractionManager.class)
 public class ServerPlayerInteractionManagerMixin {
     @Shadow @Final protected ServerPlayerEntity player;
 
     @Inject(method = "setGameMode", at = @At("TAIL"))
     protected void PeculiarPieces$FlightRingGameModeChange(GameMode gameMode, GameMode previousGameMode, CallbackInfo ci) {
-        Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-        if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.FLIGHT_RING)) {
-            player.getAbilities().allowFlying = true;
-        }
+        PeculiarHelper.updateFlight(player);
     }
 }

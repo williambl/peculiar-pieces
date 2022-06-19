@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces;
 
+import amymialee.peculiarpieces.effects.FlightStatusEffect;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
@@ -9,6 +10,8 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.tag.TagKey;
@@ -26,6 +29,7 @@ public class PeculiarPieces implements ModInitializer {
     public static final ScreenHandlerType<WarpScreenHandler> WARP_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "warp_block", new ScreenHandlerType<>(WarpScreenHandler::new));
     public static final TagKey<EntityType<?>> MOUNT_BLACKLIST = TagKey.of(Registry.ENTITY_TYPE_KEY, id("mount_blacklist"));
     public static final TagKey<Block> WARP_BINDABLE = TagKey.of(Registry.BLOCK_KEY, id("warp_bindable"));
+    public static final StatusEffect FLIGHT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
 
     @Override
     public void onInitialize() {

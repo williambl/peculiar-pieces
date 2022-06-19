@@ -21,6 +21,7 @@
   "block.peculiarpieces.redstone_random" : "Redstone Random",
   "block.peculiarpieces.big_dropper" : "Big Dropper",
   "block.peculiarpieces.big_dispenser" : "Big Dispenser",
+  "peculiarpieces.container.warp_block" : "Warp Block",
 
   "item.peculiarpieces.checkpoint_pearl" : "Checkpoint Pearl",
   "item.peculiarpieces.transport_pearl" : "Transport Pearl",
@@ -31,7 +32,8 @@
   "item.peculiarpieces.flight_ring" : "Flight Ring",
   "item.peculiarpieces.slippery_shoes" : "Slippery Shoes",
   "item.peculiarpieces.blazing_gliders" : "Blazing Gliders",
-  "peculiarpieces.container.warp_block" : "Warp Block",
+
+  "effect.peculiarpieces.flight" : "Flight",
 
   "trinkets.slot.ring.flight_ring" : "Flight Ring",
   "tag.trinkets.feet.shoes" : "Shoes",
