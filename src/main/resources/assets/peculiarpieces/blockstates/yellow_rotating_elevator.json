@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=east": {
+			"y": 90,
+			"model": "peculiarpieces:block/yellow_rotating_elevator"
+		},
+		"facing=north": {
+			"model": "peculiarpieces:block/yellow_rotating_elevator"
+		},
+		"facing=south": {
+			"y": 180,
+			"model": "peculiarpieces:block/yellow_rotating_elevator"
+		},
+		"facing=west": {
+			"y": 270,
+			"model": "peculiarpieces:block/yellow_rotating_elevator"
+		}
+	}
+}

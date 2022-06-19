@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "peculiarpieces:white_elevator",
+    "peculiarpieces:orange_elevator",
+    "peculiarpieces:magenta_elevator",
+    "peculiarpieces:light_blue_elevator",
+    "peculiarpieces:yellow_elevator",
+    "peculiarpieces:lime_elevator",
+    "peculiarpieces:pink_elevator",
+    "peculiarpieces:gray_elevator",
+    "peculiarpieces:light_gray_elevator",
+    "peculiarpieces:cyan_elevator",
+    "peculiarpieces:purple_elevator",
+    "peculiarpieces:blue_elevator",
+    "peculiarpieces:brown_elevator",
+    "peculiarpieces:green_elevator",
+    "peculiarpieces:red_elevator",
+    "peculiarpieces:black_elevator"
+  ]
+}

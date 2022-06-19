@@ -3,11 +3,14 @@ package amymialee.peculiarpieces.util;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class WarpManager {
     private static final ArrayList<Pair<Entity, Vec3d>> dueTeleports = new ArrayList<>();
@@ -22,6 +25,13 @@ public class WarpManager {
                 teleport(livingEntity, pos.x, pos.y, pos.z, true);
             } else {
                 entity.teleport(pos.x, pos.y, pos.z);
+            }
+            if (pos instanceof EntityPos entityPos) {
+                if (entity instanceof ServerPlayerEntity playerEntity) {
+                    playerEntity.setHeadYaw(entityPos.yaw);
+                    playerEntity.setPitch(entityPos.pitch);
+                    playerEntity.networkHandler.sendPacket(new PlayerPositionLookS2CPacket(pos.x, pos.y, pos.z, entityPos.yaw, entityPos.pitch, Collections.emptySet(), 0, true));
+                }
             }
             dueTeleports.remove(pair);
         }

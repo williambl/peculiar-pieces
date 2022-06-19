@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "peculiarpieces:white_rotating_elevator",
+    "peculiarpieces:orange_rotating_elevator",
+    "peculiarpieces:magenta_rotating_elevator",
+    "peculiarpieces:light_blue_rotating_elevator",
+    "peculiarpieces:yellow_rotating_elevator",
+    "peculiarpieces:lime_rotating_elevator",
+    "peculiarpieces:pink_rotating_elevator",
+    "peculiarpieces:gray_rotating_elevator",
+    "peculiarpieces:light_gray_rotating_elevator",
+    "peculiarpieces:cyan_rotating_elevator",
+    "peculiarpieces:purple_rotating_elevator",
+    "peculiarpieces:blue_rotating_elevator",
+    "peculiarpieces:brown_rotating_elevator",
+    "peculiarpieces:green_rotating_elevator",
+    "peculiarpieces:red_rotating_elevator",
+    "peculiarpieces:black_rotating_elevator"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "peculiarpieces:block/yellow_rotating_elevator",
+		"side": "peculiarpieces:block/yellow_elevator"
+	}
+}

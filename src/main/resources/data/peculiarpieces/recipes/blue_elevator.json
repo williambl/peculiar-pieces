@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "peculiarpieces:elevators"
+    },
+    {
+      "item": "minecraft:blue_dye"
+    }
+  ],
+  "result": {
+    "item": "peculiarpieces:blue_elevator"
+  }
+}

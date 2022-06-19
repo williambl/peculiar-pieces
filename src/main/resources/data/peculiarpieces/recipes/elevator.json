@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "WEW",
+    "WIW"
+  ],
+  "key": {
+    "P": {
+      "tag": "peculiarpieces:pressure_plates"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:white_elevator"
+  }
+}

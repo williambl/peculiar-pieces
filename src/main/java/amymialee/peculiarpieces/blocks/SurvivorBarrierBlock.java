@@ -24,7 +24,7 @@ public class SurvivorBarrierBlock extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (context.isHolding(PeculiarBlocks.SURVIVOR_BARRIER.asItem())) {
+        if (context.isHolding(PeculiarBlocks.SURVIVOR_BLOCKER.asItem())) {
             return VoxelShapes.fullCube();
         }
         if (VisibleBarriers.isVisible()) {

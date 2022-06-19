@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "peculiarpieces:rotating_elevators"
+    },
+    {
+      "item": "minecraft:brown_dye"
+    }
+  ],
+  "result": {
+    "item": "peculiarpieces:brown_rotating_elevator"
+  }
+}

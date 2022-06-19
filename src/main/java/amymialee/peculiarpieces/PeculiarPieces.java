@@ -1,5 +1,9 @@
 package amymialee.peculiarpieces;
 
+import amymialee.peculiarpieces.callbacks.PlayerCrouchCallback;
+import amymialee.peculiarpieces.callbacks.PlayerCrouchConsumingBlock;
+import amymialee.peculiarpieces.callbacks.PlayerJumpCallback;
+import amymialee.peculiarpieces.callbacks.PlayerJumpConsumingBlock;
 import amymialee.peculiarpieces.effects.FlightStatusEffect;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
@@ -9,6 +13,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -16,6 +21,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 
 import java.util.Random;
@@ -36,6 +42,20 @@ public class PeculiarPieces implements ModInitializer {
         PeculiarItems.init();
         PeculiarBlocks.init();
         ServerTickEvents.END_WORLD_TICK.register(serverWorld -> WarpManager.tick());
+        PlayerCrouchCallback.EVENT.register((player, world) -> {
+            BlockPos pos = player.getBlockPos().add(0, -1, 0);
+            BlockState state = world.getBlockState(pos);
+            if (state.getBlock() instanceof PlayerCrouchConsumingBlock block) {
+                block.onCrouch(state, world, pos, player);
+            }
+        });
+        PlayerJumpCallback.EVENT.register((player, world) -> {
+            BlockPos pos = player.getBlockPos().add(0, -1, 0);
+            BlockState state = world.getBlockState(pos);
+            if (state.getBlock() instanceof PlayerJumpConsumingBlock block) {
+                block.onJump(state, world, pos, player);
+            }
+        });
     }
 
     public static Identifier id(String path) {

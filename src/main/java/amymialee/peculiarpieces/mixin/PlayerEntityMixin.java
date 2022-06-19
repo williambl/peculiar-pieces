@@ -1,5 +1,7 @@
 package amymialee.peculiarpieces.mixin;
 
+import amymialee.peculiarpieces.callbacks.PlayerCrouchCallback;
+import amymialee.peculiarpieces.callbacks.PlayerJumpCallback;
 import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -18,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements CheckpointPlayerWrapper {
     @Unique Vec3d checkpointPos;
+    @Unique boolean wasSneaky = false;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -48,6 +51,31 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Checkpoi
         Vec3d vec3d = Vec3d.ofBottomCenter(NbtHelper.toBlockPos(nbt.getCompound("pp:checkpos")));
         if (vec3d.distanceTo(Vec3d.ZERO) > 1) {
             checkpointPos = vec3d;
+        }
+    }
+
+    @Inject(method = "jump", at = @At("TAIL"))
+    public void PeculiarPieces$JumpCallback(CallbackInfo ci) {
+        if (!world.isClient()) {
+            PlayerJumpCallback.EVENT.invoker().onJump(((PlayerEntity) ((Object) this)), world);
+        }
+    }
+
+    @Unique
+    public boolean isSneaking() {
+        if (!world.isClient()) {
+            boolean sneaking = super.isSneaking();
+            if (sneaking != wasSneaky) {
+                if (sneaking) {
+                    wasSneaky = true;
+                    PlayerCrouchCallback.EVENT.invoker().onCrouch(((PlayerEntity) ((Object) this)), world);
+                } else {
+                    wasSneaky = false;
+                }
+            }
+            return sneaking;
+        } else {
+            return super.isSneaking();
         }
     }
 }
