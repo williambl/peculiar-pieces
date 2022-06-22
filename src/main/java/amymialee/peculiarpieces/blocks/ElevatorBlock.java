@@ -20,8 +20,8 @@ public class ElevatorBlock extends Block implements PlayerCrouchConsumingBlock, 
         for(int i = pos.getY() - 1; i >= world.getBottomY(); i--) {
             BlockPos pos2 = new BlockPos(pos.getX(), i, pos.getZ());
             BlockState state2 = world.getBlockState(pos2);
-            if (state2.getBlock() instanceof ElevatorBlock) {
-                WarpManager.queueTeleport(player, pos2.add(0, 1, 0));
+            if (state2.getBlock() instanceof ElevatorBlock block) {
+                block.receiveTeleport(state2, pos2, player);
                 break;
             }
         }
@@ -32,10 +32,14 @@ public class ElevatorBlock extends Block implements PlayerCrouchConsumingBlock, 
         for(int i = pos.getY() + 1; i <= world.getTopY(); i++) {
             BlockPos pos2 = new BlockPos(pos.getX(), i, pos.getZ());
             BlockState state2 = world.getBlockState(pos2);
-            if (state2.getBlock() instanceof ElevatorBlock) {
-                WarpManager.queueTeleport(player, pos2.add(0, 1, 0));
+            if (state2.getBlock() instanceof ElevatorBlock block) {
+                block.receiveTeleport(state2, pos2, player);
                 break;
             }
         }
+    }
+
+    public void receiveTeleport(BlockState state, BlockPos pos, PlayerEntity player) {
+        WarpManager.queueTeleport(player, pos.add(0, 1, 0));
     }
 }

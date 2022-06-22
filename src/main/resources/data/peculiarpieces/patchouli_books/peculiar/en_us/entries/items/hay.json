@@ -1,0 +1,16 @@
+{
+  "name": "Hay",
+  "icon": "zombies:hay",
+  "category": "zombies:items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The hay bales across the island have worn dry from lack of maintenance, the wheat used has turned dry and inedible. This hay can be used for some new recipes instead."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:hay",
+      "recipe2": "zombies:hay_carpet"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:barrier",
+    "minecraft:light",
+    "minecraft:structure_void",
+    "peculiarpieces:checkpoint",
+    "peculiarpieces:checkpoint_returner",
+    "peculiarpieces:checkpoint_remover",
+    "peculiarpieces:survivor_barrier",
+    "peculiarpieces:survivor_blocker",
+    "peculiarpieces:survivor_setter",
+    "peculiarpieces:adventure_barrier",
+    "peculiarpieces:adventure_blocker",
+    "peculiarpieces:adventure_setter"
+  ]
+}

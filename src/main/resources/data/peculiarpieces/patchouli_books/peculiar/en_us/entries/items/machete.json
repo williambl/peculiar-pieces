@@ -1,0 +1,26 @@
+{
+  "name": "Machetes",
+  "icon": "zombies:iron_machete",
+  "category": "zombies:items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Machetes are a new type of weapon which thrives in the jungle landscape. It is effective on all forms of plant-life as well as the stalking undead which hide within it."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:wooden_machete",
+      "recipe2": "zombies:stone_machete"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:golden_machete",
+      "recipe2": "zombies:iron_machete"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:diamond_machete",
+      "text": "Netherite machetes can be made similar to all forms of netherite equipment, using a smithing table."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "variants": {
+    "facing=up,powered=false": {
+      "model": "peculiarpieces:block/torch_lever",
+      "x": 180
+    },
+    "facing=up,powered=true": {
+      "model": "peculiarpieces:block/torch_lever_on",
+      "x": 180
+    },
+    "facing=down,powered=false": {
+      "model": "peculiarpieces:block/torch_lever"
+    },
+    "facing=down,powered=true": {
+      "model": "peculiarpieces:block/torch_lever_on"
+    },
+    "facing=east,powered=false": {
+      "model": "peculiarpieces:block/wall_torch_lever"
+    },
+    "facing=east,powered=true": {
+      "model": "peculiarpieces:block/wall_torch_lever_on"
+    },
+    "facing=north,powered=false": {
+      "model": "peculiarpieces:block/wall_torch_lever",
+      "y": 270
+    },
+    "facing=north,powered=true": {
+      "model": "peculiarpieces:block/wall_torch_lever_on",
+      "y": 270
+    },
+    "facing=south,powered=false": {
+      "model": "peculiarpieces:block/wall_torch_lever",
+      "y": 90
+    },
+    "facing=south,powered=true": {
+      "model": "peculiarpieces:block/wall_torch_lever_on",
+      "y": 90
+    },
+    "facing=west,powered=false": {
+      "model": "peculiarpieces:block/wall_torch_lever",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "peculiarpieces:block/wall_torch_lever_on",
+      "y": 180
+    }
+  }
+}

@@ -46,6 +46,9 @@ public class WarpManager {
     }
 
     public static void teleport(Entity entity, double x, double y, double z, boolean particleEffects) {
+        if (particleEffects) {
+            entity.world.sendEntityStatus(entity, (byte)46);
+        }
         entity.requestTeleport(x, y, z);
         if (particleEffects) {
             entity.world.sendEntityStatus(entity, (byte)46);

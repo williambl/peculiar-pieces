@@ -14,7 +14,6 @@ import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class RotatingElevatorBlock extends ElevatorBlock {
@@ -26,27 +25,8 @@ public class RotatingElevatorBlock extends ElevatorBlock {
     }
 
     @Override
-    public void onCrouch(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-        for(int i = pos.getY() - 1; i >= world.getBottomY(); i--) {
-            BlockPos pos2 = new BlockPos(pos.getX(), i, pos.getZ());
-            BlockState state2 = world.getBlockState(pos2);
-            if (state2.getBlock() instanceof ElevatorBlock) {
-                WarpManager.queueTeleport(player, new EntityPos(pos2.add(0, 1, 0), player.getPitch(), state2.get(FACING).getOpposite().asRotation()));
-                break;
-            }
-        }
-    }
-
-    @Override
-    public void onJump(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-        for(int i = pos.getY() + 1; i <= world.getTopY(); i++) {
-            BlockPos pos2 = new BlockPos(pos.getX(), i, pos.getZ());
-            BlockState state2 = world.getBlockState(pos2);
-            if (state2.getBlock() instanceof ElevatorBlock) {
-                WarpManager.queueTeleport(player, new EntityPos(pos2.add(0, 1, 0), player.getPitch(), state2.get(FACING).getOpposite().asRotation()));
-                break;
-            }
-        }
+    public void receiveTeleport(BlockState state, BlockPos pos, PlayerEntity player) {
+        WarpManager.queueTeleport(player, new EntityPos(pos.add(0, 1, 0), player.getPitch(), state.get(FACING).getOpposite().asRotation()));
     }
 
     @Override

@@ -1,0 +1,52 @@
+{
+  "name": "Blowguns",
+  "icon": "zombies:blowgun",
+  "category": "zombies:items",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Blowguns are a new type of weapon, made especially useful in the dangerous jungle.$(br)You can use the blowgun to fire darts at enemies, inflicting unique effects.$(br)Normal darts do not have any effect, and must be altered to have any power."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:blowgun",
+      "recipe2": "zombies:dart"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:dart_poison",
+      "text": "A simple common poisonous dart, helpful to do a little damage to enemy humans, but won't effect zombies."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:dart_spectral",
+      "text": "A spectral dart, it will give any enemy it hits glowing allowing for easier tracking of their movements."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:dart_ghostly",
+      "text": "A dart of shadow form, it causes enemies to be harder to tell apart, but weakens their melee power strongly."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:dart_levitation",
+      "text": "A dart of levitation, it will cause your enemy to float into the air and lose a lot of their manoeuvrability."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:dart_blindness",
+      "text": "A dart of blindness, will cause enemies to go temporarily blind but will have a reduced effect on zombies with their strong sense of smell."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:dart_stone_skin",
+      "text": "A dart of stone skin, it will cause an enemy to lose a majority of their movement ability from their stiff body, but will also make them much more resilient to attacks."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "zombies:dart_burning",
+      "link_recipe": true,
+      "text": "A heated dart, these can be made by using a dart on a cauldron filled with lava, and will pack a strong fiery punch to any enemy they hit."
+    }
+  ]
+}

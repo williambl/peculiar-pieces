@@ -1,0 +1,17 @@
+{
+  "name": "Checkpoints",
+  "icon": "peculiarpieces:checkpoint",
+  "category": "peculiarpieces:creative",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Checkpoints can be used to help build parkour courses or any area where players could get stuck."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:checkpoint",
+      "link_recipe": true,
+      "text": "Checkpoint blocks are the core of "
+    }
+  ]
+}

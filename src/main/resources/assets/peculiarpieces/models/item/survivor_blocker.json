@@ -1,3 +1,6 @@
 {
-  "parent": "peculiarpieces:block/survivor_blocker"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "peculiarpieces:item/survivor_blocker"
+  }
 }

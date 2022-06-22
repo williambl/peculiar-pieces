@@ -8,39 +8,73 @@ import amymialee.peculiarpieces.effects.FlightStatusEffect;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
+import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.tag.TagKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 
+import java.util.Collection;
 import java.util.Random;
 
 @SuppressWarnings({"UnusedReturnValue", "SameParameterValue", "unused"})
 public class PeculiarPieces implements ModInitializer {
     public static final String MOD_ID = "peculiarpieces";
     public static final Random RANDOM = new Random();
-    public static final ItemGroup PIECES_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_group")).icon(PeculiarItems::getRecipeKindIcon).build();
+    public static final ItemGroup PIECES_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.MOD_ITEMS)).build();
+    public static final ItemGroup CREATIVE_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_creative_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.CREATIVE_ITEMS)).build();
 
     public static final ScreenHandlerType<WarpScreenHandler> WARP_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "warp_block", new ScreenHandlerType<>(WarpScreenHandler::new));
     public static final TagKey<EntityType<?>> MOUNT_BLACKLIST = TagKey.of(Registry.ENTITY_TYPE_KEY, id("mount_blacklist"));
     public static final TagKey<Block> WARP_BINDABLE = TagKey.of(Registry.BLOCK_KEY, id("warp_bindable"));
+    public static final TagKey<Item> BARRIERS = TagKey.of(Registry.ITEM_KEY, id("barriers"));
     public static final StatusEffect FLIGHT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
 
     @Override
     public void onInitialize() {
         PeculiarItems.init();
         PeculiarBlocks.init();
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, access, environment) -> dispatcher.register(
+                literal("peculiar")
+                        .then(literal("checkpoint"))
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .then(argument("targets", EntityArgumentType.players())
+                                .then(argument("location", Vec3ArgumentType.vec3())
+                                        .executes(ctx -> {
+                                            Collection<ServerPlayerEntity> targets = EntityArgumentType.getPlayers(ctx, "targets");
+                                            Vec3d pos = Vec3ArgumentType.getPosArgument(ctx, "location").toAbsolutePos(ctx.getSource());
+                                            for (ServerPlayerEntity target : targets) {
+                                                ((CheckpointPlayerWrapper) target).setCheckpointPos(pos);
+                                            }
+                                            if (targets.size() == 1) {
+                                                ctx.getSource().sendFeedback(Text.translatable("commands.checkpoint.success.single", pos.getX(), pos.getY(), pos.getZ(), targets.iterator().next().getDisplayName()), true);
+                                            } else {
+                                                ctx.getSource().sendFeedback(Text.translatable("commands.checkpoint.success.multiple", pos.getX(), pos.getY(), pos.getZ(), targets.size()), true);
+                                            }
+                                            return 0;
+                                        })))));
+
         ServerTickEvents.END_WORLD_TICK.register(serverWorld -> WarpManager.tick());
         PlayerCrouchCallback.EVENT.register((player, world) -> {
             BlockPos pos = player.getBlockPos().add(0, -1, 0);

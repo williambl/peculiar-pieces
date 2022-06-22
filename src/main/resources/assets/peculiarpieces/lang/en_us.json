@@ -1,9 +1,11 @@
 {
   "itemGroup.peculiarpieces.peculiarpieces_group" : "Peculiar Pieces",
+  "itemGroup.peculiarpieces.peculiarpieces_creative_group" : "Peculiar Pieces Creative Only",
 
   "block.peculiarpieces.checkpoint" : "Checkpoint",
   "block.peculiarpieces.checkpoint_remover" : "Checkpoint Remover",
   "block.peculiarpieces.checkpoint_returner" : "Checkpoint Returner",
+  "block.peculiarpieces.checkpoint_damager" : "Checkpoint Damager",
   "block.peculiarpieces.invisible_plate_heavy" : "Heavy Invisible Plate",
   "block.peculiarpieces.invisible_plate_light" : "Light Invisible Plate",
   "block.peculiarpieces.invisible_player_plate" : "Invisible Player Plate",
@@ -21,7 +23,12 @@
   "block.peculiarpieces.redstone_random" : "Redstone Random",
   "block.peculiarpieces.big_dropper" : "Big Dropper",
   "block.peculiarpieces.big_dispenser" : "Big Dispenser",
+  "block.peculiarpieces.survivor_barrier" : "Survivor Barrier",
   "block.peculiarpieces.survivor_blocker" : "Survivor Blocker",
+  "block.peculiarpieces.survivor_setter" : "Survivor Setter",
+  "block.peculiarpieces.adventure_barrier" : "Adventure Barrier",
+  "block.peculiarpieces.adventure_blocker" : "Adventure Blocker",
+  "block.peculiarpieces.adventure_setter" : "Adventure Setter",
   "block.peculiarpieces.white_elevator" : "White Elevator",
   "block.peculiarpieces.orange_elevator" : "Orange Elevator",
   "block.peculiarpieces.magenta_elevator" : "Magenta Elevator",
@@ -54,6 +61,8 @@
   "block.peculiarpieces.green_rotating_elevator" : "Green Rotating Elevator",
   "block.peculiarpieces.red_rotating_elevator" : "Red Rotating Elevator",
   "block.peculiarpieces.black_rotating_elevator" : "Black Rotating Elevator",
+  "block.peculiarpieces.torch_lever" : "Torch Lever",
+  "block.peculiarpieces.soul_torch_lever" : "Soul Torch Lever",
   "peculiarpieces.container.warp_block" : "Warp Block",
 
   "item.peculiarpieces.checkpoint_pearl" : "Checkpoint Pearl",
@@ -68,10 +77,17 @@
 
   "effect.peculiarpieces.flight" : "Flight",
 
+  "commands.checkpoint.success.single": "Set checkpoint to %s, %s, %s for %s",
+  "commands.checkpoint.success.multiple": "Set checkpoint to %s, %s, %s for %s players",
+
   "trinkets.slot.ring.flight_ring" : "Flight Ring",
   "tag.trinkets.feet.shoes" : "Shoes",
   "tag.trinkets.ring.flight_ring" : "Flight Ring",
   "tag.peculiarpieces.deepslate_blocks" : "Deepslate",
+  "tag.peculiarpieces.pressure_plates" : "Pressure Plates",
+  "tag.peculiarpieces.elevators" : "Elevators",
+  "tag.peculiarpieces.rotating_elevators" : "Rotating Elevators",
+  "tag.peculiarpieces.barriers" : "Barriers",
 
   "peculiarpieces.pearl.empty" : "Empty.",
   "peculiarpieces.transport_pearl.empty" : "%s: Empty.",

@@ -1,0 +1,17 @@
+{
+  "name": "Antidote",
+  "icon": "zombies:antidote_bottle",
+  "category": "zombies:items",
+  "advancement": "zombies:main/antidote_research",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Once harvested, you can use this antidote in either the form of a splash bottle or a dart, both of which work identically and will revive one zombie, brining a dead teammate back to life."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "zombies:antidote_bottle",
+      "recipe2": "zombies:dart_antidote"
+    }
+  ]
+}

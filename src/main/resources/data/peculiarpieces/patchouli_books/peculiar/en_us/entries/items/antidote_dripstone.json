@@ -1,0 +1,30 @@
+{
+  "name": "Mystic Dripstone",
+  "icon": "zombies:antidote_dripstone",
+  "category": "zombies:items",
+  "advancement": "zombies:phase/exploration",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The scientists have found a rare form of dripstone on their island with an unusual green liquid dripping from the tips. This form of dripstone does not grow, but instead acts as an endless source of this mystical liquid.$(br)This liquid has supernatural properties and if we get the chance we should try to steal some for ourselves.$(br)We can try to catch this liquid in a cauldron and bottle it up, or use a dart to add it to the tip of the dart."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Mystic Dripstone",
+      "multiblock": {
+        "pattern": [
+          ["z"], ["x"], ["c"], ["0"], ["d"]
+        ],
+        "mapping": {
+          "z": "zombies:antidote_dripstone[thickness=base,vertical_direction=down]",
+          "x": "zombies:antidote_dripstone[thickness=frustum,vertical_direction=down]",
+          "c": "zombies:antidote_dripstone[thickness=tip,vertical_direction=down]",
+          "d": "zombies:antidote_cauldron"
+        },
+        "symmetrical": true,
+        "offset": [0, 1, 0]
+      },
+      "enable_visualize": false
+    }
+  ]
+}

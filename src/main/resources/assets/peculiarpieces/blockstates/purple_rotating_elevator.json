@@ -1,18 +1,18 @@
 {
 	"variants": {
 		"facing=east": {
-			"y": 90,
+			"y": 270,
 			"model": "peculiarpieces:block/purple_rotating_elevator"
 		},
 		"facing=north": {
-			"model": "peculiarpieces:block/purple_rotating_elevator"
-		},
-		"facing=south": {
 			"y": 180,
 			"model": "peculiarpieces:block/purple_rotating_elevator"
 		},
+		"facing=south": {
+			"model": "peculiarpieces:block/purple_rotating_elevator"
+		},
 		"facing=west": {
-			"y": 270,
+			"y": 90,
 			"model": "peculiarpieces:block/purple_rotating_elevator"
 		}
 	}
