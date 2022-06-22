@@ -92,6 +92,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Checkpoi
     public void tick(CallbackInfo ci) {
         if (((PlayerEntity) ((Object) this)) instanceof ServerPlayerEntity serverPlayer) {
             if (gameModeDuration > 0) {
+                System.out.println(gameModeDuration + ": " + serverPlayer.interactionManager.getGameMode() + " " + ((GameModePlayerWrapper) serverPlayer).getStoredGameMode());
                 gameModeDuration--;
                 if (gameModeDuration == 0) {
                     if (storedGameMode != null) {

@@ -1,0 +1,32 @@
+{
+  "name": "Gamemode Blocks",
+  "icon": "peculiarpieces:survivor_barrier",
+  "category": "peculiarpieces:creative",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Gamemode Blocks can be used to change gamemode or restrict people of certain gamemodes from accessing certain areas."
+    },
+    {
+      "type": "peculiarpieces:double_spotlight",
+      "item1": "peculiarpieces:adventure_setter",
+      "item2": "peculiarpieces:survivor_setter",
+      "header": "Gamemode Setters",
+      "text": "Gamemode Setters will change the gamemode of any non-creative player who touches them to their respective gamemode.$(br)This is temporary and once they stop touching one they will return to their previous gamemode."
+    },
+    {
+      "type": "peculiarpieces:double_spotlight",
+      "item1": "peculiarpieces:adventure_blocker",
+      "item2": "peculiarpieces:survivor_blocker",
+      "header": "Gamemode Blockers",
+      "text": "Gamemode Blockers will block players of their respective gamemode from being able to touch things on the other side of them.$(br)This can stop players from pressing buttons or other similar situations."
+    },
+    {
+      "type": "peculiarpieces:double_spotlight",
+      "item1": "peculiarpieces:adventure_barrier",
+      "item2": "peculiarpieces:survivor_barrier",
+      "header": "Gamemode Barriers",
+      "text": "Gamemode Barriers will act as ordinary barriers, but only for those who's gamemode matches the barrier."
+    }
+  ]
+}

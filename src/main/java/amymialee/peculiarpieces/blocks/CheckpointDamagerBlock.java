@@ -26,7 +26,7 @@ public class CheckpointDamagerBlock extends AbstractStructureVoidBlock {
             Vec3d checkpointPos = checkPlayer.getCheckpointPos();
             if (checkpointPos != null && checkpointPos.distanceTo(entity.getPos()) > 2) {
                 float health = player.getHealth();
-                player.damage(DamageSource.MAGIC, Math.max(0, (health / 2) - 1));
+                player.damage(DamageSource.MAGIC, Math.max(0, (health) / 2));
                 WarpManager.queueTeleport(player, checkpointPos);
                 player.sendMessage(Text.translatable("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
             }

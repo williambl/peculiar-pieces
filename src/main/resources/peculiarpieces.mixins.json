@@ -11,8 +11,7 @@
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "RedstoneWireBlockMixin",
-    "ServerPlayerInteractionManagerMixin",
-    "StructureVoidBlockMixin"
+    "ServerPlayerInteractionManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

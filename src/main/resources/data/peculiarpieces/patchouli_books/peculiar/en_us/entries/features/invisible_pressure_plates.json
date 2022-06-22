@@ -1,0 +1,16 @@
+{
+  "name": "Invisible Pressure Plates",
+  "icon": "peculiarpieces:invisible_plate_heavy",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Invisible Pressure Plates act just as their visible counterparts, however will make no sound when pressed and cannot be seen by default."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:invisible_plate_light",
+      "recipe2": "peculiarpieces:invisible_plate_heavy"
+    }
+  ]
+}

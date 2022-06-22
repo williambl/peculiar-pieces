@@ -1,0 +1,25 @@
+{
+  "name": "Slippery Stone",
+  "icon": "peculiarpieces:slippery_stone",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Slippery Stone is one of the slipperiest blocks you can create, being even more slippery than blue ice.$(br)When you slide on this stone, you will never lose your momentum, meaning you can slide forever or until you run out of space."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:slippery_stone"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:slippery_shoes",
+      "text": "These shoes embody the Slippery Stone perfectly, allowing you to slide forever on any surface you see fit."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:blazing_gliders",
+      "text": "The Blazing Gliders have taken slipperiness a step further, these shoes will remove all drag from the player allowing for ludicrous speeds anywhere you please."
+    }
+  ]
+}

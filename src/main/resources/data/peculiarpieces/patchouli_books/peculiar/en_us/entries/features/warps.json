@@ -1,0 +1,36 @@
+{
+  "name": "Warps",
+  "icon": "peculiarpieces:warp_block",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Peculiar Pieces includes many items allowing for easy, long distance travel. These mostly come in the form of pearls crafted from ender pearls.$(br)The Mod Author will accept no responsibility for any damage accidents or losses found from using teleportation items in a different dimension than where they are bound."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:spawnpoint_pearl",
+      "text": "Spawnpoint Pearls will teleport any user to their spawnpoint (or the world spawn if they have no spawnpoint) when used."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:consumable_position_pearl",
+      "text": "Position Paper can be used to store a location and teleport to it. It can be set to any position with shift right click and then warp there with right click."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:position_pearl",
+      "text": "Similar to Position Paper, a Position Pearl can bring the user back to a location. The pearl is never consumed, but can only be bound to lodestones rather than anywhere."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:warp_block",
+      "text": "Warp Blocks can be used to teleport players and entities to a predefined location. This is done by shift right clicking the warp block and inserting a pearl, the block will then teleport any entity that stands on top of it or right clicks it to the pearl's destination."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:transport_pearl",
+      "text": "A Transport Pearl acts as an upgrade to a Position Pearl, allowing storage of up to 8 locations, which can be toggled through with shift right click.$(br)It is too large to fit in a Warp Block."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Flight Ring",
+  "icon": "peculiarpieces:flight_ring",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Flight Ring can be equipped in the dedicated flight ring slot to allow the wearer to use creative flight. There are no limits on this creative flight."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:flight_ring"
+    }
+  ]
+}

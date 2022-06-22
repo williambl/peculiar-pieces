@@ -1,0 +1,15 @@
+{
+  "name": "Visibility Toggle",
+  "icon": "minecraft:structure_void",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Peculiar Pieces depends on Visible Barriers to function properly, many creative-only blocks as well as Invisible Pressure Plates work with the Visible Barriers keybind, allowing you to see them when needed.$(br)This keybind allows you to see barriers, structure voids, light blocks, invisible pressure plates, and those other creative-only blocks."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:barrier"
+    }
+  ]
+}

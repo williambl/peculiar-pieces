@@ -1,0 +1,16 @@
+{
+  "name": "Fast Targets",
+  "icon": "peculiarpieces:torch_lever",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Target Blocks are very useful in detecting projectiles, however they suffer due to their sluggish reaction times.$(br)That's why Fast Target Blocks are here, allowing for instant detection of projectiles emitting a single tick pulse for each one.$(br)Also comes in a darker option with no mechanical difference."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:fast_target",
+      "recipe2": "peculiarpieces:dark_fast_target"
+    }
+  ]
+}

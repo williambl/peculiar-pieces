@@ -40,12 +40,14 @@ public class ConsumablePositionPearlItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         BlockPos pos = readStone(stack);
-        if (!world.isClient && !pos.equals(BlockPos.ORIGIN)) {
-            WarpManager.queueTeleport(user, Vec3d.ofBottomCenter(pos));
+        if (pos.getSquaredDistance(0, 0, 0) > 1) {
+            if (!world.isClient && !pos.equals(BlockPos.ORIGIN)) {
+                WarpManager.queueTeleport(user, Vec3d.ofBottomCenter(pos));
+            }
+            user.getItemCooldownManager().set(this, 20);
+            stack.decrement(1);
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
-        user.getItemCooldownManager().set(this, 40);
-        stack.decrement(1);
         return TypedActionResult.consume(stack);
     }
 

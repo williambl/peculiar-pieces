@@ -1,0 +1,15 @@
+{
+  "name": "Unbreakability",
+  "icon": "minecraft:beacon",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "It is now possible to make any item unbreakable. This is done by dropping the item on top of a beacon and shift clicking on the beacon, this will strike the items with a jolt of power which will allow them to remain unbreakable from then on.$(br)Of course they can still be destroyed by other means, but durability with bother them no longer!"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:beacon"
+    }
+  ]
+}

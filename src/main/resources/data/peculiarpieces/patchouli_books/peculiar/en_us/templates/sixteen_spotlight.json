@@ -1,0 +1,138 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "x": -1,
+      "y": -1,
+      "text": "#header"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 5,
+      "y": 15,
+      "item": "#item1",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 35,
+      "y": 15,
+      "item": "#item2",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 65,
+      "y": 15,
+      "item": "#item3",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 95,
+      "y": 15,
+      "item": "#item4",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 5,
+      "y": 45,
+      "item": "#item5",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 35,
+      "y": 45,
+      "item": "#item6",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 65,
+      "y": 45,
+      "item": "#item7",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 95,
+      "y": 45,
+      "item": "#item8",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 5,
+      "y": 75,
+      "item": "#item9",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 35,
+      "y": 75,
+      "item": "#item10",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 65,
+      "y": 75,
+      "item": "#item11",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 95,
+      "y": 75,
+      "item": "#item12",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 5,
+      "y": 105,
+      "item": "#item13",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 35,
+      "y": 105,
+      "item": "#item14",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 65,
+      "y": 105,
+      "item": "#item15",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 95,
+      "y": 105,
+      "item": "#item16",
+      "framed": true,
+      "link_recipe": true
+    }
+  ]
+}

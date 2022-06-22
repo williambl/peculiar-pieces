@@ -6,6 +6,7 @@ import amymialee.peculiarpieces.items.CheckpointPearlItem;
 import amymialee.peculiarpieces.items.ConsumablePositionPearlItem;
 import amymialee.peculiarpieces.items.FlightRingItem;
 import amymialee.peculiarpieces.items.MountingStickItem;
+import amymialee.peculiarpieces.items.PeculiarBookItem;
 import amymialee.peculiarpieces.items.PositionPearlItem;
 import amymialee.peculiarpieces.items.SlipperyShoesItem;
 import amymialee.peculiarpieces.items.SpawnpointPearlItem;
@@ -23,7 +24,9 @@ public class PeculiarItems {
     public static final ArrayList<Item> MOD_ITEMS = new ArrayList<>();
     public static final ArrayList<Item> CREATIVE_ITEMS = new ArrayList<>();
 
-    public static final Item CHECKPOINT_PEARL = registerItem("checkpoint_pearl", CREATIVE_ITEMS, new CheckpointPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item PECULIAR_BOOK = registerItem("peculiar_book", MOD_ITEMS, new PeculiarBookItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+
+    public static final Item CHECKPOINT_PEARL = registerItem("checkpoint_pearl", CREATIVE_ITEMS, new CheckpointPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.CREATIVE_GROUP)));
 
     public static final Item TRANS_PEARL = registerItem("transport_pearl", MOD_ITEMS, new TransportPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item POS_PEARL = registerItem("position_pearl", MOD_ITEMS, new PositionPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));

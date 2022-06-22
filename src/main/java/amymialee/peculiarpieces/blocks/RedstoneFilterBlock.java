@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class RedstoneFilterBlock extends AbstractRedstoneComparisonBlock {
-    public static final IntProperty FILTER = IntProperty.of("clamp", 0, 15);
+    public static final IntProperty FILTER = IntProperty.of("filter", 0, 15);
 
     public RedstoneFilterBlock(FabricBlockSettings settings) {
         super(settings);

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class RedstoneHurdleBlock extends AbstractRedstoneComparisonBlock {
-    public static final IntProperty HURDLE = IntProperty.of("filter", 0, 15);
+    public static final IntProperty HURDLE = IntProperty.of("hurdle", 0, 15);
 
     public RedstoneHurdleBlock(FabricBlockSettings settings) {
         super(settings);

@@ -1,0 +1,16 @@
+{
+  "name": "Big Dispensers",
+  "icon": "peculiarpieces:big_dispenser",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A simple upgrade to Dispensers and Droppers, Big Dispensers and Big Droppers allow the same item firing/dropping you're used to but with a capacity equal to that of a double chest!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:big_dropper",
+      "recipe2": "peculiarpieces:big_dispenser"
+    }
+  ]
+}

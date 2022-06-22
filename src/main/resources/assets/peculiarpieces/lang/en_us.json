@@ -63,8 +63,10 @@
   "block.peculiarpieces.black_rotating_elevator" : "Black Rotating Elevator",
   "block.peculiarpieces.torch_lever" : "Torch Lever",
   "block.peculiarpieces.soul_torch_lever" : "Soul Torch Lever",
+
   "peculiarpieces.container.warp_block" : "Warp Block",
 
+  "item.peculiarpieces.peculiar_book" : "Peculiar Pieces",
   "item.peculiarpieces.checkpoint_pearl" : "Checkpoint Pearl",
   "item.peculiarpieces.transport_pearl" : "Transport Pearl",
   "item.peculiarpieces.position_pearl" : "Position Pearl",
@@ -79,6 +81,8 @@
 
   "commands.checkpoint.success.single": "Set checkpoint to %s, %s, %s for %s",
   "commands.checkpoint.success.multiple": "Set checkpoint to %s, %s, %s for %s players",
+
+  "peculiarpieces.book.landing" : "",
 
   "trinkets.slot.ring.flight_ring" : "Flight Ring",
   "tag.trinkets.feet.shoes" : "Shoes",

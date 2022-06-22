@@ -1,0 +1,47 @@
+{
+  "name": "Redstone Devices",
+  "icon": "peculiarpieces:redstone_mono",
+  "category": "peculiarpieces:creative",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A large number of redstone devices in this mod are simply unobtainable due to lacking any unique models, however they are free to use in creative as they are fully functional.$(br)The blockstates can be checked using the F3 menu."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:redstone_clamp",
+      "link_recipe": true,
+      "text": "A Redstone Clamp will limit the power of redstone coming in to it's clamp level.$(br)The clamp level can be raised with right click and lowered with shift right click."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:redstone_filter",
+      "link_recipe": true,
+      "text": "A Redstone Filter will only allow signal through if it matches it's filter level exactly.$(br)The filter level can be raised with right click and lowered with shift right click."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:redstone_hurdle",
+      "link_recipe": true,
+      "text": "A Redstone Hurdle will only allow a signal through if it is stronger than it's hurdle level.$(br)The hurdle level can be raised with right click and lowered with shift right click."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:redstone_static",
+      "link_recipe": true,
+      "text": "When a Redstone Static is powered it will emit a signal equal to it's static level.$(br)The strength of the incoming signal does not matter.$(br)The static level can be raised with right click and lowered with shift right click."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:redstone_mono",
+      "link_recipe": true,
+      "text": "A Redstone Mono will release a 1 tick pulse when powered, and will not send another signal until unpowered. The pulse sent will be the same strength as the signal received."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:redstone_random",
+      "link_recipe": true,
+      "text": "A Redstone Random will send a random signal between 0 and the signal received.$(br)The strength will be randomized every time it is unpowered and repowered.$(br)It can be right clicked to toggle the minimum between 0 and 1."
+    }
+  ]
+}

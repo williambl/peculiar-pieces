@@ -1,0 +1,16 @@
+{
+  "name": "Torch Levers",
+  "icon": "peculiarpieces:torch_lever",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Torch Levers look identical to torches when placed, however with a few key differences.$(br)Torch Levers can be right clicked to activate, acting identically to normal levers, appearing unlit and emitting redstone.$(br)Torch Levers can be placed upside down!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:torch_lever",
+      "recipe2": "peculiarpieces:soul_torch_lever"
+    }
+  ]
+}

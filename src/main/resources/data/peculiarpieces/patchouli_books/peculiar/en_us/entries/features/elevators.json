@@ -1,0 +1,66 @@
+{
+  "name": "Elevators",
+  "icon": "peculiarpieces:white_elevator",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Elevators are a well known and well beloved block which allows quick and easy traversal vertically.$(br)Standing on an elevator block and jumping will bring you up to the next elevator block found above.$(br)They also come in 16 different colours to choose from."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:elevator",
+      "recipe2": "peculiarpieces:purple_elevator"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Rotating Elevators",
+      "text": "Rotating Elevators act just like ordinary elevators, however when arriving at a Rotating Elevator your view will snap to facing the direction indicated by the arrow. This can help orient players in the right direction after arrival."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:red_rotating_elevator_upgrade",
+      "recipe2": "peculiarpieces:blue_rotating_elevator"
+    },
+    {
+      "type": "peculiarpieces:sixteen_spotlight",
+      "item1": "peculiarpieces:white_elevator",
+      "item2": "peculiarpieces:orange_elevator",
+      "item3": "peculiarpieces:magenta_elevator",
+      "item4": "peculiarpieces:light_blue_elevator",
+      "item5": "peculiarpieces:yellow_elevator",
+      "item6": "peculiarpieces:lime_elevator",
+      "item7": "peculiarpieces:pink_elevator",
+      "item8": "peculiarpieces:gray_elevator",
+      "item9": "peculiarpieces:light_gray_elevator",
+      "item10": "peculiarpieces:cyan_elevator",
+      "item11": "peculiarpieces:purple_elevator",
+      "item12": "peculiarpieces:blue_elevator",
+      "item13": "peculiarpieces:brown_elevator",
+      "item14": "peculiarpieces:green_elevator",
+      "item15": "peculiarpieces:red_elevator",
+      "item16": "peculiarpieces:black_elevator",
+      "header": "Elevators"
+    },
+    {
+      "type": "peculiarpieces:sixteen_spotlight",
+      "item1": "peculiarpieces:white_rotating_elevator",
+      "item2": "peculiarpieces:orange_rotating_elevator",
+      "item3": "peculiarpieces:magenta_rotating_elevator",
+      "item4": "peculiarpieces:light_blue_rotating_elevator",
+      "item5": "peculiarpieces:yellow_rotating_elevator",
+      "item6": "peculiarpieces:lime_rotating_elevator",
+      "item7": "peculiarpieces:pink_rotating_elevator",
+      "item8": "peculiarpieces:gray_rotating_elevator",
+      "item9": "peculiarpieces:light_gray_rotating_elevator",
+      "item10": "peculiarpieces:cyan_rotating_elevator",
+      "item11": "peculiarpieces:purple_rotating_elevator",
+      "item12": "peculiarpieces:blue_rotating_elevator",
+      "item13": "peculiarpieces:brown_rotating_elevator",
+      "item14": "peculiarpieces:green_rotating_elevator",
+      "item15": "peculiarpieces:red_rotating_elevator",
+      "item16": "peculiarpieces:black_rotating_elevator",
+      "header": "Rotating Elevators"
+    }
+  ]
+}

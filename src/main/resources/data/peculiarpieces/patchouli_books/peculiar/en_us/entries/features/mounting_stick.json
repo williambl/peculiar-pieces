@@ -1,0 +1,15 @@
+{
+  "name": "Mounting Stick",
+  "icon": "peculiarpieces:mounting_stick",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Mounting Stick can be used to pick up mobs and place them elsewhere. As the name implies you can also place them onto the backs of other mobs."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:mounting_stick"
+    }
+  ]
+}

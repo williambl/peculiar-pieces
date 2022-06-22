@@ -1,0 +1,15 @@
+{
+  "name": "Inverted Redstone Lamps",
+  "icon": "peculiarpieces:inverted_redstone_lamp",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A simple block, Inverted Redstone Lamps can give you all the lamp you desire without the need for redstone power."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:inverted_redstone_lamp"
+    }
+  ]
+}

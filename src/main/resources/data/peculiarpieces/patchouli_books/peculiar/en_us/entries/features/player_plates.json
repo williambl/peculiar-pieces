@@ -1,0 +1,16 @@
+{
+  "name": "Player Plates",
+  "icon": "peculiarpieces:player_plate",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Player Plate acts like an ordinary pressure plate, however it will only activate for players."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:player_plate",
+      "recipe2": "peculiarpieces:invisible_player_plate"
+    }
+  ]
+}

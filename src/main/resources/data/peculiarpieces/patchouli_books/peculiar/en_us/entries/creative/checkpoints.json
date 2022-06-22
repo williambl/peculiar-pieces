@@ -5,13 +5,37 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Checkpoints can be used to help build parkour courses or any area where players could get stuck."
+      "text": "Checkpoints can be used to help build parkour courses or any area where players could get stuck.$(br)The player's checkpoint can be set using '/checkpoint (players) (position)' or with a checkpoint block.$(br)Checkpoint related blocks will not be visible by default."
     },
     {
       "type": "patchouli:spotlight",
       "item": "peculiarpieces:checkpoint",
       "link_recipe": true,
-      "text": "Checkpoint blocks are the core of "
+      "text": "Checkpoint Blocks are the easiest way to manage checkpoints.$(br)Any time a player touches a checkpoint block their checkpoint position will be set to that block, and this is where they will teleport when they trigger a checkpoint."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:checkpoint_returner",
+      "link_recipe": true,
+      "text": "Checkpoint Returners will teleport any player who touches them back to their checkpoint position."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:checkpoint_damager",
+      "link_recipe": true,
+      "text": "Checkpoint Damagers act like returners, however when touched will also remove half of a player's health. This will never kill the player but will heavily weaken them."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:checkpoint_pearl",
+      "link_recipe": true,
+      "text": "Checkpoint Pearls are an item that can be used to return a player to their checkpoint at will, similar to a checkpoint returner."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:checkpoint_remover",
+      "link_recipe": true,
+      "text": "Checkpoint Removers will remove a player's checkpoint, allowing them to pass checkpoint returners without being effected."
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "x": -1,
+      "y": -1,
+      "text": "#header"
+    },
+    {
+      "type": "patchouli:item",
+      "x": 20,
+      "y": 15,
+      "item": "#item1",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 50,
+      "y": 15,
+      "item": "#item2",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:item",
+      "x": 80,
+      "y": 15,
+      "item": "#item3",
+      "framed": true,
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:text",
+      "x": 0,
+      "y": 40,
+      "text": "#text"
+    }
+  ]
+}

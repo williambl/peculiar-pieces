@@ -27,21 +27,28 @@ public class GameModeSetterBlock extends AbstractStructureVoidBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        super.onEntityCollision(state, world, pos, entity);
         if (!world.isClient()) {
             if (entity instanceof ServerPlayerEntity player) {
                 if (player instanceof GameModePlayerWrapper wrapper) {
+                    if (gameMode == wrapper.getStoredGameMode()) {
+                        return;
+                    }
                     GameMode playerMode = player.interactionManager.getGameMode();
                     if (playerMode != gameMode && playerMode != GameMode.SPECTATOR && playerMode != GameMode.CREATIVE) {
                         if (wrapper.getGameModeDuration() == 0) {
                             wrapper.setStoredGameMode(playerMode);
                         }
                         player.changeGameMode(gameMode);
+                        wrapper.setGameModeDuration(3);
+                        return;
                     }
-                    wrapper.setGameModeDuration(3);
+                    if (wrapper.getGameModeDuration() > 0) {
+                        wrapper.setGameModeDuration(3);
+                    }
                 }
             }
         }
-        super.onEntityCollision(state, world, pos, entity);
     }
 
     @Override
