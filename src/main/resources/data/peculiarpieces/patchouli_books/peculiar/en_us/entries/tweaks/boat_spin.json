@@ -8,8 +8,9 @@
       "text": "Boats will not be able to spin past a set cap of around 90 degrees per tick, and cannot gain speed endlessly on slippery enough surfaces.$(br)This mostly exists to help prevent crashes associated with spinning too fast, and is a high enough cap to likely not cause any issues.$(br)This also means you can slow down a boat from any speed as it will never gain speed faster than you can slow it down."
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "minecraft:dark_oak_boat"
+      "type": "patchouli:crafting",
+      "recipe": "minecraft:dark_oak_boat",
+      "recipe2": "peculiarpieces:slippery_stone"
     }
   ]
 }

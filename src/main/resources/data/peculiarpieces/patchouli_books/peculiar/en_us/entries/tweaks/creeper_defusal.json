@@ -1,0 +1,17 @@
+{
+  "name": "Creeper Defusal",
+  "icon": "minecraft:creeper_spawn_egg",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:creeper_spawn_egg",
+      "title": "Creeper Defusal",
+      "text": "Tired of Creepers ruining your lovely buildings? Say no more, you can now defuse creepers by snipping their fuse with a pair of shears, this will prevent them from exploding and maybe allow them to be kept around as a pet if the landlord allows."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:creeper"
+    }
+  ]
+}

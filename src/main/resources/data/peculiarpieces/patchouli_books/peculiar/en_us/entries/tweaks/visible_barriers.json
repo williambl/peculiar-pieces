@@ -8,8 +8,24 @@
       "text": "Peculiar Pieces depends on Visible Barriers to function properly, many creative-only blocks as well as Invisible Pressure Plates work with the Visible Barriers keybind, allowing you to see them when needed.$(br)This keybind allows you to see barriers, structure voids, light blocks, invisible pressure plates, and those other creative-only blocks."
     },
     {
-      "type": "patchouli:spotlight",
-      "item": "minecraft:barrier"
+      "type": "peculiarpieces:sixteen_spotlight_display",
+      "item4": "peculiarpieces:invisible_plate_light",
+      "item5": "peculiarpieces:invisible_plate_heavy",
+      "item6": "peculiarpieces:invisible_player_plate",
+      "item7": "peculiarpieces:adventure_setter",
+      "item1": "minecraft:barrier",
+      "item2": "minecraft:structure_void",
+      "item3": "minecraft:light",
+      "item8": "peculiarpieces:survivor_setter",
+      "item9": "peculiarpieces:adventure_blocker",
+      "item10": "peculiarpieces:survivor_blocker",
+      "item11": "peculiarpieces:adventure_barrier",
+      "item12": "peculiarpieces:survivor_barrier",
+      "item13": "peculiarpieces:checkpoint",
+      "item14": "peculiarpieces:checkpoint_remover",
+      "item15": "peculiarpieces:checkpoint_returner",
+      "item16": "peculiarpieces:checkpoint_damager",
+      "header": "Invisible Blocks"
     }
   ]
 }

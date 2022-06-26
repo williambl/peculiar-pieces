@@ -6,6 +6,7 @@
   "mixins": [
     "BeaconBlockMixin",
     "BoatEntityMixin",
+    "CreeperEntityMixin",
     "EntityAccessor",
     "ItemStackMixin",
     "LivingEntityMixin",

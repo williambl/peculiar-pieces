@@ -82,7 +82,7 @@
   "commands.checkpoint.success.single": "Set checkpoint to %s, %s, %s for %s",
   "commands.checkpoint.success.multiple": "Set checkpoint to %s, %s, %s for %s players",
 
-  "peculiarpieces.book.landing" : "",
+  "peculiarpieces.book.landing" : "Peculiar Pieces is a mod that adds a bunch of random features and interactions to the game, with varying levels of balance and vanilla stylings.$(br)All features of the mod are listed here within this book.",
 
   "trinkets.slot.ring.flight_ring" : "Flight Ring",
   "tag.trinkets.feet.shoes" : "Shoes",

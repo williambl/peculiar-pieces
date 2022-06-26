@@ -6,5 +6,6 @@
   "creative_tab": "peculiarpieces.peculiarpieces_group",
   "pause_game": true,
   "show_progress": false,
+  "dont_generate_book": true,
   "custom_book_item": "peculiarpieces:peculiar_book"
 }
