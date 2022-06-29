@@ -95,10 +95,12 @@ public class PeculiarPieces implements ModInitializer {
             }
         });
         PlayerJumpCallback.EVENT.register((player, world) -> {
-            BlockPos pos = player.getBlockPos().add(0, -1, 0);
-            BlockState state = world.getBlockState(pos);
-            if (state.getBlock() instanceof PlayerJumpConsumingBlock block) {
-                block.onJump(state, world, pos, player);
+            for (int i = -1; i <= 0; i++) {
+                BlockPos pos = player.getBlockPos().add(0, i, 0);
+                BlockState state = world.getBlockState(pos);
+                if (state.getBlock() instanceof PlayerJumpConsumingBlock block) {
+                    block.onJump(state, world, pos, player);
+                }
             }
         });
     }

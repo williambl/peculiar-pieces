@@ -1,0 +1,15 @@
+{
+  "name": "Jump Pads",
+  "icon": "peculiarpieces:jump_pad",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Jump Pads will boost the strength of a player's jump when they jump on top of them.$(br)They come in 4 power tiers cycled with shift-right click, and can be disabled with redstone."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:jump_pad"
+    }
+  ]
+}

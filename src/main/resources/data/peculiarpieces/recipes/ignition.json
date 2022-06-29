@@ -1,22 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "BBB",
-    "BFB",
-    "BRB"
+    "ISI",
+    "DPD"
   ],
   "key": {
-    "B": {
-      "tag": "peculiarpieces:blackstone_blocks"
+    "D": {
+      "tag": "peculiarpieces:deepslate_blocks"
     },
-    "F": {
-      "item": "minecraft:flint_and_steel"
+    "P": {
+      "item": "minecraft:piston"
     },
-    "R": {
-      "item": "minecraft:redstone"
+    "S": {
+      "item": "minecraft:slime_block"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
     }
   },
   "result": {
-    "item": "peculiarpieces:ignition"
+    "item": "peculiarpieces:jump_pad",
+    "count": 1
   }
 }

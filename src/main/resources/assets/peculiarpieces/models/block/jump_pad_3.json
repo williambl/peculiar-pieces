@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "peculiarpieces:block/jump_pad_3"
+  }
+}

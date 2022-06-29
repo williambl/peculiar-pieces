@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"powered=true": {
+			"model": "peculiarpieces:block/jump_pad_off"
+		},
+		"powered=false,power=0": {
+			"model": "peculiarpieces:block/jump_pad_0"
+		},
+		"powered=false,power=1": {
+			"model": "peculiarpieces:block/jump_pad_1"
+		},
+		"powered=false,power=2": {
+			"model": "peculiarpieces:block/jump_pad_2"
+		},
+		"powered=false,power=3": {
+			"model": "peculiarpieces:block/jump_pad_3"
+		}
+	}
+}

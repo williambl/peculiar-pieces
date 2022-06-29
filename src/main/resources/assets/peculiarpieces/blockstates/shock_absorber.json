@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=true": {
+			"model": "peculiarpieces:block/shock_absorber_off"
+		},
+		"powered=false": {
+			"model": "peculiarpieces:block/shock_absorber"
+		},
+	}
+}
