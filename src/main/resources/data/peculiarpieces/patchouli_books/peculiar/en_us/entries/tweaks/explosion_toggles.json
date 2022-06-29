@@ -1,0 +1,18 @@
+{
+  "name": "Explosion Gamerules",
+  "icon": "minecraft:tnt",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:tnt",
+      "title": "Explosion Gamerules",
+      "text": "This mod adds new gamerules:$(br2)pp:explosionsBreakBlocks$(br)(true by default)$(br)When false, explosions can't break blocks.$(br2)pp:explosionsAlwaysDrop$(br)(true by default)$(br)When true, explosions that break blocks will drop every block broken."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:tnt",
+      "scale": 0.5
+    }
+  ]
+}

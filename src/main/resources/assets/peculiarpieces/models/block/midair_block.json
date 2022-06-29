@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "peculiarpieces:block/midair_block_top",
+		"side": "peculiarpieces:block/midair_block"
+	}
+}

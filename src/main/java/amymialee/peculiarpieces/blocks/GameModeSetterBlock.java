@@ -5,13 +5,9 @@ import amymialee.visiblebarriers.VisibleBarriers;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
-import net.minecraft.particle.BlockStateParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
@@ -49,17 +45,6 @@ public class GameModeSetterBlock extends AbstractStructureVoidBlock {
                 }
             }
         }
-    }
-
-    @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!world.isClient()) {
-            if (MinecraftClient.getInstance().player != null) {
-                world.addParticle(new BlockStateParticleEffect(ParticleTypes.BLOCK_MARKER, state), 0.5, 0.5, 0.5, 0.0, 0.0, 0.0);
-            }
-            world.addParticle(new BlockStateParticleEffect(ParticleTypes.BLOCK_MARKER, state), 0.5, 0.5, 0.5, 0.0, 0.0, 0.0);
-        }
-        super.randomDisplayTick(state, world, pos, random);
     }
 
     @Override

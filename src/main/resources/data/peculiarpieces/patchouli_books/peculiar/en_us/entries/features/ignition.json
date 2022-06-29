@@ -1,0 +1,15 @@
+{
+  "name": "Ignition",
+  "icon": "peculiarpieces:ignition",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Ignition acts similarly to a dispenser with a flint and steel, placing fire in front of it when powered."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:ignition"
+    }
+  ]
+}

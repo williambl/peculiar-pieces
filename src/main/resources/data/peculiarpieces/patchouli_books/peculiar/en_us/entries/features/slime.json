@@ -1,0 +1,17 @@
+{
+  "name": "Pocket Slimes",
+  "icon": "peculiarpieces:slime",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:slime",
+      "text": "You can pick up a tiny slime by right clicking, allowing you to carry them around and place them elsewhere.",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:slime{Size:0}"
+    }
+  ]
+}

@@ -63,6 +63,16 @@
   "block.peculiarpieces.black_rotating_elevator" : "Black Rotating Elevator",
   "block.peculiarpieces.torch_lever" : "Torch Lever",
   "block.peculiarpieces.soul_torch_lever" : "Soul Torch Lever",
+  "block.peculiarpieces.midair_block" : "Midair Block",
+  "block.peculiarpieces.entity_glass" : "Entity Glass",
+  "block.peculiarpieces.tinted_entity_glass" : "Tinted Entity Glass",
+  "block.peculiarpieces.player_glass" : "Player Glass",
+  "block.peculiarpieces.tinted_player_glass" : "Tinted Player Glass",
+  "block.peculiarpieces.entity_barrier" : "Entity Barrier",
+  "block.peculiarpieces.player_barrier" : "Player Barrier",
+  "block.peculiarpieces.grabbing_trap" : "Grabbing Trap",
+  "block.peculiarpieces.entangled_scaffolding" : "Entangled Scaffolding",
+  "block.peculiarpieces.ignition" : "Ignition",
 
   "peculiarpieces.container.warp_block" : "Warp Block",
 
@@ -76,8 +86,16 @@
   "item.peculiarpieces.flight_ring" : "Flight Ring",
   "item.peculiarpieces.slippery_shoes" : "Slippery Shoes",
   "item.peculiarpieces.blazing_gliders" : "Blazing Gliders",
+  "item.peculiarpieces.slime" : "Slime",
+  "item.peculiarpieces.sky_pearl" : "Sky Pearl",
 
   "effect.peculiarpieces.flight" : "Flight",
+
+  "gamerule.pp:explosionsBreakBlocks": "Explosions can destroy blocks.",
+  "gamerule.pp:explosionsAlwaysDrop": "Explosions drop all items.",
+
+  "peculiarpieces.subtitle.sheep.yippee": "Yippee!",
+  "peculiarpieces.subtitle.sheep.yippee_engineer": "Yippee!",
 
   "commands.checkpoint.success.single": "Set checkpoint to %s, %s, %s for %s",
   "commands.checkpoint.success.multiple": "Set checkpoint to %s, %s, %s for %s players",
@@ -92,6 +110,7 @@
   "tag.peculiarpieces.elevators" : "Elevators",
   "tag.peculiarpieces.rotating_elevators" : "Rotating Elevators",
   "tag.peculiarpieces.barriers" : "Barriers",
+  "tag.peculiarpieces.blackstone_blocks" : "Blackstone",
 
   "peculiarpieces.pearl.empty" : "Empty.",
   "peculiarpieces.transport_pearl.empty" : "%s: Empty.",

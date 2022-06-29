@@ -8,11 +8,14 @@
     "BoatEntityMixin",
     "CreeperEntityMixin",
     "EntityAccessor",
+    "ExplosionMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "RedstoneWireBlockMixin",
-    "ServerPlayerInteractionManagerMixin"
+    "ServerPlayerInteractionManagerMixin",
+    "SheepEntityMixin",
+    "SlimeEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

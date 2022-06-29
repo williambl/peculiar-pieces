@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BFB",
+    "BRB"
+  ],
+  "key": {
+    "B": {
+      "tag": "peculiarpieces:blackstone_blocks"
+    },
+    "F": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:ignition"
+  }
+}

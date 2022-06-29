@@ -1,0 +1,15 @@
+{
+  "name": "Midair Blocks",
+  "icon": "peculiarpieces:midair_block",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Midair Blocks are blocks that can be placed without any supporting block. They will also be returned to your inventory when you break them."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:midair_block"
+    }
+  ]
+}

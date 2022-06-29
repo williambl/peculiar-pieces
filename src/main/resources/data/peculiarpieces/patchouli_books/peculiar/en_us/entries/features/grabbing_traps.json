@@ -1,0 +1,15 @@
+{
+  "name": "Grabbing Traps",
+  "icon": "peculiarpieces:grabbing_trap",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Grabbing Traps will capture any entity that steps on top of it, making them unable to step off of it.$(br)This won't work on bosses or players who are sneaking.$(br)This can be disabled with a redstone signal."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:grabbing_trap"
+    }
+  ]
+}

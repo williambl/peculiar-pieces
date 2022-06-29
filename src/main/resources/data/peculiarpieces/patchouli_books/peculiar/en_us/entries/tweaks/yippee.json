@@ -1,0 +1,13 @@
+{
+  "name": "Yippee!",
+  "icon": "minecraft:sheep_spawn_egg",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:entity",
+      "entity": "minecraft:sheep{Color:0,Age:-9999}",
+      "name": "Yippee!",
+      "text": "Yippee!"
+    }
+  ]
+}

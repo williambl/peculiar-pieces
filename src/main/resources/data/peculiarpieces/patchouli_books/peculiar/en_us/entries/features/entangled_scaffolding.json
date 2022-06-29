@@ -1,0 +1,15 @@
+{
+  "name": "Entangled Scaffolding",
+  "icon": "peculiarpieces:entangled_scaffolding",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Entangled Scaffolding works similar to normal scaffolding but can be placed without supports.$(br)Most importantly, 10 seconds after being placed the scaffolding will teleport back into the owner's inventory."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:entangled_scaffolding"
+    }
+  ]
+}

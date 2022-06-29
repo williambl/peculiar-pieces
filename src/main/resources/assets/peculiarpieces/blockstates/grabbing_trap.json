@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=false": {
+			"model": "peculiarpieces:block/grabbing_trap"
+		},
+		"powered=true": {
+			"model": "peculiarpieces:block/grabbing_trap_off"
+		}
+	}
+}

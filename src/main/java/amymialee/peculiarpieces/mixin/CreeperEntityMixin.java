@@ -26,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+@SuppressWarnings("WrongEntityDataParameterClass")
 @Mixin(CreeperEntity.class)
 public class CreeperEntityMixin extends HostileEntity {
     @Shadow @Final private static TrackedData<Boolean> IGNITED;
@@ -36,29 +37,29 @@ public class CreeperEntityMixin extends HostileEntity {
     }
 
     @Inject(method = "explode", at = @At("HEAD"), cancellable = true)
-    private void explode(CallbackInfo ci) {
+    private void PeculiarPieces$ExplosionCancel(CallbackInfo ci) {
         if (this.dataTracker.get(DEFUSED)) ci.cancel();
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    protected void initDataTracker(CallbackInfo ci) {
+    protected void PeculiarPieces$DefuseTracker(CallbackInfo ci) {
         this.dataTracker.startTracking(DEFUSED, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
-    public void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
+    public void PeculiarPieces$DefuseWrite(NbtCompound nbt, CallbackInfo ci) {
         if (this.dataTracker.get(DEFUSED)) {
             nbt.putBoolean("defused", true);
         }
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
-    public void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
+    public void PeculiarPieces$DefuseRead(NbtCompound nbt, CallbackInfo ci) {
         this.dataTracker.set(DEFUSED, nbt.getBoolean("defused"));
     }
 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-    private void interactMob(PlayerEntity player2, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    private void PeculiarPieces$ExtraInteractions(PlayerEntity player2, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack itemStack = player2.getStackInHand(hand);
         if (itemStack.isOf(Items.SHEARS) && !this.dataTracker.get(DEFUSED)) {
             if (!this.world.isClient) {

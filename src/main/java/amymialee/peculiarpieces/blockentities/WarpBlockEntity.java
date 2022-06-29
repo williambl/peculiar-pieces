@@ -24,6 +24,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 
 import java.util.Optional;
@@ -52,19 +53,27 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
                     player.sendMessage(Text.translatable("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
                 }
             }
+        } else if (stack.isOf(PeculiarItems.SKY_PEARL)) {
+            if (world != null) {
+                WarpManager.queueTeleport(entity, new Vec3d(entity.getX(), world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, this.getPos()).getY(), entity.getZ()));
+            }
         } else if (stack.isOf(PeculiarItems.SPAWNPOINT_PEARL)) {
             if (!entity.world.isClient) {
                 if (world instanceof ServerWorld serverWorld && entity instanceof ServerPlayerEntity player) {
-                    Optional<Vec3d> spawnpoint = PlayerEntity.findRespawnPosition(serverWorld, player.getSpawnPointPosition(), 0, false, true);
-                    if (spawnpoint.isPresent()) {
-                        RegistryKey<World> spawnDim = player.getSpawnPointDimension();
-                        if (spawnDim != player.getWorld().getRegistryKey()) {
-                            ServerWorld level = serverWorld.getServer().getWorld(spawnDim);
-                            if (!(level == null)) {
-                                player.moveToWorld(level);
+                    if (player.getSpawnPointPosition() != null) {
+                        Optional<Vec3d> spawnpoint = PlayerEntity.findRespawnPosition(serverWorld, player.getSpawnPointPosition(), 0, false, true);
+                        if (spawnpoint.isPresent()) {
+                            RegistryKey<World> spawnDim = player.getSpawnPointDimension();
+                            if (spawnDim != player.getWorld().getRegistryKey()) {
+                                ServerWorld level = serverWorld.getServer().getWorld(spawnDim);
+                                if (!(level == null)) {
+                                    player.moveToWorld(level);
+                                }
                             }
+                            WarpManager.queueTeleport(entity, spawnpoint.get());
+                        } else {
+                            WarpManager.queueTeleport(entity, serverWorld.getSpawnPos());
                         }
-                        WarpManager.queueTeleport(entity, spawnpoint.get());
                     } else {
                         WarpManager.queueTeleport(entity, serverWorld.getSpawnPos());
                     }

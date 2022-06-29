@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "peculiarpieces:player_glass"
+    }
+  ],
+  "result": {
+    "item": "peculiarpieces:entity_glass",
+    "count": 1
+  }
+}

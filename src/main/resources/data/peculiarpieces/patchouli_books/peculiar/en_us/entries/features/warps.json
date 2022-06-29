@@ -31,6 +31,11 @@
       "type": "patchouli:crafting",
       "recipe": "peculiarpieces:transport_pearl",
       "text": "A Transport Pearl acts as an upgrade to a Position Pearl, allowing storage of up to 8 locations, which can be toggled through with shift right click.$(br)It is too large to fit in a Warp Block."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:sky_pearl",
+      "text": "Sky Pearls will teleport their user to the highest block above them."
     }
   ]
 }

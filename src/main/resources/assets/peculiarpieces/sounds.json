@@ -1,0 +1,14 @@
+{
+  "peculiarpieces.sheep.yippee": {
+    "sounds": [
+      "peculiarpieces:sheep/yippee"
+    ],
+    "subtitle": "peculiarpieces.subtitle.sheep.yippee"
+  },
+  "peculiarpieces.sheep.yippee_engineer": {
+    "sounds": [
+      "peculiarpieces:sheep/yippee_engineer"
+    ],
+    "subtitle": "peculiarpieces.subtitle.sheep.yippee_engineer"
+  }
+}

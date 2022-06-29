@@ -10,15 +10,11 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.BlockStateParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.GameMode;
-import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class GameModeBlockerBlock extends Block {
@@ -48,16 +44,6 @@ public class GameModeBlockerBlock extends Block {
             }
         }
         return VoxelShapes.empty();
-    }
-
-    @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!world.isClient()) {
-            if (MinecraftClient.getInstance().player != null && MinecraftClient.getInstance().player.isHolding(this.asItem())) {
-                world.addParticle(new BlockStateParticleEffect(ParticleTypes.BLOCK_MARKER, state), 0.5, 0.5, 0.5, 0.0, 0.0, 0.0);
-            }
-        }
-        super.randomDisplayTick(state, world, pos, random);
     }
 
     @Override

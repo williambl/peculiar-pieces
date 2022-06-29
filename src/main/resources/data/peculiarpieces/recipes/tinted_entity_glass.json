@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    },
+    {
+      "item": "minecraft:tinted_glass"
+    }
+  ],
+  "result": {
+    "item": "peculiarpieces:tinted_entity_glass",
+    "count": 8
+  }
+}

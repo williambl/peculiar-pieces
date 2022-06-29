@@ -1,0 +1,34 @@
+{
+  "name": "Entity Glass",
+  "icon": "peculiarpieces:entity_glass",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Entity Glass is a type of glass that will block the movement of any entity, but will let players pass through it as if it were air.$(br)This can also be inverted to allow anything except players.$(br)Both variants will invert for players crouching."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:entity_glass",
+      "recipe2": "peculiarpieces:entity_glass_conversion"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Tinted Entity Glass works identically to Entity Glass, but also blocking light similar to Tinted Glass."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:tinted_entity_glass",
+      "recipe2": "peculiarpieces:tinted_entity_glass_conversion"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Both forms of Player Glass can be converted back to Entity Glass for no cost.."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:player_glass_conversion",
+      "recipe2": "peculiarpieces:tinted_player_glass_conversion"
+    }
+  ]
+}

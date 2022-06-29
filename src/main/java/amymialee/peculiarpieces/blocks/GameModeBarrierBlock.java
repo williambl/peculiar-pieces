@@ -5,20 +5,19 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.EntityShapeContext;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.BlockStateParticleEffect;
-import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.GameMode;
-import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class GameModeBarrierBlock extends Block {
@@ -37,11 +36,12 @@ public class GameModeBarrierBlock extends Block {
         if (VisibleBarriers.isVisible()) {
             return VoxelShapes.fullCube();
         }
-        ClientPlayNetworkHandler networkHandler = MinecraftClient.getInstance().getNetworkHandler();
-        if (networkHandler != null) {
-            PlayerEntity player = MinecraftClient.getInstance().player;
-            if (player != null) {
-                PlayerListEntry playerListEntry = MinecraftClient.getInstance().getNetworkHandler().getPlayerListEntry(player.getGameProfile().getId());
+        if (context instanceof EntityShapeContext entityShapeContext) {
+            if (entityShapeContext.getEntity() instanceof ServerPlayerEntity playerEntity && playerEntity.interactionManager.getGameMode() == gameMode) {
+                return VoxelShapes.fullCube();
+            }
+            if (entityShapeContext.getEntity() instanceof ClientPlayerEntity playerEntity) {
+                PlayerListEntry playerListEntry = playerEntity.networkHandler.getPlayerListEntry(playerEntity.getGameProfile().getId());
                 if (playerListEntry != null && playerListEntry.getGameMode() == gameMode) {
                     return VoxelShapes.fullCube();
                 }
@@ -63,16 +63,6 @@ public class GameModeBarrierBlock extends Block {
             }
         }
         return VoxelShapes.empty();
-    }
-
-    @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!world.isClient()) {
-            if (MinecraftClient.getInstance().player != null && MinecraftClient.getInstance().player.isHolding(this.asItem())) {
-                world.addParticle(new BlockStateParticleEffect(ParticleTypes.BLOCK_MARKER, state), 0.5, 0.5, 0.5, 0.0, 0.0, 0.0);
-            }
-        }
-        super.randomDisplayTick(state, world, pos, random);
     }
 
     @Override

@@ -14,6 +14,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.command.argument.EntityArgumentType;
@@ -27,12 +29,14 @@ import net.minecraft.screen.ScreenHandlerType;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.GameRules;
 
 import java.util.Collection;
 import java.util.Random;
@@ -46,9 +50,16 @@ public class PeculiarPieces implements ModInitializer {
 
     public static final ScreenHandlerType<WarpScreenHandler> WARP_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "warp_block", new ScreenHandlerType<>(WarpScreenHandler::new));
     public static final TagKey<EntityType<?>> MOUNT_BLACKLIST = TagKey.of(Registry.ENTITY_TYPE_KEY, id("mount_blacklist"));
+    public static final TagKey<EntityType<?>> UNGRABBABLE = TagKey.of(Registry.ENTITY_TYPE_KEY, id("ungrabbable"));
     public static final TagKey<Block> WARP_BINDABLE = TagKey.of(Registry.BLOCK_KEY, id("warp_bindable"));
     public static final TagKey<Item> BARRIERS = TagKey.of(Registry.ITEM_KEY, id("barriers"));
     public static final StatusEffect FLIGHT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
+
+    public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_BREAK = GameRuleRegistry.register("pp:explosionsBreakBlocks", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
+    public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_ALWAYS_DROP = GameRuleRegistry.register("pp:explosionsAlwaysDrop", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
+
+    public static final SoundEvent ENTITY_SHEEP_YIPPEE = Registry.register(Registry.SOUND_EVENT, "peculiarpieces.sheep.yippee", new SoundEvent(id("peculiarpieces.sheep.yippee")));
+    public static final SoundEvent ENTITY_SHEEP_YIPPEE_ENGINEER = Registry.register(Registry.SOUND_EVENT, "peculiarpieces.sheep.yippee_engineer", new SoundEvent(id("peculiarpieces.sheep.yippee_engineer")));
 
     @Override
     public void onInitialize() {

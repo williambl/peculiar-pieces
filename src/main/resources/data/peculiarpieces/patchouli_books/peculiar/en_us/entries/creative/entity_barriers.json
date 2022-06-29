@@ -1,0 +1,19 @@
+{
+  "name": "Entity Barriers",
+  "icon": "peculiarpieces:entity_barrier",
+  "category": "peculiarpieces:creative",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:entity_barrier",
+      "text": "Entity Barriers act as normal barriers, however they will not block any players who touch them.",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:player_barrier",
+      "text": "Player Barriers work similarly to Entity Barriers, however these only block players and no other entities.",
+      "link_recipe": true
+    }
+  ]
+}
