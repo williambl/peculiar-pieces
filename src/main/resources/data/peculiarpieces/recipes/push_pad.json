@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ISI",
+    "DPD"
+  ],
+  "key": {
+    "D": {
+      "tag": "peculiarpieces:deepslate_blocks"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "S": {
+      "item": "peculiarpieces:slippery_stone"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:push_pad",
+    "count": 1
+  }
+}

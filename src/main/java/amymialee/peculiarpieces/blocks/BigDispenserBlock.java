@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.blocks;
 
+import amymialee.peculiarpieces.blockentities.BigDispenserBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.entity.BlockEntity;

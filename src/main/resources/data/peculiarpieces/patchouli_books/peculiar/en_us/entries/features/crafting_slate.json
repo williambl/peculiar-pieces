@@ -1,0 +1,15 @@
+{
+  "name": "Crafting Slate",
+  "icon": "peculiarpieces:crafting_slate",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Crafting Slate acts as a handheld crafting table, allowing crafting just about anywhere!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:crafting_slate"
+    }
+  ]
+}

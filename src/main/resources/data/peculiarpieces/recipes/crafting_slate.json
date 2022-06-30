@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CI",
+    "IB"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:crafting_table"
+    },
+    "B": {
+      "item": "minecraft:crossbow"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:crafting_slate"
+  }
+}

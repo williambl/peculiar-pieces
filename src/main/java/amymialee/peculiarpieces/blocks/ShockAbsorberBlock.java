@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("deprecation")
 public class ShockAbsorberBlock extends Block {
     public static final BooleanProperty POWERED = Properties.POWERED;
 
@@ -20,7 +21,11 @@ public class ShockAbsorberBlock extends Block {
     }
 
     @Override
-    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {}
+    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
+        if (state.get(POWERED)) {
+            super.onLandedUpon(world, state, pos, entity, fallDistance);
+        }
+    }
 
     @Override
     @Nullable

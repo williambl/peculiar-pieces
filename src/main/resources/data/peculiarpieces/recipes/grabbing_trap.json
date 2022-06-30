@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " T ",
-    "SDS"
+    "ITI",
+    "DSD"
   ],
   "key": {
     "T": {
@@ -13,6 +13,9 @@
     },
     "D": {
       "tag": "peculiarpieces:deepslate_blocks"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
     }
   },
   "result": {

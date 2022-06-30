@@ -1,4 +1,4 @@
-package amymialee.peculiarpieces.blocks;
+package amymialee.peculiarpieces.blockentities;
 
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import net.minecraft.block.BlockState;
@@ -7,12 +7,13 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
-public class BigDispenserBlockEntity extends DispenserBlockEntity {
-    public BigDispenserBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(PeculiarBlocks.BIG_DISPENSER_ENTITY, blockPos, blockState);
+public class BigDropperBlockEntity extends DispenserBlockEntity {
+    public BigDropperBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(PeculiarBlocks.BIG_DROPPER_ENTITY, blockPos, blockState);
         setInvStackList(DefaultedList.ofSize(54, ItemStack.EMPTY));
     }
 
@@ -24,5 +25,10 @@ public class BigDispenserBlockEntity extends DispenserBlockEntity {
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
         return GenericContainerScreenHandler.createGeneric9x6(syncId, playerInventory, this);
+    }
+
+    @Override
+    protected Text getContainerName() {
+        return Text.translatable("container.dropper");
     }
 }

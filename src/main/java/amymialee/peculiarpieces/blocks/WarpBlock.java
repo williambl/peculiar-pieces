@@ -30,8 +30,8 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class WarpBlock extends BlockWithEntity {
-    public static final DirectionProperty FACING;
-    public static final BooleanProperty ENABLED;
+    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final BooleanProperty ENABLED = Properties.ENABLED;
 
     public WarpBlock(AbstractBlock.Settings settings) {
         super(settings);
@@ -132,10 +132,5 @@ public class WarpBlock extends BlockWithEntity {
             }
         }
         super.onSteppedOn(world, pos, state, entity);
-    }
-
-    static {
-        FACING = Properties.HORIZONTAL_FACING;
-        ENABLED = Properties.ENABLED;
     }
 }

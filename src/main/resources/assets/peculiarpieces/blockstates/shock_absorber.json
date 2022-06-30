@@ -5,6 +5,6 @@
 		},
 		"powered=false": {
 			"model": "peculiarpieces:block/shock_absorber"
-		},
+		}
 	}
 }

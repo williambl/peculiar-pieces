@@ -15,7 +15,8 @@
     "RedstoneWireBlockMixin",
     "ServerPlayerInteractionManagerMixin",
     "SheepEntityMixin",
-    "SlimeEntityMixin"
+    "SlimeEntityMixin",
+    "StatusEffectInstanceAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

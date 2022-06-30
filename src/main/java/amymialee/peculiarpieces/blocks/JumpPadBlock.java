@@ -64,7 +64,7 @@ public class JumpPadBlock extends CarpetBlock implements PlayerJumpConsumingBloc
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
+        return this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos())).with(POWER, Math.min(3, ctx.getStack().getOrCreateNbt().getInt("pp:variant")));
     }
 
     @Override

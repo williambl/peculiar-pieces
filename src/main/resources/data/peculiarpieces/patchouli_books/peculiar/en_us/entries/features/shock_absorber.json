@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Shock Absorbers will absorb all impacts thrown at them.$(br)This will prevent all fall damage as well as elytra damage.$(br)They can be disabled with redstone."
+      "text": "Shock Absorbers will absorb all impacts thrown at them.$(br)This will prevent all fall damage but can be disabled with redstone."
     },
     {
       "type": "patchouli:crafting",

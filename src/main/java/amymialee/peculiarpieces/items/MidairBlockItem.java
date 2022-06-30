@@ -1,4 +1,4 @@
-package amymialee.peculiarpieces.blocks;
+package amymialee.peculiarpieces.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;

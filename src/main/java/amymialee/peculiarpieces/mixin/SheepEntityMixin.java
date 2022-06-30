@@ -26,9 +26,9 @@ public abstract class SheepEntityMixin extends AnimalEntity {
         if (this.isBaby()) {
             if (!this.world.isClient) {
                 if (this.hasCustomName() && this.getCustomName().toString().contains("Engineer")) {
-                    this.world.playSoundFromEntity(null, this, PeculiarPieces.ENTITY_SHEEP_YIPPEE_ENGINEER, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                    this.world.playSoundFromEntity(null, this, PeculiarPieces.ENTITY_SHEEP_YIPPEE_ENGINEER, SoundCategory.PLAYERS, getSoundVolume(), getSoundPitch());
                 } else {
-                    this.world.playSoundFromEntity(null, this, PeculiarPieces.ENTITY_SHEEP_YIPPEE, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                    this.world.playSoundFromEntity(null, this, PeculiarPieces.ENTITY_SHEEP_YIPPEE, SoundCategory.PLAYERS, getSoundVolume(), getSoundPitch());
                 }
                 cir.setReturnValue(ActionResult.SUCCESS);
             }

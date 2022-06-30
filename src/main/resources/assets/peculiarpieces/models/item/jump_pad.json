@@ -1,3 +1,23 @@
 {
-  "parent": "peculiarpieces:block/jump_pad_0"
+  "parent": "peculiarpieces:block/jump_pad_0",
+  "overrides": [
+    {
+      "predicate": {
+        "variant": 0.33
+      },
+      "model": "peculiarpieces:block/jump_pad_1"
+    },
+    {
+      "predicate": {
+        "variant": 0.66
+      },
+      "model": "peculiarpieces:block/jump_pad_2"
+    },
+    {
+      "predicate": {
+        "variant": 1
+      },
+      "model": "peculiarpieces:block/jump_pad_3"
+    }
+  ]
 }

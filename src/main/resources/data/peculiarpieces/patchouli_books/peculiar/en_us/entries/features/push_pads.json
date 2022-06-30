@@ -1,0 +1,15 @@
+{
+  "name": "Push Pads",
+  "icon": "peculiarpieces:push_pad",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Push Pads will push entities in the direction marked on them.$(br)They come in 4 power tiers cycled with shift-right click, and can be disabled with redstone.$(br)The item can also be cycled by shift-right clicking in the air."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:push_pad"
+    }
+  ]
+}

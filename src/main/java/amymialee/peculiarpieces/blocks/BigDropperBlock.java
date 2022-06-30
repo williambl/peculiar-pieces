@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.blocks;
 
+import amymialee.peculiarpieces.blockentities.BigDropperBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DropperBlock;
 import net.minecraft.block.entity.BlockEntity;

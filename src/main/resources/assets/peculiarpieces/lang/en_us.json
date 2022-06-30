@@ -74,9 +74,12 @@
   "block.peculiarpieces.entangled_scaffolding" : "Entangled Scaffolding",
   "block.peculiarpieces.ignition" : "Ignition",
   "block.peculiarpieces.jump_pad" : "Jump Pad",
+  "block.peculiarpieces.push_pad" : "Push Pad",
+  "block.peculiarpieces.potion_pad" : "Potion Pad",
   "block.peculiarpieces.shock_absorber" : "Shock Absorber",
 
   "peculiarpieces.container.warp_block" : "Warp Block",
+  "peculiarpieces.container.potion_pad" : "Potion Pad",
 
   "item.peculiarpieces.peculiar_book" : "Peculiar Pieces",
   "item.peculiarpieces.checkpoint_pearl" : "Checkpoint Pearl",

@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"powered=true": {
+			"model": "peculiarpieces:block/potion_pad_off"
+		},
+		"powered=false": {
+			"model": "peculiarpieces:block/potion_pad"
+		}
+	}
+}

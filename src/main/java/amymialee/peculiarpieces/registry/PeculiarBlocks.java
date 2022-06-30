@@ -1,9 +1,14 @@
 package amymialee.peculiarpieces.registry;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.blockentities.BigDispenserBlockEntity;
+import amymialee.peculiarpieces.blockentities.BigDropperBlockEntity;
 import amymialee.peculiarpieces.blockentities.EntangledScaffoldingBlockEntity;
+import amymialee.peculiarpieces.blockentities.PotionPadBlockEntity;
 import amymialee.peculiarpieces.blockentities.WarpBlockEntity;
 import amymialee.peculiarpieces.blocks.*;
+import amymialee.peculiarpieces.items.MidairBlockItem;
+import amymialee.peculiarpieces.items.ToggleableBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -119,7 +124,10 @@ public class PeculiarBlocks {
     public static final Block PLAYER_BARRIER = registerBlock("player_barrier", PeculiarItems.CREATIVE_ITEMS, new BlockItem(new EntityBarrierBlock(true, FabricBlockSettings.of(Material.BARRIER).strength(-1.0f, 3600000.8f).nonOpaque().solidBlock(PeculiarBlocks::never).suffocates(PeculiarBlocks::never).blockVision(PeculiarBlocks::never)), new FabricItemSettings().rarity(Rarity.EPIC).group(PeculiarPieces.CREATIVE_GROUP)));
 
     public static final Block GRABBING_TRAP = registerBlock("grabbing_trap", PeculiarItems.MOD_ITEMS, new GrabbingTrapBlock(FabricBlockSettings.of(Material.WOOL, MapColor.BLACK).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
-    public static final Block JUMP_PAD = registerBlock("jump_pad", PeculiarItems.MOD_ITEMS, new JumpPadBlock(FabricBlockSettings.of(Material.WOOL, MapColor.BLACK).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
+    public static final Block JUMP_PAD = registerBlock("jump_pad", PeculiarItems.MOD_ITEMS, new ToggleableBlockItem(3, new JumpPadBlock(FabricBlockSettings.of(Material.WOOL, MapColor.BLACK).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)), new FabricItemSettings().group(PeculiarPieces.PIECES_GROUP)));
+    public static final Block PUSH_PAD = registerBlock("push_pad", PeculiarItems.MOD_ITEMS, new ToggleableBlockItem(3, new PushPadBlock(FabricBlockSettings.of(Material.WOOL, MapColor.BLACK).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)), new FabricItemSettings().group(PeculiarPieces.PIECES_GROUP)));
+    public static final Block POTION_PAD = registerBlock("potion_pad", PeculiarItems.MOD_ITEMS, new PotionPadBlock(FabricBlockSettings.of(Material.WOOL, MapColor.BLACK).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
+    public static BlockEntityType<PotionPadBlockEntity> POTION_PAD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "potion_pad", FabricBlockEntityTypeBuilder.create(PotionPadBlockEntity::new, POTION_PAD).build(null));
 
     public static final Block IGNITION = registerBlock("ignition", PeculiarItems.MOD_ITEMS, new IgnitionBlock(FabricBlockSettings.copy(Blocks.DROPPER)));
 

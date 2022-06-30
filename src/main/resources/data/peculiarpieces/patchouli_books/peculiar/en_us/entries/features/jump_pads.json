@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Jump Pads will boost the strength of a player's jump when they jump on top of them.$(br)They come in 4 power tiers cycled with shift-right click, and can be disabled with redstone."
+      "text": "Jump Pads will boost the strength of a player's jump when they jump on top of them.$(br)They come in 4 power tiers cycled with shift-right click, and can be disabled with redstone.$(br)The item can also be cycled by shift-right clicking in the air."
     },
     {
       "type": "patchouli:crafting",

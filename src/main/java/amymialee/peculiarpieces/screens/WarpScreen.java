@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class WarpScreen extends HandledScreen<WarpScreenHandler> {
-    private static final Identifier TEXTURE = PeculiarPieces.id("textures/gui/warp_block.png");
+    private static final Identifier TEXTURE = PeculiarPieces.id("textures/gui/single_inventory.png");
 
     public WarpScreen(WarpScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
