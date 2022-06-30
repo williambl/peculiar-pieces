@@ -4,6 +4,7 @@ import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.items.BlazingGlidersItem;
 import amymialee.peculiarpieces.items.CheckpointPearlItem;
 import amymialee.peculiarpieces.items.ConsumablePositionPearlItem;
+import amymialee.peculiarpieces.items.CraftingSlateItem;
 import amymialee.peculiarpieces.items.FlightRingItem;
 import amymialee.peculiarpieces.items.MountingStickItem;
 import amymialee.peculiarpieces.items.PeculiarBookItem;
@@ -43,6 +44,8 @@ public class PeculiarItems {
     public static final Item BLAZING_GLIDERS = registerItem("blazing_gliders", MOD_ITEMS, new BlazingGlidersItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
 
     public static final Item SLIME = registerItem("slime", MOD_ITEMS, new SlimeItem(new FabricItemSettings().group(PeculiarPieces.PIECES_GROUP)));
+
+    public static final Item CRAFTING_SLATE = registerItem("crafting_slate", MOD_ITEMS, new CraftingSlateItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
 
     public static void init() {}
 
