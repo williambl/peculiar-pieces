@@ -6,6 +6,7 @@
   "mixins": [
     "BeaconBlockMixin",
     "BoatEntityMixin",
+    "BrewingRecipeRegistryMixin",
     "CreeperEntityMixin",
     "EntityAccessor",
     "ExplosionMixin",

@@ -8,4 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface StatusEffectInstanceAccessor {
     @Accessor("duration")
     void setDuration(int value);
+
+    @Accessor("showParticles")
+    void setShowParticles(boolean value);
 }
