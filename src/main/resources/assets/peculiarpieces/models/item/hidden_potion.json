@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "peculiarpieces:item/hidden_overlay",
+        "layer1": "peculiarpieces:item/hidden_potion"
+    }
+}

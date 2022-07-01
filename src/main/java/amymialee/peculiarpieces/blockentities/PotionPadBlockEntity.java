@@ -1,12 +1,14 @@
 package amymialee.peculiarpieces.blockentities;
 
+import amymialee.peculiarpieces.items.HiddenPotionItem;
 import amymialee.peculiarpieces.mixin.StatusEffectInstanceAccessor;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.screens.PotionPadScreenHandler;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
+import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
@@ -24,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class PotionPadBlockEntity extends LootableContainerBlockEntity {
+public class PotionPadBlockEntity extends LockableContainerBlockEntity {
     private DefaultedList<ItemStack> inventory;
 
     public PotionPadBlockEntity(BlockPos pos, BlockState state) {
@@ -42,6 +44,10 @@ public class PotionPadBlockEntity extends LootableContainerBlockEntity {
                 if (!statusEffectInstance.getEffectType().isInstant()) {
                     StatusEffectInstance statusEffect = new StatusEffectInstance(statusEffectInstance);
                     ((StatusEffectInstanceAccessor) statusEffect).setDuration(statusEffect.getDuration() / 2);
+                    ((StatusEffectInstanceAccessor) statusEffect).setAmbient(true);
+                    if (stack.getItem() instanceof HiddenPotionItem) {
+                        ((StatusEffectInstanceAccessor) statusEffect).setShowParticles(false);
+                    }
                     entity.addStatusEffect(statusEffect);
                 }
             }
@@ -76,16 +82,13 @@ public class PotionPadBlockEntity extends LootableContainerBlockEntity {
         return nbtCompound;
     }
 
+    @Override
+    public boolean canPlayerUse(PlayerEntity player) {
+        return true;
+    }
+
     protected Text getContainerName() {
         return Text.translatable("peculiarpieces.container.potion_pad");
-    }
-
-    protected DefaultedList<ItemStack> getInvStackList() {
-        return this.inventory;
-    }
-
-    protected void setInvStackList(DefaultedList<ItemStack> list) {
-        this.inventory = list;
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
@@ -95,5 +98,50 @@ public class PotionPadBlockEntity extends LootableContainerBlockEntity {
     @Override
     public int size() {
         return this.inventory.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (ItemStack itemStack : this.inventory) {
+            if (itemStack.isEmpty()) continue;
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public ItemStack getStack(int slot) {
+        if (slot >= 0 && slot < this.inventory.size()) {
+            return this.inventory.get(slot);
+        }
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeStack(int slot, int amount) {
+        ItemStack stack = Inventories.splitStack(this.inventory, slot, amount);
+        markDirty();
+        return stack;
+    }
+
+    @Override
+    public ItemStack removeStack(int slot) {
+        ItemStack stack = Inventories.removeStack(this.inventory, slot);
+        markDirty();
+        return stack;
+    }
+
+    @Override
+    public void setStack(int slot, ItemStack stack) {
+        if (slot >= 0 && slot < this.inventory.size()) {
+            this.inventory.set(slot, stack);
+        }
+        markDirty();
+    }
+
+    @Override
+    public void clear() {
+        this.inventory.clear();
+        markDirty();
     }
 }

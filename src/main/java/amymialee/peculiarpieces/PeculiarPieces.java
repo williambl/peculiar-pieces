@@ -24,8 +24,10 @@ import net.minecraft.command.argument.Vec3ArgumentType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.potion.Potion;
 import net.minecraft.screen.ScreenHandlerType;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
@@ -48,6 +50,7 @@ public class PeculiarPieces implements ModInitializer {
     public static final Random RANDOM = new Random();
     public static final ItemGroup PIECES_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.MOD_ITEMS)).build();
     public static final ItemGroup CREATIVE_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_creative_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.CREATIVE_ITEMS)).build();
+    public static final ItemGroup POTION_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_potion_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.POTION_ITEMS)).build();
 
     public static final ScreenHandlerType<WarpScreenHandler> WARP_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "warp_block", new ScreenHandlerType<>(WarpScreenHandler::new));
     public static final ScreenHandlerType<PotionPadScreenHandler> POTION_PAD_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "potion_pad", new ScreenHandlerType<>(PotionPadScreenHandler::new));
@@ -55,7 +58,10 @@ public class PeculiarPieces implements ModInitializer {
     public static final TagKey<EntityType<?>> UNGRABBABLE = TagKey.of(Registry.ENTITY_TYPE_KEY, id("ungrabbable"));
     public static final TagKey<Block> WARP_BINDABLE = TagKey.of(Registry.BLOCK_KEY, id("warp_bindable"));
     public static final TagKey<Item> BARRIERS = TagKey.of(Registry.ITEM_KEY, id("barriers"));
-    public static final StatusEffect FLIGHT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
+
+    public static final StatusEffect FLIGHT_EFFECT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
+    public static final Potion FLIGHT = Registry.register(Registry.POTION, id("flight"), new Potion(new StatusEffectInstance(FLIGHT_EFFECT, 3600)));
+    public static final Potion LONG_FLIGHT = Registry.register(Registry.POTION, id("long_flight"), new Potion("flight", new StatusEffectInstance(FLIGHT_EFFECT, 9600)));
 
     public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_BREAK = GameRuleRegistry.register("pp:explosionsBreakBlocks", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
     public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_ALWAYS_DROP = GameRuleRegistry.register("pp:explosionsAlwaysDrop", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));

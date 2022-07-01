@@ -1,0 +1,17 @@
+{
+  "name": "Hidden Potions",
+  "icon": "peculiarpieces:hidden_potion{Potion:\"minecraft:strength\"}",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Hidden Potions are a form of drinkable potion that does not show particles of any potions drank.$(br)They are created by using an amethyst shard in a brewing stand on any ordinary (not splash or lingering) potion.$(br)They are also drank much faster."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "peculiarpieces:hidden_potion{Potion:\"minecraft:strength\"}",
+      "text": "They don't have a shine on them and come in a uniquely shaped bottle!",
+      "link_recipe": true
+    }
+  ]
+}

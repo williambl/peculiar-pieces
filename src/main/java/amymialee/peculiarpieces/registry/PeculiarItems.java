@@ -1,19 +1,7 @@
 package amymialee.peculiarpieces.registry;
 
 import amymialee.peculiarpieces.PeculiarPieces;
-import amymialee.peculiarpieces.items.BlazingGlidersItem;
-import amymialee.peculiarpieces.items.CheckpointPearlItem;
-import amymialee.peculiarpieces.items.ConsumablePositionPearlItem;
-import amymialee.peculiarpieces.items.CraftingSlateItem;
-import amymialee.peculiarpieces.items.FlightRingItem;
-import amymialee.peculiarpieces.items.MountingStickItem;
-import amymialee.peculiarpieces.items.PeculiarBookItem;
-import amymialee.peculiarpieces.items.PositionPearlItem;
-import amymialee.peculiarpieces.items.SkyPearlItem;
-import amymialee.peculiarpieces.items.SlimeItem;
-import amymialee.peculiarpieces.items.SlipperyShoesItem;
-import amymialee.peculiarpieces.items.SpawnpointPearlItem;
-import amymialee.peculiarpieces.items.TransportPearlItem;
+import amymialee.peculiarpieces.items.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,6 +14,7 @@ import java.util.ArrayList;
 public class PeculiarItems {
     public static final ArrayList<Item> MOD_ITEMS = new ArrayList<>();
     public static final ArrayList<Item> CREATIVE_ITEMS = new ArrayList<>();
+    public static final ArrayList<Item> POTION_ITEMS = new ArrayList<>();
 
     public static final Item PECULIAR_BOOK = registerItem("peculiar_book", MOD_ITEMS, new PeculiarBookItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
 
@@ -47,6 +36,8 @@ public class PeculiarItems {
 
     public static final Item CRAFTING_SLATE = registerItem("crafting_slate", MOD_ITEMS, new CraftingSlateItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
 
+    public static final Item HIDDEN_POTION = registerItem("hidden_potion", POTION_ITEMS, new HiddenPotionItem(new FabricItemSettings().maxCount(1).group(PeculiarPieces.POTION_GROUP)));
+
     public static void init() {}
 
     public static Item registerItem(String name, ArrayList<Item> list, Item item) {
@@ -56,6 +47,9 @@ public class PeculiarItems {
     }
 
     public static ItemStack getRecipeKindIcon(ArrayList<Item> arrayList) {
+        if (arrayList.size() == 1) {
+            return arrayList.get(0).getDefaultStack();
+        }
         return arrayList.get(PeculiarPieces.RANDOM.nextInt(arrayList.size() - 1)).getDefaultStack();
     }
 }

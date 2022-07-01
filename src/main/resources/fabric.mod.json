@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "id": "peculiarpieces",
   "version": "${version}",
+  "accessWidener" : "peculiarpieces.accesswidener",
   "name": "Peculiar Pieces",
   "description": "A collection of useful gizmos!",
   "authors": [

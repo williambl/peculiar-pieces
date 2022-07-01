@@ -23,7 +23,7 @@ public class PeculiarHelper {
         if (player.isCreative() || player.isSpectator()) {
             return true;
         }
-        if (player.hasStatusEffect(PeculiarPieces.FLIGHT)) {
+        if (player.hasStatusEffect(PeculiarPieces.FLIGHT_EFFECT)) {
             return true;
         }
         Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);

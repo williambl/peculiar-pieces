@@ -11,4 +11,7 @@ public interface StatusEffectInstanceAccessor {
 
     @Accessor("showParticles")
     void setShowParticles(boolean value);
+
+    @Accessor("ambient")
+    void setAmbient(boolean value);
 }

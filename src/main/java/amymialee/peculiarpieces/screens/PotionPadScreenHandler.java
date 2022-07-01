@@ -1,6 +1,7 @@
 package amymialee.peculiarpieces.screens;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.registry.PeculiarItems;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -23,7 +24,7 @@ public class PotionPadScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 0, 80, 20) {
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.isOf(Items.POTION) || stack.isOf(Items.SPLASH_POTION) || stack.isOf(Items.LINGERING_POTION) || stack.isOf(Items.MILK_BUCKET);
+                return stack.isOf(Items.POTION) || stack.isOf(PeculiarItems.HIDDEN_POTION) || stack.isOf(Items.SPLASH_POTION) || stack.isOf(Items.LINGERING_POTION) || stack.isOf(Items.MILK_BUCKET);
             }
         });
         for(int j = 0; j < 3; ++j) {

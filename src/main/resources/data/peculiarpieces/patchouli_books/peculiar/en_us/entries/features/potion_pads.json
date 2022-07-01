@@ -1,0 +1,15 @@
+{
+  "name": "Potion Pads",
+  "icon": "peculiarpieces:potion_pad",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Potion Pads can hold a potion and will apply this potion to anything that stands on top of it, or shift clicks it.$(br)Use shift-right click to access the inventory of the potion plate.$(br)You can also insert a milk bucket to have it clear effects instead.$(br)It can be disabled with a redstone signal."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:potion_pad"
+    }
+  ]
+}

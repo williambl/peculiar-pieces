@@ -61,7 +61,7 @@ public class PotionPadBlock extends BlockWithEntity {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.isClient) {
             return ActionResult.SUCCESS;
-        } else {
+        } else if (!state.get(POWERED)) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof PotionPadBlockEntity potionPadBlockEntity) {
                 if (player.isSneaking() && player.getAbilities().allowModifyWorld) {
@@ -70,8 +70,8 @@ public class PotionPadBlock extends BlockWithEntity {
                     potionPadBlockEntity.onEntityCollided(player);
                 }
             }
-            return ActionResult.CONSUME;
         }
+        return ActionResult.CONSUME;
     }
     
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
@@ -86,7 +86,7 @@ public class PotionPadBlock extends BlockWithEntity {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!world.isClient() && entity instanceof LivingEntity livingEntity) {
+        if (!world.isClient() && !state.get(POWERED) && entity instanceof LivingEntity livingEntity) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof PotionPadBlockEntity potionPadBlockEntity) {
                 potionPadBlockEntity.onEntityCollided(livingEntity);

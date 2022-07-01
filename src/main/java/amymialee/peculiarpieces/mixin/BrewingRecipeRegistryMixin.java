@@ -1,35 +1,33 @@
 package amymialee.peculiarpieces.mixin;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
+import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.registry.PeculiarItems;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.recipe.BrewingRecipeRegistry;
+import net.minecraft.recipe.Ingredient;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.ArrayList;
+import java.util.List;
 
-@Mixin(Potions.class)
+@Mixin(BrewingRecipeRegistry.class)
 public class BrewingRecipeRegistryMixin {
-    @SuppressWarnings("ConstantConditions")
-    @Inject(method = "register", at = @At("TAIL"))
-    private static void register(String name, Potion potion, CallbackInfoReturnable<Potion> cir) {
-        boolean should = false;
-        ArrayList<StatusEffectInstance> effects = new ArrayList<>();
-        for (StatusEffectInstance instance : potion.getEffects()) {
-            StatusEffectInstance instance2 = new StatusEffectInstance(instance);
-            ((StatusEffectInstanceAccessor) instance2).setShowParticles(false);
-            effects.add(instance2);
-            if (instance.shouldShowParticles()) {
-                should = true;
-            }
-        }
-        StatusEffectInstance[] array = new StatusEffectInstance[0];
-        if (should) {
-            Potion potion2 = new Potion(null, effects.toArray(array));
-            Registry.register(Registry.POTION, name + "_hidden", potion2);
-        }
+    @Shadow @Final private static List<BrewingRecipeRegistry.Recipe<Item>> ITEM_RECIPES;
+
+    @Shadow @Final private static List<Ingredient> POTION_TYPES;
+
+    @Shadow @Final private static List<BrewingRecipeRegistry.Recipe<Potion>> POTION_RECIPES;
+
+    @Inject(method = "registerDefaults", at = @At("TAIL"))
+    private static void registerDefaults(CallbackInfo ci) {
+        POTION_TYPES.add(Ingredient.ofItems(PeculiarItems.HIDDEN_POTION));
+        ITEM_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(Items.POTION, Ingredient.ofItems(Items.AMETHYST_SHARD), PeculiarItems.HIDDEN_POTION));
+        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<Potion>(PeculiarPieces.FLIGHT, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_FLIGHT));
     }
 }
