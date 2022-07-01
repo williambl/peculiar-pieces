@@ -25,6 +25,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.Potion;
@@ -63,6 +64,10 @@ public class PeculiarPieces implements ModInitializer {
     public static final Potion FLIGHT = Registry.register(Registry.POTION, id("flight"), new Potion(new StatusEffectInstance(FLIGHT_EFFECT, 3600)));
     public static final Potion LONG_FLIGHT = Registry.register(Registry.POTION, id("long_flight"), new Potion("flight", new StatusEffectInstance(FLIGHT_EFFECT, 9600)));
 
+    public static final Potion SATURATION = Registry.register(Registry.POTION, id("saturation"), new Potion(new StatusEffectInstance(StatusEffects.SATURATION, 900)));
+    public static final Potion LONG_SATURATION = Registry.register(Registry.POTION, id("long_saturation"), new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, 1800)));
+    public static final Potion STRONG_SATURATION = Registry.register(Registry.POTION, id("strong_saturation"), new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, 450, 1)));
+    
     public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_BREAK = GameRuleRegistry.register("pp:explosionsBreakBlocks", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
     public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_ALWAYS_DROP = GameRuleRegistry.register("pp:explosionsAlwaysDrop", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
 

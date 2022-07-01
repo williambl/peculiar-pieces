@@ -1,9 +1,21 @@
 {
 	"variants": {
-		"powered=true": {
+		"powered=true,potion=empty": {
+			"model": "peculiarpieces:block/potion_pad_empty"
+		},
+		"powered=true,potion=milk": {
 			"model": "peculiarpieces:block/potion_pad_off"
 		},
-		"powered=false": {
+		"powered=true,potion=potion": {
+			"model": "peculiarpieces:block/potion_pad_off"
+		},
+		"powered=false,potion=empty": {
+			"model": "peculiarpieces:block/potion_pad_empty"
+		},
+		"powered=false,potion=milk": {
+			"model": "peculiarpieces:block/potion_pad_milk"
+		},
+		"powered=false,potion=potion": {
 			"model": "peculiarpieces:block/potion_pad"
 		}
 	}

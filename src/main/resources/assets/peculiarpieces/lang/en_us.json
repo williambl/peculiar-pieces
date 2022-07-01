@@ -120,9 +120,15 @@
   "item.peculiarpieces.hidden_potion.effect.turtle_master": "Hidden Potion of the Turtle Master",
   "item.peculiarpieces.hidden_potion.effect.slow_falling": "Hidden Potion of Slow Falling",
   "item.peculiarpieces.hidden_potion.effect.flight" : "Hidden Potion of Flight",
+  "item.peculiarpieces.hidden_potion.effect.saturation" : "Hidden Potion of Saturation",
 
   "effect.peculiarpieces.flight" : "Flight",
   "item.minecraft.potion.effect.flight" : "Potion of Flight",
+  "item.minecraft.splash_potion.effect.flight" : "Splash Potion of Flight",
+  "item.minecraft.lingering_potion.effect.flight" : "Lingering Potion of Flight",
+  "item.minecraft.potion.effect.saturation" : "Potion of Saturation",
+  "item.minecraft.splash_potion.effect.saturation" : "Splash Potion of Saturation",
+  "item.minecraft.lingering_potion.effect.saturation" : "Lingering Potion of Saturation",
 
   "gamerule.pp:explosionsBreakBlocks" : "Explosions can destroy blocks.",
   "gamerule.pp:explosionsAlwaysDrop" : "Explosions drop all items.",

@@ -2,17 +2,98 @@
 	"type": "minecraft:block",
 	"pools": [
 		{
-			"rolls": 1.0,
-			"bonus_rolls": 0.0,
+			"rolls": 1,
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "peculiarpieces:jump_pad"
+					"name": "peculiarpieces:jump_pad",
+					"functions": [
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{\"pp:variant\":0}"
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:block_state_property",
+							"block": "peculiarpieces:jump_pad",
+							"properties": {
+								"power": "0"
+							}
+						}
+					]
 				}
-			],
-			"conditions": [
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
 				{
-					"condition": "minecraft:survives_explosion"
+					"type": "minecraft:item",
+					"name": "peculiarpieces:jump_pad",
+					"functions": [
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{\"pp:variant\":1}"
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:block_state_property",
+							"block": "peculiarpieces:jump_pad",
+							"properties": {
+								"power": "1"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "peculiarpieces:jump_pad",
+					"functions": [
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{\"pp:variant\":2}"
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:block_state_property",
+							"block": "peculiarpieces:jump_pad",
+							"properties": {
+								"power": "2"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "peculiarpieces:jump_pad",
+					"functions": [
+						{
+							"function": "minecraft:set_nbt",
+							"tag": "{\"pp:variant\":3}"
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:block_state_property",
+							"block": "peculiarpieces:jump_pad",
+							"properties": {
+								"power": "3"
+							}
+						}
+					]
 				}
 			]
 		}

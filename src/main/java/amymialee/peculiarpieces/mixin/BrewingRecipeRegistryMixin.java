@@ -28,6 +28,8 @@ public class BrewingRecipeRegistryMixin {
     private static void registerDefaults(CallbackInfo ci) {
         POTION_TYPES.add(Ingredient.ofItems(PeculiarItems.HIDDEN_POTION));
         ITEM_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(Items.POTION, Ingredient.ofItems(Items.AMETHYST_SHARD), PeculiarItems.HIDDEN_POTION));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<Potion>(PeculiarPieces.FLIGHT, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_FLIGHT));
+        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.FLIGHT, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_FLIGHT));
+        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.SATURATION, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_SATURATION));
+        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.SATURATION, Ingredient.ofItems(Items.GLOWSTONE_DUST), PeculiarPieces.STRONG_SATURATION));
     }
 }

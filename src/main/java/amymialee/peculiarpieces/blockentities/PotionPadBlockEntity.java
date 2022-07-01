@@ -1,9 +1,11 @@
 package amymialee.peculiarpieces.blockentities;
 
+import amymialee.peculiarpieces.blocks.PotionPadBlock;
 import amymialee.peculiarpieces.items.HiddenPotionItem;
 import amymialee.peculiarpieces.mixin.StatusEffectInstanceAccessor;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.screens.PotionPadScreenHandler;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.LivingEntity;
@@ -13,6 +15,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MilkBucketItem;
+import net.minecraft.item.PotionItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
@@ -120,14 +123,14 @@ public class PotionPadBlockEntity extends LockableContainerBlockEntity {
     @Override
     public ItemStack removeStack(int slot, int amount) {
         ItemStack stack = Inventories.splitStack(this.inventory, slot, amount);
-        markDirty();
+        updateState();
         return stack;
     }
 
     @Override
     public ItemStack removeStack(int slot) {
         ItemStack stack = Inventories.removeStack(this.inventory, slot);
-        markDirty();
+        updateState();
         return stack;
     }
 
@@ -136,12 +139,35 @@ public class PotionPadBlockEntity extends LockableContainerBlockEntity {
         if (slot >= 0 && slot < this.inventory.size()) {
             this.inventory.set(slot, stack);
         }
-        markDirty();
+        updateState();
     }
 
     @Override
     public void clear() {
         this.inventory.clear();
-        markDirty();
+        updateState();
+    }
+
+    public void updateState() {
+        ItemStack stack = inventory.get(0);
+        BlockState blockState = getCachedState();
+        if (!(blockState.getBlock() instanceof PotionPadBlock) || world == null) {
+            return;
+        }
+        boolean update = false;
+        if (stack.isEmpty() && !(blockState.get(PotionPadBlock.POTION) == PotionPadBlock.PotionStates.EMPTY)) {
+            blockState = blockState.with(PotionPadBlock.POTION, PotionPadBlock.PotionStates.EMPTY);
+            update = true;
+        } else if (stack.getItem() instanceof PotionItem && !(blockState.get(PotionPadBlock.POTION) == PotionPadBlock.PotionStates.POTION)) {
+            blockState = blockState.with(PotionPadBlock.POTION, PotionPadBlock.PotionStates.POTION);
+            update = true;
+        } else if (stack.getItem() instanceof MilkBucketItem && !(blockState.get(PotionPadBlock.POTION) == PotionPadBlock.PotionStates.MILK)) {
+            blockState = blockState.with(PotionPadBlock.POTION, PotionPadBlock.PotionStates.MILK);
+            update = true;
+        }
+        if (update) {
+            world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
+            markDirty();
+        }
     }
 }

@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CI",
-    "IB"
+    "CSI",
+    "SB ",
+    "I N"
   ],
   "key": {
     "C": {
@@ -12,7 +13,13 @@
       "item": "minecraft:crossbow"
     },
     "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "N": {
       "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "tag": "minecraft:planks"
     }
   },
   "result": {

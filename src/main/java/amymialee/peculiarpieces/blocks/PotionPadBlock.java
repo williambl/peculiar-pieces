@@ -13,14 +13,20 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PotionItem;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -30,10 +36,11 @@ import org.jetbrains.annotations.Nullable;
 public class PotionPadBlock extends BlockWithEntity {
     protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
     public static final BooleanProperty POWERED = Properties.POWERED;
+    public static final EnumProperty<PotionStates> POTION = EnumProperty.of("potion", PotionStates.class);
 
     public PotionPadBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false).with(POTION, PotionStates.EMPTY));
     }
 
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
@@ -61,12 +68,12 @@ public class PotionPadBlock extends BlockWithEntity {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.isClient) {
             return ActionResult.SUCCESS;
-        } else if (!state.get(POWERED)) {
+        } else {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof PotionPadBlockEntity potionPadBlockEntity) {
                 if (player.isSneaking() && player.getAbilities().allowModifyWorld) {
                     player.openHandledScreen(potionPadBlockEntity);
-                } else {
+                } else if (!state.get(POWERED)) {
                     potionPadBlockEntity.onEntityCollided(player);
                 }
             }
@@ -82,6 +89,25 @@ public class PotionPadBlock extends BlockWithEntity {
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (blockEntity instanceof PotionPadBlockEntity potionPad) {
+            ItemStack potion = potionPad.getPotion();
+            if (potion.getItem() instanceof PotionItem) {
+                int i = PotionUtil.getColor(potion);
+                double d = (double) (i >> 16 & 0xFF) / 255.0;
+                double e = (double) (i >> 8 & 0xFF) / 255.0;
+                double f = (double) (i & 0xFF) / 255.0;
+                boolean powered = state.get(POWERED);
+                for (int j = 0; j < (powered ? 1 : 3); j++) {
+                    world.addParticle(powered ? ParticleTypes.AMBIENT_ENTITY_EFFECT : ParticleTypes.ENTITY_EFFECT, pos.getX() + random.nextFloat(), pos.getY() + random.nextFloat() / 8, pos.getZ() + random.nextFloat(), d, e, f);
+                }
+            }
+        }
+        super.randomDisplayTick(state, world, pos, random);
     }
 
     @Override
@@ -111,6 +137,27 @@ public class PotionPadBlock extends BlockWithEntity {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(POWERED);
+        builder.add(POWERED, POTION);
+    }
+
+    public enum PotionStates implements StringIdentifiable {
+        EMPTY("empty"),
+        MILK("milk"),
+        POTION("potion");
+
+        private final String name;
+
+        PotionStates(String name) {
+            this.name = name;
+        }
+
+        public String toString() {
+            return this.asString();
+        }
+
+        @Override
+        public String asString() {
+            return this.name;
+        }
     }
 }
