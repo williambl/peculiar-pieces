@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
 public class MountingStickItem extends Item {
     public MountingStickItem(Settings settings) {
@@ -21,11 +23,17 @@ public class MountingStickItem extends Item {
         if (!livingEntity.getType().isIn(PeculiarPieces.MOUNT_BLACKLIST) && !user.getItemCooldownManager().isCoolingDown(this)) {
             if (user.hasPassengers() && user.getFirstPassenger() != null) {
                 if (!livingEntity.hasPassengers()) {
-                    user.getFirstPassenger().startRiding(livingEntity, true);
+                    if (user.getFirstPassenger() != livingEntity) {
+                        user.getFirstPassenger().startRiding(livingEntity, true);
+                    } else {
+                        livingEntity.dismountVehicle();
+                    }
                 }
             } else {
                 livingEntity.dismountVehicle();
-                livingEntity.startRiding(user, true);
+                if (livingEntity != user) {
+                    livingEntity.startRiding(user, true);
+                }
             }
             user.getItemCooldownManager().set(this, 4);
         }
@@ -46,5 +54,13 @@ public class MountingStickItem extends Item {
             }
         }
         return super.useOnBlock(context);
+    }
+
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if (user.isSneaking() && user.hasPassengers()) {
+            user.removeAllPassengers();
+        }
+        return super.use(world, user, hand);
     }
 }

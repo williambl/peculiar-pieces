@@ -22,7 +22,7 @@ public class RedstoneHurdleBlock extends AbstractRedstoneComparisonBlock {
 
     public RedstoneHurdleBlock(FabricBlockSettings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(HURDLE, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(HURDLE, 0).with(POWERED, false));
     }
 
     @Override

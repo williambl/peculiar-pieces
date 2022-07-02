@@ -31,7 +31,7 @@ public class GliderItem extends Item {
         if (main.getNbt() != null && main.getNbt().getBoolean("pp:gliding")) {
             return true;
         }
-        ItemStack off = player.getMainHandStack();
+        ItemStack off = player.getOffHandStack();
         return off.getNbt() != null && off.getNbt().getBoolean("pp:gliding");
     }
 

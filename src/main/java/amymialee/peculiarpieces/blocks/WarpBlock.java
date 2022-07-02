@@ -69,14 +69,21 @@ public class WarpBlock extends BlockWithEntity {
         if (world.isClient) {
             return ActionResult.SUCCESS;
         } else {
+            System.out.println(0);
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof WarpBlockEntity warpBlockEntity) {
+                System.out.println(1);
                 if (player.isSneaking() && player.getAbilities().allowModifyWorld) {
                     player.openHandledScreen(warpBlockEntity);
+                    System.out.println(2);
                 } else {
                     warpBlockEntity.onEntityCollided(player);
+                    System.out.println(3);
                 }
+            } else {
+                System.out.println(4);
             }
+            System.out.println("");
             return ActionResult.CONSUME;
         }
     }

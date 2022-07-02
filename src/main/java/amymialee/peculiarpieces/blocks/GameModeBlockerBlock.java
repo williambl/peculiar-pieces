@@ -5,11 +5,12 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.EntityShapeContext;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
@@ -33,11 +34,11 @@ public class GameModeBlockerBlock extends Block {
         if (VisibleBarriers.isVisible()) {
             return VoxelShapes.fullCube();
         }
-        ClientPlayNetworkHandler networkHandler = MinecraftClient.getInstance().getNetworkHandler();
-        if (networkHandler != null) {
-            PlayerEntity player = MinecraftClient.getInstance().player;
-            if (player != null) {
-                PlayerListEntry playerListEntry = MinecraftClient.getInstance().getNetworkHandler().getPlayerListEntry(player.getGameProfile().getId());
+        if (context instanceof EntityShapeContext entityShapeContext && entityShapeContext.getEntity() instanceof PlayerEntity player) {
+            if (player instanceof ServerPlayerEntity playerEntity && playerEntity.interactionManager.getGameMode() == gameMode) {
+                return VoxelShapes.fullCube();
+            } else if (player.world.isClient() && player instanceof ClientPlayerEntity clientPlayerEntity) {
+                PlayerListEntry playerListEntry = clientPlayerEntity.networkHandler.getPlayerListEntry(clientPlayerEntity.getUuid());
                 if (playerListEntry != null && playerListEntry.getGameMode() == gameMode) {
                     return VoxelShapes.fullCube();
                 }

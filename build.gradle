@@ -42,7 +42,10 @@ dependencies {
     modImplementation ("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
     modImplementation ("dev.emi:trinkets:${project.trinkets_version}")
     modImplementation ("amymialee:visible-barriers:1.18.2-fabric-1.5.0")
-    modImplementation "vazkii.patchouli:Patchouli:1.19-73-FABRIC-SNAPSHOT"
+    modImplementation ("vazkii.patchouli:Patchouli:1.19-73-FABRIC-SNAPSHOT")
+    modImplementation ("dev.emi:emi:0.2.0+1.19") {
+        transitive(false)
+    }
 }
 
 processResources {

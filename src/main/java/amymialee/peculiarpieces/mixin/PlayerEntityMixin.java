@@ -145,7 +145,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements ExtraPla
 
     @Unique
     public double getMountedHeightOffset() {
-        return ((EntityAccessor) this).getDimensions().height * 0.9f;
+        return ((EntityAccessor) this).getDimensions().height;
     }
 
     @Override public Vec3d getCheckpointPos() {

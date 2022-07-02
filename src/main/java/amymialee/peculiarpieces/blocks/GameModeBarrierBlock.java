@@ -7,8 +7,6 @@ import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.EntityShapeContext;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.entity.player.PlayerEntity;
@@ -36,12 +34,11 @@ public class GameModeBarrierBlock extends Block {
         if (VisibleBarriers.isVisible()) {
             return VoxelShapes.fullCube();
         }
-        if (context instanceof EntityShapeContext entityShapeContext) {
-            if (entityShapeContext.getEntity() instanceof ServerPlayerEntity playerEntity && playerEntity.interactionManager.getGameMode() == gameMode) {
+        if (context instanceof EntityShapeContext entityShapeContext && entityShapeContext.getEntity() instanceof PlayerEntity player) {
+            if (player instanceof ServerPlayerEntity playerEntity && playerEntity.interactionManager.getGameMode() == gameMode) {
                 return VoxelShapes.fullCube();
-            }
-            if (entityShapeContext.getEntity() instanceof ClientPlayerEntity playerEntity) {
-                PlayerListEntry playerListEntry = playerEntity.networkHandler.getPlayerListEntry(playerEntity.getGameProfile().getId());
+            } else if (player.world.isClient() && player instanceof ClientPlayerEntity clientPlayerEntity) {
+                PlayerListEntry playerListEntry = clientPlayerEntity.networkHandler.getPlayerListEntry(clientPlayerEntity.getUuid());
                 if (playerListEntry != null && playerListEntry.getGameMode() == gameMode) {
                     return VoxelShapes.fullCube();
                 }
@@ -52,11 +49,11 @@ public class GameModeBarrierBlock extends Block {
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        ClientPlayNetworkHandler networkHandler = MinecraftClient.getInstance().getNetworkHandler();
-        if (networkHandler != null) {
-            PlayerEntity player = MinecraftClient.getInstance().player;
-            if (player != null) {
-                PlayerListEntry playerListEntry = MinecraftClient.getInstance().getNetworkHandler().getPlayerListEntry(player.getGameProfile().getId());
+        if (context instanceof EntityShapeContext entityShapeContext && entityShapeContext.getEntity() instanceof PlayerEntity player) {
+            if (player instanceof ServerPlayerEntity playerEntity && playerEntity.interactionManager.getGameMode() == gameMode) {
+                return VoxelShapes.fullCube();
+            } else if (player.world.isClient() && player instanceof ClientPlayerEntity clientPlayerEntity) {
+                PlayerListEntry playerListEntry = clientPlayerEntity.networkHandler.getPlayerListEntry(clientPlayerEntity.getUuid());
                 if (playerListEntry != null && playerListEntry.getGameMode() == gameMode) {
                     return VoxelShapes.fullCube();
                 }

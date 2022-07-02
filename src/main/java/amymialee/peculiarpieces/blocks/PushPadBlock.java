@@ -61,20 +61,22 @@ public class PushPadBlock extends CarpetBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        Direction direction = state.get(FACING);
-        if (!(direction == null)) {
-            double power = (state.get(POWER) + 1) * 0.65f;
-            if (state.get(POWER) == 3) {
-                power += 1;
+        if (!state.get(POWERED)) {
+            Direction direction = state.get(FACING);
+            if (!(direction == null)) {
+                double power = (state.get(POWER) + 1) * 0.65f;
+                if (state.get(POWER) == 3) {
+                    power += 1;
+                }
+                Vec3d vector = Vec3d.of(direction.getVector());
+                Vec3d velocity = entity.getVelocity();
+                Vec3d push = new Vec3d(velocity.getX() + (power * 0.2 * vector.getX()), 0, velocity.getZ() + (power * 0.2 * vector.getZ()));
+                switch (direction.getAxis()) {
+                    case X -> entity.setVelocity(MathHelper.clamp(push.x, -power, power), velocity.y, velocity.z);
+                    case Z -> entity.setVelocity(velocity.x, velocity.y, MathHelper.clamp(push.z, -power, power));
+                }
+                entity.velocityDirty = true;
             }
-            Vec3d vector = Vec3d.of(direction.getVector());
-            Vec3d velocity = entity.getVelocity();
-            Vec3d push = new Vec3d(velocity.getX() + (power * 0.2 * vector.getX()), 0, velocity.getZ() + (power * 0.2 * vector.getZ()));
-            switch (direction.getAxis()) {
-                case X -> entity.setVelocity(MathHelper.clamp(push.x, -power, power), velocity.y, velocity.z);
-                case Z -> entity.setVelocity(velocity.x, velocity.y, MathHelper.clamp(push.z, -power, power));
-            }
-            entity.velocityDirty = true;
         }
         super.onEntityCollision(state, world, pos, entity);
     }

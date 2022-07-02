@@ -22,7 +22,7 @@ public class RedstoneClampBlock extends AbstractRedstoneComparisonBlock {
 
     public RedstoneClampBlock(FabricBlockSettings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(CLAMP, 15));
+        this.setDefaultState(this.stateManager.getDefaultState().with(CLAMP, 15).with(POWERED, false));
     }
 
     @Override
