@@ -1,0 +1,16 @@
+{
+  "name": "Concealment Potions",
+  "icon": "minecraft:potion{Potion:\"peculiarpieces:concealment\"}",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Concealment Potions act as a strong addition to your stealth arsenal.$(br)The Concealment status effect will cause all of your equipment to become hidden, hiding all the things that invisibility tends to miss.$(br)Keep in mind that you yourself are not concealed!"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:potion{Potion:\"peculiarpieces:concealment\"}",
+      "text": "Created using a fermented spider eye on a glowing potion!"
+    }
+  ]
+}

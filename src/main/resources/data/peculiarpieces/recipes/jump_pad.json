@@ -15,11 +15,11 @@
       "item": "minecraft:slime_block"
     },
     "I": {
-      "item": "minecraft:iron_nugget"
+      "item": "minecraft:iron_ingot"
     }
   },
   "result": {
     "item": "peculiarpieces:jump_pad",
-    "count": 1
+    "count": 4
   }
 }

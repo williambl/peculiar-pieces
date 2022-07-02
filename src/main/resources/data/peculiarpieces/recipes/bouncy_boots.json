@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "P P",
+    "S S"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_block"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "S": {
+      "item": "peculiarpieces:slime"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:bouncy_boots"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Hang Glider",
+  "icon": "peculiarpieces:hang_glider",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Hang Glider is an essential tool for traversing the world.$(br)It has no way to gain altitude, but allows you to fly long distances if you get a good vantage point.$(br)You activate it with right click and can fly faster by holding shift."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:glider_wing",
+      "recipe2": "peculiarpieces:hang_glider"
+    }
+  ]
+}

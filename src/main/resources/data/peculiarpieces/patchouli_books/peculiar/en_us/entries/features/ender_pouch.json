@@ -1,0 +1,15 @@
+{
+  "name": "Ender Pouch",
+  "icon": "peculiarpieces:ender_pouch",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "An Ender Pouch allows you to open your ender chest from anywhere."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:ender_pouch"
+    }
+  ]
+}

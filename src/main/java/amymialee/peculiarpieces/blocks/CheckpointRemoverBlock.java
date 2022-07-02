@@ -1,7 +1,7 @@
 package amymialee.peculiarpieces.blocks;
 
 import amymialee.peculiarpieces.PeculiarPieces;
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,8 +19,8 @@ public class CheckpointRemoverBlock extends AbstractStructureVoidBlock {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof PlayerEntity player) {
-            if (((CheckpointPlayerWrapper) player).getCheckpointPos() != null) {
-                ((CheckpointPlayerWrapper) player).setCheckpointPos(null);
+            if (((ExtraPlayerDataWrapper) player).getCheckpointPos() != null) {
+                ((ExtraPlayerDataWrapper) player).setCheckpointPos(null);
                 player.sendMessage(Text.translatable("%s.checkpoint_cleared".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
             }
         }

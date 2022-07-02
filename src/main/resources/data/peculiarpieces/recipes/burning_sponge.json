@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NSN",
+    "MLM",
+    "NSN"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:magma_block"
+    },
+    "S": {
+      "tag": "peculiarpieces:sponge"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "N": {
+      "item": "minecraft:nether_brick"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:burning_sponge",
+    "count": 2
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Bundles",
+  "icon": "minecraft:bundle",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Bundles are now obtainable!$(br)They can be crafted with leather or rabbit hide and some string.$(br)One major change is that all items will only take 1 slot, meaning it can hold up to 64 unstackable items!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bundle"
+    }
+  ]
+}

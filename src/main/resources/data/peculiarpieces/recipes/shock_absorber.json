@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " S ",
+    "ISI",
     "SHS",
-    " S "
+    "ISI"
   ],
   "key": {
     "S": {
@@ -11,6 +11,9 @@
     },
     "H": {
       "item": "minecraft:hay_block"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
     }
   },
   "result": {

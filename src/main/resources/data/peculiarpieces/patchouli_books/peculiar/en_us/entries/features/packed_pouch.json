@@ -1,0 +1,15 @@
+{
+  "name": "Packed Pouch",
+  "icon": "peculiarpieces:packed_pouch",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A powerful tool in expanding your inventory, a Packed Pouch can be used to store a double chest worth of items within itself.$(br)They can also be dyed any colour you choose."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:packed_pouch"
+    }
+  ]
+}

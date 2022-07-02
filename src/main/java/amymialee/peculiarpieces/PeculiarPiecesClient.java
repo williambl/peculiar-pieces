@@ -1,21 +1,28 @@
 package amymialee.peculiarpieces;
 
+import amymialee.peculiarpieces.client.HangGliderEntityModel;
 import amymialee.peculiarpieces.items.TransportPearlItem;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
+import amymialee.peculiarpieces.screens.PackedPouchScreen;
 import amymialee.peculiarpieces.screens.PotionPadScreen;
 import amymialee.peculiarpieces.screens.WarpScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.model.EntityModelLayer;
+import net.minecraft.item.DyeableItem;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 public class PeculiarPiecesClient implements ClientModInitializer {
+    public static final EntityModelLayer HANG_GLIDER = new EntityModelLayer(PeculiarPieces.id("hang_glider"), "main");
+
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.CHECKPOINT, RenderLayer.getTranslucent());
@@ -50,14 +57,19 @@ public class PeculiarPiecesClient implements ClientModInitializer {
 
         HandledScreens.register(PeculiarPieces.WARP_SCREEN_HANDLER, WarpScreen::new);
         HandledScreens.register(PeculiarPieces.POTION_PAD_SCREEN_HANDLER, PotionPadScreen::new);
+        HandledScreens.register(PeculiarPieces.BUSTLING_SCREEN_HANDLER, PackedPouchScreen::new);
+
+        EntityModelLayerRegistry.registerModelLayer(HANG_GLIDER, HangGliderEntityModel::getTexturedModelData);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> MathHelper.hsvToRgb(((float)(TransportPearlItem.getSlot(stack) + 1) / 8), 1.0F, 1.0F), PeculiarItems.TRANS_PEARL);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : 0xF800F8, PeculiarBlocks.POTION_PAD);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : PotionUtil.getColor(stack), PeculiarItems.HIDDEN_POTION);
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), PeculiarItems.PACKED_POUCH);
     }
 
     static {
         ModelPredicateProviderRegistry.register(PeculiarBlocks.JUMP_PAD.asItem(), new Identifier("variant"), (stack, world, entity, number) -> (float) stack.getOrCreateNbt().getInt("pp:variant") / 3);
         ModelPredicateProviderRegistry.register(PeculiarBlocks.PUSH_PAD.asItem(), new Identifier("variant"), (stack, world, entity, number) -> (float) stack.getOrCreateNbt().getInt("pp:variant") / 3);
+        ModelPredicateProviderRegistry.register(PeculiarItems.HANG_GLIDER, new Identifier("active"), (stack, world, entity, number) -> stack.getOrCreateNbt().getBoolean("pp:gliding") ? 1 : 0);
     }
 }

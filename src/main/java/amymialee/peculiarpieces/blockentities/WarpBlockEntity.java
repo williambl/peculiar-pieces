@@ -5,7 +5,7 @@ import amymialee.peculiarpieces.items.PositionPearlItem;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
@@ -40,13 +40,13 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
     public void onEntityCollided(Entity entity) {
         ItemStack stack = inventory.get(0);
         if (stack.isOf(PeculiarItems.POS_PEARL) || stack.isOf(PeculiarItems.CONSUMABLE_POS_PEARL)) {
-            NbtCompound compound = stack.getOrCreateNbt();
-            if (compound.contains("pp:stone")) {
+            NbtCompound compound = stack.getNbt();
+            if (compound != null && compound.contains("pp:stone")) {
                 BlockPos pos = PositionPearlItem.readStone(stack);
                 WarpManager.queueTeleport(entity, Vec3d.ofBottomCenter(pos));
             }
         } else if (stack.isOf(PeculiarItems.CHECKPOINT_PEARL)) {
-            if (entity instanceof PlayerEntity player && player instanceof CheckpointPlayerWrapper checkPlayer) {
+            if (entity instanceof PlayerEntity player && player instanceof ExtraPlayerDataWrapper checkPlayer) {
                 Vec3d checkpointPos = checkPlayer.getCheckpointPos();
                 if (checkpointPos != null) {
                     WarpManager.queueTeleport(entity, checkpointPos);

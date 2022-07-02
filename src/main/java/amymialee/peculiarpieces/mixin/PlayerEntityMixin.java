@@ -2,8 +2,12 @@ package amymialee.peculiarpieces.mixin;
 
 import amymialee.peculiarpieces.callbacks.PlayerCrouchCallback;
 import amymialee.peculiarpieces.callbacks.PlayerJumpCallback;
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
-import amymialee.peculiarpieces.util.GameModePlayerWrapper;
+import amymialee.peculiarpieces.items.GliderItem;
+import amymialee.peculiarpieces.registry.PeculiarItems;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +15,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
@@ -20,44 +25,19 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Optional;
+
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity implements CheckpointPlayerWrapper, GameModePlayerWrapper {
-    @Unique Vec3d checkpointPos;
-    @Unique boolean wasSneaky = false;
-    @Unique int gameModeDuration = 0;
-    @Unique GameMode storedGameMode = null;
+public abstract class PlayerEntityMixin extends LivingEntity implements ExtraPlayerDataWrapper {
+    @Unique private Vec3d checkpointPos;
+    @Unique private boolean wasSneaky = false;
+    @Unique private int gameModeDuration = 0;
+    @Unique private GameMode storedGameMode = null;
+    @Unique private Vec3d velocityOld = new Vec3d(0, 0, 0);
+    @Unique private double bouncePower = 0;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    @Override public Vec3d getCheckpointPos() {
-        return checkpointPos;
-    }
-
-    @Override public void setCheckpointPos(Vec3d vec3d) {
-        checkpointPos = vec3d;
-    }
-
-    @Override public int getGameModeDuration() {
-        return gameModeDuration;
-    }
-
-    @Override public void setGameModeDuration(int duration) {
-        gameModeDuration = duration;
-    }
-
-    @Override public GameMode getStoredGameMode() {
-        return storedGameMode;
-    }
-
-    @Override public void setStoredGameMode(GameMode gameMode) {
-        storedGameMode = gameMode;
-    }
-
-    @Unique
-    public double getMountedHeightOffset() {
-        return ((EntityAccessor) this).getDimensions().height * 0.9f;
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
@@ -110,6 +90,41 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Checkpoi
         }
     }
 
+    @Inject(method = "tickMovement", at = @At("TAIL"))
+    public void PeculiarPieces$MovementTicks(CallbackInfo ci) {
+        PlayerEntity this2 = ((PlayerEntity) ((Object) this));
+        Vec3d velocity = getVelocity();
+        if (getBouncePower() > 0) {
+            float f = this.getYaw() * ((float)Math.PI / 180);
+            this.setVelocity(this.getVelocity().add(-MathHelper.sin(f) * (velocity.horizontalLength() * getBouncePower() * 4) * (isSprinting() ? 1.5f : 0.5f), getBouncePower(), MathHelper.cos(f) * (velocity.horizontalLength() * getBouncePower() * 4) * (isSprinting() ? 1.5f : 0.5f)));
+            setBouncePower(0);
+            this.velocityDirty = true;
+        } else if (GliderItem.isGliding(this2) && GliderItem.isDescending(this2) && velocity.getY() < velocityOld.getY()) {
+            double horizontalSpeed = !isSneaking() ? 0.03 : 0.1;
+            double xSpeed = Math.cos(Math.toRadians(headYaw + 90)) * horizontalSpeed;
+            double zSpeed = Math.sin(Math.toRadians(headYaw + 90)) * horizontalSpeed;
+            setVelocity(velocity.x + xSpeed, !isSneaking() ? -0.052 : -0.176, velocity.z + zSpeed);
+            fallDistance = 0;
+        }
+        velocityOld = getVelocity();
+    }
+
+    @Unique
+    protected void fall(double heightDifference, boolean onGround, BlockState state, BlockPos landedPosition) {
+        Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(this);
+        if (!isSneaking() && optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.BOUNCY_BOOTS)) {
+            airStrafingSpeed *= 4;
+            if (onGround) {
+                if (this.fallDistance > 0.0f) {
+                    setBouncePower(Math.pow(Math.abs(getVelocity().getY()), 1.5) - 0.05);
+                    return;
+                }
+            }
+            fallDistance = 0;
+        }
+        super.fall(heightDifference, onGround, state, landedPosition);
+    }
+
     @Unique
     public boolean isSneaking() {
         if (!world.isClient()) {
@@ -126,5 +141,42 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Checkpoi
         } else {
             return super.isSneaking();
         }
+    }
+
+    @Unique
+    public double getMountedHeightOffset() {
+        return ((EntityAccessor) this).getDimensions().height * 0.9f;
+    }
+
+    @Override public Vec3d getCheckpointPos() {
+        return checkpointPos;
+    }
+
+    @Override public void setCheckpointPos(Vec3d vec3d) {
+        checkpointPos = vec3d;
+    }
+
+    @Override public int getGameModeDuration() {
+        return gameModeDuration;
+    }
+
+    @Override public void setGameModeDuration(int duration) {
+        gameModeDuration = duration;
+    }
+
+    @Override public GameMode getStoredGameMode() {
+        return storedGameMode;
+    }
+
+    @Override public void setStoredGameMode(GameMode gameMode) {
+        storedGameMode = gameMode;
+    }
+
+    @Override public double getBouncePower() {
+        return bouncePower;
+    }
+
+    @Override public void setBouncePower(double bouncePower) {
+        this.bouncePower = bouncePower;
     }
 }

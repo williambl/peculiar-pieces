@@ -1,6 +1,6 @@
 package amymialee.peculiarpieces.blocks;
 
-import amymialee.peculiarpieces.util.GameModePlayerWrapper;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
 import amymialee.visiblebarriers.VisibleBarriers;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockRenderType;
@@ -26,7 +26,7 @@ public class GameModeSetterBlock extends AbstractStructureVoidBlock {
         super.onEntityCollision(state, world, pos, entity);
         if (!world.isClient()) {
             if (entity instanceof ServerPlayerEntity player) {
-                if (player instanceof GameModePlayerWrapper wrapper) {
+                if (player instanceof ExtraPlayerDataWrapper wrapper) {
                     if (gameMode == wrapper.getStoredGameMode()) {
                         return;
                     }

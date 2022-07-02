@@ -1,6 +1,6 @@
 package amymialee.peculiarpieces.blocks;
 
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,7 +17,7 @@ public class CheckpointBlock extends AbstractStructureVoidBlock {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (entity instanceof PlayerEntity player) {
-            ((CheckpointPlayerWrapper) player).setCheckpointPos(Vec3d.ofBottomCenter(pos));
+            ((ExtraPlayerDataWrapper) player).setCheckpointPos(Vec3d.ofBottomCenter(pos));
         }
         super.onEntityCollision(state, world, pos, entity);
     }

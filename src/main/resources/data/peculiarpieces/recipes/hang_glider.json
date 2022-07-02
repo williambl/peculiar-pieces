@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WIW",
+    "F F"
+  ],
+  "key": {
+    "W": {
+      "item": "peculiarpieces:glider_wing"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:hang_glider"
+  }
+}

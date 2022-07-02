@@ -5,11 +5,13 @@ import amymialee.peculiarpieces.callbacks.PlayerCrouchConsumingBlock;
 import amymialee.peculiarpieces.callbacks.PlayerJumpCallback;
 import amymialee.peculiarpieces.callbacks.PlayerJumpConsumingBlock;
 import amymialee.peculiarpieces.effects.FlightStatusEffect;
+import amymialee.peculiarpieces.effects.OpenStatusEffect;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
+import amymialee.peculiarpieces.screens.PackedPouchScreenHandler;
 import amymialee.peculiarpieces.screens.PotionPadScreenHandler;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -49,28 +51,42 @@ import java.util.Random;
 public class PeculiarPieces implements ModInitializer {
     public static final String MOD_ID = "peculiarpieces";
     public static final Random RANDOM = new Random();
+    //ItemGroups
     public static final ItemGroup PIECES_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.MOD_ITEMS)).build();
-    public static final ItemGroup CREATIVE_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_creative_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.CREATIVE_ITEMS)).build();
-    public static final ItemGroup POTION_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_potion_group")).icon(() -> PeculiarItems.getRecipeKindIcon(PeculiarItems.POTION_ITEMS)).build();
-
+    public static final ItemGroup CREATIVE_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_creative_group")).icon(PeculiarItems::getCreativeIcon).build();
+    public static final ItemGroup POTION_GROUP = FabricItemGroupBuilder.create(id("peculiarpieces_potion_group")).icon(PeculiarItems::getPotionIcon).build();
+    //ScreenHandlers
     public static final ScreenHandlerType<WarpScreenHandler> WARP_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "warp_block", new ScreenHandlerType<>(WarpScreenHandler::new));
     public static final ScreenHandlerType<PotionPadScreenHandler> POTION_PAD_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "potion_pad", new ScreenHandlerType<>(PotionPadScreenHandler::new));
+    public static final ScreenHandlerType<PackedPouchScreenHandler> BUSTLING_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "bustling_bundle", new ScreenHandlerType<>((a, b) -> new PackedPouchScreenHandler(a, b, PeculiarItems.PACKED_POUCH.getDefaultStack().copy())));
+    //Tags
     public static final TagKey<EntityType<?>> MOUNT_BLACKLIST = TagKey.of(Registry.ENTITY_TYPE_KEY, id("mount_blacklist"));
     public static final TagKey<EntityType<?>> UNGRABBABLE = TagKey.of(Registry.ENTITY_TYPE_KEY, id("ungrabbable"));
     public static final TagKey<Block> WARP_BINDABLE = TagKey.of(Registry.BLOCK_KEY, id("warp_bindable"));
     public static final TagKey<Item> BARRIERS = TagKey.of(Registry.ITEM_KEY, id("barriers"));
-
+    //Flight
     public static final StatusEffect FLIGHT_EFFECT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
     public static final Potion FLIGHT = Registry.register(Registry.POTION, id("flight"), new Potion(new StatusEffectInstance(FLIGHT_EFFECT, 3600)));
     public static final Potion LONG_FLIGHT = Registry.register(Registry.POTION, id("long_flight"), new Potion("flight", new StatusEffectInstance(FLIGHT_EFFECT, 9600)));
-
+    //Saturation
     public static final Potion SATURATION = Registry.register(Registry.POTION, id("saturation"), new Potion(new StatusEffectInstance(StatusEffects.SATURATION, 900)));
     public static final Potion LONG_SATURATION = Registry.register(Registry.POTION, id("long_saturation"), new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, 1800)));
     public static final Potion STRONG_SATURATION = Registry.register(Registry.POTION, id("strong_saturation"), new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, 450, 1)));
-    
+    //Saturation
+    public static final Potion HUNGER = Registry.register(Registry.POTION, id("hunger"), new Potion(new StatusEffectInstance(StatusEffects.HUNGER, 900)));
+    public static final Potion LONG_HUNGER = Registry.register(Registry.POTION, id("long_hunger"), new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, 1800)));
+    public static final Potion STRONG_HUNGER = Registry.register(Registry.POTION, id("strong_hunger"), new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, 450, 1)));
+    //Glowing
+    public static final Potion GLOWING = Registry.register(Registry.POTION, id("glowing"), new Potion(new StatusEffectInstance(StatusEffects.GLOWING, 3600)));
+    public static final Potion LONG_GLOWING = Registry.register(Registry.POTION, id("long_glowing"), new Potion("glowing", new StatusEffectInstance(StatusEffects.GLOWING, 9600)));
+    //Concealment
+    public static final StatusEffect CONCEALMENT_EFFECT = Registry.register(Registry.STATUS_EFFECT, id("concealment"), new OpenStatusEffect(StatusEffectCategory.BENEFICIAL, 8356754));
+    public static final Potion CONCEALMENT = Registry.register(Registry.POTION, id("concealment"), new Potion(new StatusEffectInstance(CONCEALMENT_EFFECT, 3600)));
+    public static final Potion LONG_CONCEALMENT = Registry.register(Registry.POTION, id("long_concealment"), new Potion("concealment", new StatusEffectInstance(CONCEALMENT_EFFECT, 9600)));
+    //Gamerules
     public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_BREAK = GameRuleRegistry.register("pp:explosionsBreakBlocks", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
     public static final GameRules.Key<GameRules.BooleanRule> DO_EXPLOSIONS_ALWAYS_DROP = GameRuleRegistry.register("pp:explosionsAlwaysDrop", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
-
+    //SoundEvents
     public static final SoundEvent ENTITY_SHEEP_YIPPEE = Registry.register(Registry.SOUND_EVENT, "peculiarpieces.sheep.yippee", new SoundEvent(id("peculiarpieces.sheep.yippee")));
     public static final SoundEvent ENTITY_SHEEP_YIPPEE_ENGINEER = Registry.register(Registry.SOUND_EVENT, "peculiarpieces.sheep.yippee_engineer", new SoundEvent(id("peculiarpieces.sheep.yippee_engineer")));
 
@@ -78,7 +94,6 @@ public class PeculiarPieces implements ModInitializer {
     public void onInitialize() {
         PeculiarItems.init();
         PeculiarBlocks.init();
-
         CommandRegistrationCallback.EVENT.register((dispatcher, access, environment) -> dispatcher.register(
                 literal("peculiar")
                         .then(literal("checkpoint"))
@@ -89,7 +104,7 @@ public class PeculiarPieces implements ModInitializer {
                                             Collection<ServerPlayerEntity> targets = EntityArgumentType.getPlayers(ctx, "targets");
                                             Vec3d pos = Vec3ArgumentType.getPosArgument(ctx, "location").toAbsolutePos(ctx.getSource());
                                             for (ServerPlayerEntity target : targets) {
-                                                ((CheckpointPlayerWrapper) target).setCheckpointPos(pos);
+                                                ((ExtraPlayerDataWrapper) target).setCheckpointPos(pos);
                                             }
                                             if (targets.size() == 1) {
                                                 ctx.getSource().sendFeedback(Text.translatable("commands.checkpoint.success.single", pos.getX(), pos.getY(), pos.getZ(), targets.iterator().next().getDisplayName()), true);
@@ -98,7 +113,6 @@ public class PeculiarPieces implements ModInitializer {
                                             }
                                             return 0;
                                         })))));
-
         ServerTickEvents.END_WORLD_TICK.register(serverWorld -> WarpManager.tick());
         PlayerCrouchCallback.EVENT.register((player, world) -> {
             BlockPos pos = player.getBlockPos().add(0, -1, 0);

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LNL",
+    "DBD",
+    "LCL"
+  ],
+  "key": {
+    "D": {
+      "tag": "peculiarpieces:deepslate_blocks"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "C": {
+      "item": "minecraft:copper_block"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:packed_pouch"
+  }
+}

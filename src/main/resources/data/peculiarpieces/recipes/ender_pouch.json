@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LNL",
+    "DBD",
+    "LDL"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:obsidian"
+    },
+    "B": {
+      "item": "minecraft:chest"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "N": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:ender_pouch"
+  }
+}

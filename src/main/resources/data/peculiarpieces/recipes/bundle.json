@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "L L",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "tag": "peculiarpieces:pelts"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "minecraft:bundle"
+  }
+}

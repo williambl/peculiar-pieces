@@ -1,6 +1,6 @@
 {
   "name": "Flight Effect",
-  "icon": "peculiarpieces:flight_ring",
+  "icon": "minecraft:potion{Potion:\"peculiarpieces:flight\"}",
   "category": "peculiarpieces:creative",
   "pages": [
     {
@@ -8,9 +8,9 @@
       "text": "There exists a Flight potion effect which can be applied to players, giving them creative flight until the effect expires. This is currently unobtainable and likely will remain as such unless a suitable method for obtaining is found."
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "peculiarpieces:flight_ring",
-      "text": "A \"\"survival friendly\"\" alternative."
+      "type": "patchouli:spotlight",
+      "item": "minecraft:potion{Potion:\"peculiarpieces:flight\"}",
+      "text": "An appreciated gift."
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "name": "Burning Sponge",
+  "icon": "peculiarpieces:burning_sponge",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Sometimes ordinary sponge isn't fit for purpose when dealing with large amounts of water, in this case you can create some Burning Sponge.$(br)This sponge will remain dry permanently, never becoming saturated with water.$(br)It also absorbs water in a larger radius."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:burning_sponge"
+    }
+  ]
+}

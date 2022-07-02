@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "peculiarpieces:item/packed_pouch_body",
+    "layer1": "peculiarpieces:item/packed_pouch_tie"
+  }
+}

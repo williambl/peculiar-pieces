@@ -1,0 +1,16 @@
+{
+  "name": "Glowing Potions",
+  "icon": "minecraft:splash_potion{Potion:\"peculiarpieces:glowing\"}",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You can now create Glowing Potions using glow berries as their main ingredient."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:splash_potion{Potion:\"peculiarpieces:glowing\"}",
+      "text": "Makes it easy to track enemies!"
+    }
+  ]
+}

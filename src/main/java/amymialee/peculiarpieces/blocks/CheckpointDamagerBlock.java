@@ -1,7 +1,7 @@
 package amymialee.peculiarpieces.blocks;
 
 import amymialee.peculiarpieces.PeculiarPieces;
-import amymialee.peculiarpieces.util.CheckpointPlayerWrapper;
+import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -22,7 +22,7 @@ public class CheckpointDamagerBlock extends AbstractStructureVoidBlock {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         super.onEntityCollision(state, world, pos, entity);
-        if (!world.isClient() && entity instanceof PlayerEntity player && player instanceof CheckpointPlayerWrapper checkPlayer) {
+        if (!world.isClient() && entity instanceof PlayerEntity player && player instanceof ExtraPlayerDataWrapper checkPlayer) {
             Vec3d checkpointPos = checkPlayer.getCheckpointPos();
             if (checkpointPos != null && checkpointPos.distanceTo(entity.getPos()) > 2) {
                 float health = player.getHealth();

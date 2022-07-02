@@ -1,0 +1,15 @@
+{
+  "name": "Bouncy Boots",
+  "icon": "peculiarpieces:bouncy_boots",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "For those with little regard for their slime's safety, one can put them to use with some Bouncy Boots.$(br)These boots will cause you to bounce on hitting the floor, preventing any and all fall damage, and giving you a small speed boost to boot(s)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bouncy_boots"
+    }
+  ]
+}

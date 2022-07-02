@@ -89,7 +89,12 @@ public class PushPadBlock extends CarpetBlock {
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos())).with(FACING, ctx.getPlayerFacing()).with(POWER, Math.min(3, ctx.getStack().getOrCreateNbt().getInt("pp:variant")));
+        ItemStack stack = ctx.getStack();
+        BlockState state = this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos())).with(FACING, ctx.getPlayerFacing());
+        if (stack.hasNbt() && stack.getNbt() != null) {
+            return state.with(POWER, Math.min(3, stack.getNbt().getInt("pp:variant")));
+        }
+        return state;
     }
 
     @Override

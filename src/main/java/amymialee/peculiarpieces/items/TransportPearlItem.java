@@ -62,7 +62,10 @@ public class TransportPearlItem extends Item {
     }
 
     public static BlockPos readStone(ItemStack stack) {
-        return NbtHelper.toBlockPos(stack.getOrCreateNbt().getCompound("pp:stone_%d".formatted(getSlot(stack))));
+        if (stack.hasNbt() && stack.getNbt() != null) {
+            return NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone_%d".formatted(getSlot(stack))));
+        }
+        return BlockPos.ORIGIN;
     }
 
     private static void incrementSlot(ItemStack stack) {
