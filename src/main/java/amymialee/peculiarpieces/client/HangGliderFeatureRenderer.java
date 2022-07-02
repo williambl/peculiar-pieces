@@ -2,6 +2,7 @@ package amymialee.peculiarpieces.client;
 
 import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.PeculiarPiecesClient;
+import amymialee.peculiarpieces.items.GliderItem;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -12,10 +13,10 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLoader;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
-public class HangGliderFeatureRenderer<T extends LivingEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
+public class HangGliderFeatureRenderer<T extends PlayerEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
     private static final Identifier SKIN = PeculiarPieces.id("textures/entity/hang_glider.png");
     private final HangGliderEntityModel<T> glider;
 
@@ -25,12 +26,12 @@ public class HangGliderFeatureRenderer<T extends LivingEntity, M extends EntityM
     }
 
     @Override
-    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l) {
-        if (livingEntity.getMainHandStack().getOrCreateNbt().getBoolean("pp:gliding") || livingEntity.getOffHandStack().getOrCreateNbt().getBoolean("pp:gliding")) {
+    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T playerEntity, float f, float g, float h, float j, float k, float l) {
+        if (GliderItem.hasGlider(playerEntity)) {
             matrixStack.push();
             matrixStack.translate(0.0, 0.0, 0.125);
             this.getContextModel().copyStateTo(this.glider);
-            this.glider.setAngles(livingEntity, f, g, j, k, l);
+            this.glider.setAngles(playerEntity, f, g, j, k, l);
             VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(SKIN), false, false);
             this.glider.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0f, 1.0f, 1.0f, 1.0f);
             matrixStack.pop();

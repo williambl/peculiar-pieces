@@ -64,6 +64,10 @@ public class PushPadBlock extends CarpetBlock {
         Direction direction = state.get(FACING);
         if (!(direction == null)) {
             double power = (state.get(POWER) + 1) * 0.65f;
+            if (state.get(POWER) == 3) {
+                power += 1;
+            }
+            System.out.println(power);
             Vec3d vector = Vec3d.of(direction.getVector());
             Vec3d velocity = entity.getVelocity();
             Vec3d push = new Vec3d(velocity.getX() + (power * 0.2 * vector.getX()), 0, velocity.getZ() + (power * 0.2 * vector.getZ()));

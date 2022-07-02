@@ -27,7 +27,12 @@ public class GliderItem extends Item {
     }
 
     public static boolean hasGlider(PlayerEntity player) {
-        return player.getMainHandStack().getOrCreateNbt().getBoolean("pp:gliding") || player.getOffHandStack().getOrCreateNbt().getBoolean("pp:gliding");
+        ItemStack main = player.getMainHandStack();
+        if (main.getNbt() != null && main.getNbt().getBoolean("pp:gliding")) {
+            return true;
+        }
+        ItemStack off = player.getMainHandStack();
+        return off.getNbt() != null && off.getNbt().getBoolean("pp:gliding");
     }
 
     public static boolean isGliding(PlayerEntity player) {

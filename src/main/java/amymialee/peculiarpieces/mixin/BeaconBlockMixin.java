@@ -30,10 +30,10 @@ public class BeaconBlockMixin {
     public void PeculiarPieces$UnbreakableBeacons(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!world.isClient && player.isSneaking()) {
             Box box = Box.of(Vec3d.of(pos.add(0, 1, 0)), 1.0D, 1.0D, 1.0D);
-            List<ItemEntity> list = world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), box, (orb) -> !orb.getStack().getOrCreateNbt().getBoolean("Unbreakable"));
+            List<ItemEntity> list = world.getEntitiesByType(TypeFilter.instanceOf(ItemEntity.class), box, (orb) -> orb.getStack().getNbt() == null || !orb.getStack().getNbt().getBoolean("Unbreakable"));
             for (ItemEntity itemEntity : list) {
                 ItemStack stack = itemEntity.getStack();
-                if (stack.getItem().isDamageable() && !stack.getOrCreateNbt().getBoolean("Unbreakable")) {
+                if (stack.getItem().isDamageable()) {
                     stack.getOrCreateNbt().putBoolean("Unbreakable", true);
                     itemEntity.setStack(stack);
                 }

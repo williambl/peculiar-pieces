@@ -24,22 +24,24 @@ public class SpawnpointPearlItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if (!world.isClient) {
-            if (world instanceof ServerWorld serverWorld) {
-                ServerPlayerEntity player = ((ServerPlayerEntity) user);
-                Optional<Vec3d> spawnpoint = PlayerEntity.findRespawnPosition(serverWorld, player.getSpawnPointPosition(), 0, false, true);
-                if (spawnpoint.isPresent()) {
-                    RegistryKey<World> spawnDim = player.getSpawnPointDimension();
-                    if (spawnDim != player.getWorld().getRegistryKey()) {
-                        ServerWorld level = serverWorld.getServer().getWorld(spawnDim);
-                        if (!(level == null)) {
-                            player.moveToWorld(level);
+            if (world instanceof ServerWorld serverWorld && user instanceof ServerPlayerEntity player) {
+                if (player.getSpawnPointPosition() != null) {
+                    Optional<Vec3d> spawnpoint = PlayerEntity.findRespawnPosition(serverWorld, player.getSpawnPointPosition(), 0, false, true);
+                    if (spawnpoint.isPresent()) {
+                        RegistryKey<World> spawnDim = player.getSpawnPointDimension();
+                        if (spawnDim != player.getWorld().getRegistryKey()) {
+                            ServerWorld level = serverWorld.getServer().getWorld(spawnDim);
+                            if (!(level == null)) {
+                                player.moveToWorld(level);
+                            }
                         }
+                        WarpManager.queueTeleport(user, spawnpoint.get());
+                    } else {
+                        WarpManager.queueTeleport(user, serverWorld.getSpawnPos());
                     }
-                    WarpManager.queueTeleport(user, spawnpoint.get());
                 } else {
                     WarpManager.queueTeleport(user, serverWorld.getSpawnPos());
                 }
-                return TypedActionResult.success(user.getStackInHand(hand));
             }
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));

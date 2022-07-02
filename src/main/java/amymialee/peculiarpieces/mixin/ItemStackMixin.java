@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,19 +20,19 @@ public abstract class ItemStackMixin {
 
     @Shadow public abstract NbtCompound getOrCreateNbt();
 
+    @Shadow public abstract @Nullable NbtCompound getNbt();
+
     @Inject(method = "setCustomName", at = @At("TAIL"))
     public void PeculiarPieces$TransPearlNameStorage(Text name, CallbackInfoReturnable<ItemStack> cir) {
         if (this.getItem() == PeculiarItems.TRANS_PEARL && name != null) {
-            NbtCompound compound = getOrCreateNbt();
-            compound.putString("pp:stone_name_%d".formatted(TransportPearlItem.getSlot((ItemStack) ((Object) this))), name.getString());
+            getOrCreateNbt().putString("pp:stone_name_%d".formatted(TransportPearlItem.getSlot((ItemStack) ((Object) this))), name.getString());
         }
     }
 
     @Inject(method = "removeCustomName", at = @At("TAIL"))
     public void PeculiarPieces$TransPearlNameRemoval(CallbackInfo ci) {
-        if (this.getItem() == PeculiarItems.TRANS_PEARL) {
-            NbtCompound compound = getOrCreateNbt();
-            compound.remove("pp:stone_name_%d".formatted(TransportPearlItem.getSlot((ItemStack) ((Object) this))));
+        if (this.getItem() == PeculiarItems.TRANS_PEARL && getNbt() != null) {
+            getNbt().remove("pp:stone_name_%d".formatted(TransportPearlItem.getSlot((ItemStack) ((Object) this))));
         }
     }
 }

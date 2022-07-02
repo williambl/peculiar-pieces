@@ -68,8 +68,8 @@ public class PeculiarPiecesClient implements ClientModInitializer {
     }
 
     static {
-        ModelPredicateProviderRegistry.register(PeculiarBlocks.JUMP_PAD.asItem(), new Identifier("variant"), (stack, world, entity, number) -> (float) stack.getOrCreateNbt().getInt("pp:variant") / 3);
-        ModelPredicateProviderRegistry.register(PeculiarBlocks.PUSH_PAD.asItem(), new Identifier("variant"), (stack, world, entity, number) -> (float) stack.getOrCreateNbt().getInt("pp:variant") / 3);
-        ModelPredicateProviderRegistry.register(PeculiarItems.HANG_GLIDER, new Identifier("active"), (stack, world, entity, number) -> stack.getOrCreateNbt().getBoolean("pp:gliding") ? 1 : 0);
+        ModelPredicateProviderRegistry.register(PeculiarBlocks.JUMP_PAD.asItem(), new Identifier("variant"), (stack, world, entity, number) -> stack.getNbt() == null ? 0 : (float) stack.getNbt().getInt("pp:variant") / 3);
+        ModelPredicateProviderRegistry.register(PeculiarBlocks.PUSH_PAD.asItem(), new Identifier("variant"), (stack, world, entity, number) -> stack.getNbt() == null ? 0 : (float) stack.getNbt().getInt("pp:variant") / 3);
+        ModelPredicateProviderRegistry.register(PeculiarItems.HANG_GLIDER, new Identifier("active"), (stack, world, entity, number) -> stack.getNbt() == null || !stack.getNbt().getBoolean("pp:gliding") ? 0 : 1);
     }
 }

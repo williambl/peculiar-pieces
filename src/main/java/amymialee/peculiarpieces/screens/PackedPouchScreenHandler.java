@@ -49,9 +49,11 @@ public class PackedPouchScreenHandler extends ScreenHandler {
 
     private void readNBT() {
         DefaultedList<ItemStack> stacks = DefaultedList.ofSize(54, ItemStack.EMPTY);
-        Inventories.readNbt(bundle.getOrCreateNbt(), stacks);
-        for (int i = 0; i < stacks.size(); i++) {
-            bundleInv.setStack(i, stacks.get(i));
+        if (bundle.hasNbt() && bundle.getNbt() != null) {
+            Inventories.readNbt(bundle.getNbt(), stacks);
+            for (int i = 0; i < stacks.size(); i++) {
+                bundleInv.setStack(i, stacks.get(i));
+            }
         }
     }
 

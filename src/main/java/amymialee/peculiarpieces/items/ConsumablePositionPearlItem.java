@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
@@ -28,9 +27,9 @@ public class ConsumablePositionPearlItem extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         PlayerEntity player = context.getPlayer();
-        BlockPos pos = NbtHelper.toBlockPos(context.getStack().getOrCreateNbt().getCompound("pp:stone"));
-        if (player != null && (pos.equals(BlockPos.ORIGIN) || player.isCreative()) && player.isSneaking()) {
-            writeStone(context.getStack(), context.getBlockPos().add(0, 1, 0));
+        ItemStack stack = context.getStack();
+        if (player != null && player.isSneaking() && (stack.getNbt() == null || (NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone")).equals(BlockPos.ORIGIN)) || player.isCreative())) {
+            writeStone(stack, context.getBlockPos().add(0, 1, 0));
             player.getItemCooldownManager().set(this, 20);
         }
         return super.useOnBlock(context);
@@ -56,15 +55,22 @@ public class ConsumablePositionPearlItem extends Item {
     }
 
     public static BlockPos readStone(ItemStack stack) {
-        return NbtHelper.toBlockPos(stack.getOrCreateNbt().getCompound("pp:stone"));
+        if (stack.getNbt() != null) {
+            return NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone"));
+        }
+        return BlockPos.ORIGIN;
     }
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        NbtCompound compound = stack.getOrCreateNbt();
-        BlockPos pos = NbtHelper.toBlockPos(compound.getCompound("pp:stone"));
-        if (!pos.equals(BlockPos.ORIGIN)) {
-            tooltip.add(Text.translatable("Position: x%d, y%d, z%d".formatted(pos.getX(), pos.getY(), pos.getZ())).formatted(Formatting.GRAY));
+        if (stack.getNbt() != null) {
+            BlockPos pos = NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone"));
+            if (!pos.equals(BlockPos.ORIGIN)) {
+                tooltip.add(Text.translatable("Position: x%d, y%d, z%d".formatted(pos.getX(), pos.getY(), pos.getZ())).formatted(Formatting.GRAY));
+            } else {
+                tooltip.add(Text.translatable("peculiarpieces.pearl.empty").formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("peculiarpieces.pearl.bind").formatted(Formatting.GRAY));
+            }
         } else {
             tooltip.add(Text.translatable("peculiarpieces.pearl.empty").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("peculiarpieces.pearl.bind").formatted(Formatting.GRAY));
