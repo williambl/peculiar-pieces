@@ -43,7 +43,7 @@ public abstract class InGameHudMixin extends DrawableHelper {
             ItemStack itemStack = player.getStackInHand(hand);
             if (itemStack.isOf(Items.TOTEM_OF_UNDYING)) {
                 drawTotem(matrices, x, q, 0, blinking);
-                drawTotem(matrices, x, q, 1, blinking);
+                drawTotem(matrices, x, q, 1, false);
                 return;
             }
         }
@@ -54,17 +54,21 @@ public abstract class InGameHudMixin extends DrawableHelper {
             if (token || emblem) {
                 drawTotem(matrices, x, q, 0, blinking);
                 if (token) {
-                    drawTotem(matrices, x, q, 2, blinking);
-                } else if (!player.getItemCooldownManager().isCoolingDown(PeculiarItems.EVERLASTING_EMBLEM)) {
-                    drawTotem(matrices, x, q, 3, blinking);
+                    drawTotem(matrices, x, q, 2, false);
+                } else {
+                    if (!player.getItemCooldownManager().isCoolingDown(PeculiarItems.EVERLASTING_EMBLEM)) {
+                        drawTotem(matrices, x, q, 3, false);
+                    } else if (player.getItemCooldownManager().getCooldownProgress(PeculiarItems.EVERLASTING_EMBLEM, 1) < 0.5f) {
+                        drawTotem(matrices, x, q, 3, true);
+                    }
                 }
             }
         }
     }
 
-    private void drawTotem(MatrixStack matrices, int x, int y, int offset, boolean blinking) {
+    private void drawTotem(MatrixStack matrices, int x, int y, int offset, boolean altTexture) {
         RenderSystem.setShaderTexture(0, PECULIAR_ICONS_TEXTURE);
-        DrawableHelper.drawTexture(matrices, x, y - 3, getZOffset(), 9 * offset, blinking ? 9 : 0, 9, 9, 64, 32);
+        DrawableHelper.drawTexture(matrices, x, y - 3, getZOffset(), 9 * offset, altTexture ? 9 : 0, 9, 9, 64, 32);
         RenderSystem.setShaderTexture(0, GUI_ICONS_TEXTURE);
     }
 }

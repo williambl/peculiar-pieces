@@ -1,0 +1,11 @@
+{
+  "name": "Entity Push Toggle",
+  "icon": "minecraft:piston",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "There is now a gamerule to disable mobs from pushing each other when overlapping.$(br2)pp:doEntityPush(br)(true by default)$(br)When false, pushing will be completely disabled.$(br)Notable exceptions are minecarts and players."
+    }
+  ]
+}

@@ -12,6 +12,7 @@
     "ClientPlayNetworkHandlerMixin",
     "CreeperEntityMixin",
     "EntityAccessor",
+    "EntityMixin",
     "ExplosionMixin",
     "InGameHudMixin",
     "ItemStackMixin",

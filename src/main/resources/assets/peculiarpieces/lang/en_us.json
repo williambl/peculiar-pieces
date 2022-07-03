@@ -154,6 +154,7 @@
 
   "gamerule.pp:explosionsBreakBlocks" : "Explosions can destroy blocks.",
   "gamerule.pp:explosionsAlwaysDrop" : "Explosions drop all items.",
+  "gamerule.pp:doEntityPush" : "Entities push each other away.",
 
   "peculiarpieces.subtitle.sheep.yippee" : "Yippee!",
   "peculiarpieces.subtitle.sheep.yippee_engineer" : "Yippee!",
