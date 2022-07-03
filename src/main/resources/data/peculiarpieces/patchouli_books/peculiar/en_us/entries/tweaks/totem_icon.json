@@ -1,0 +1,16 @@
+{
+  "name": "Totem Icons",
+  "icon": "minecraft:totem_of_undying",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "When holding a Totem of Undying, it will now show a small icon over the last heart on your health bar showing that it is active.$(br)This also applies to some other similar items within the mod, each with their own unique icon."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:totem_of_undying",
+      "text": "If multiple of these items are equipped the icon will show the one with the highest priority, meaning the item that would be used up first when activated."
+    }
+  ]
+}
