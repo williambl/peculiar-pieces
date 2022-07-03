@@ -2,6 +2,7 @@ package amymialee.peculiarpieces.blocks;
 
 import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -24,7 +25,7 @@ public class CheckpointReturnerBlock extends AbstractStructureVoidBlock {
         if (!world.isClient() && entity instanceof PlayerEntity player && player instanceof ExtraPlayerDataWrapper checkPlayer) {
             Vec3d checkpointPos = checkPlayer.getCheckpointPos();
             if (checkpointPos != null && checkpointPos.distanceTo(entity.getPos()) > 2) {
-                WarpManager.queueTeleport(player, checkpointPos);
+                WarpManager.queueTeleport(WarpInstance.of(player).position(checkpointPos).particles());
                 player.sendMessage(Text.translatable("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
             }
         }

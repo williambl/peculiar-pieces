@@ -2,6 +2,7 @@ package amymialee.peculiarpieces.blocks;
 
 import amymialee.peculiarpieces.callbacks.PlayerCrouchConsumingBlock;
 import amymialee.peculiarpieces.callbacks.PlayerJumpConsumingBlock;
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -40,6 +41,6 @@ public class ElevatorBlock extends Block implements PlayerCrouchConsumingBlock, 
     }
 
     public void receiveTeleport(BlockState state, BlockPos pos, PlayerEntity player) {
-        WarpManager.queueTeleport(player, pos.add(0, 1, 0));
+        WarpManager.queueTeleport(WarpInstance.of(player).position(pos.add(0, 1, 0)).particles());
     }
 }

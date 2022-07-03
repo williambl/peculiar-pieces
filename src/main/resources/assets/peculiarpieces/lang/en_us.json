@@ -79,6 +79,7 @@
   "block.peculiarpieces.potion_pad" : "Potion Pad",
   "block.peculiarpieces.shock_absorber" : "Shock Absorber",
   "block.peculiarpieces.burning_sponge" : "Burning Sponge",
+  "block.peculiarpieces.block_breaker" : "Block Breaker",
 
   "peculiarpieces.container.warp_block" : "Warp Block",
   "peculiarpieces.container.potion_pad" : "Potion Pad",
@@ -102,6 +103,8 @@
   "item.peculiarpieces.glider_wing" : "Glider Wing",
   "item.peculiarpieces.packed_pouch" : "Packed Pouch",
   "item.peculiarpieces.ender_pouch" : "Ender Pouch",
+  "item.peculiarpieces.token_of_undying" : "Token of Undying",
+  "item.peculiarpieces.everlasting_emblem" : "Everlasting Emblem",
 
   "item.peculiarpieces.hidden_potion.effect.empty": "Uncraftable Hidden Potion",
   "item.peculiarpieces.hidden_potion.effect.water": "Hidden Water Bottle",
@@ -164,8 +167,10 @@
   "peculiarpieces.book.landing" : "Peculiar Pieces is a mod that adds a bunch of random features and interactions to the game, with varying levels of balance and vanilla stylings.$(br)All features of the mod are listed here within this book.",
 
   "trinkets.slot.ring.flight_ring" : "Flight Ring",
+  "trinkets.slot.chest.undying_charm" : "Undying Charm",
   "tag.trinkets.feet.shoes" : "Shoes",
   "tag.trinkets.ring.flight_ring" : "Flight Ring",
+  "tag.trinkets.chest.undying_charm" : "Undying Charm",
   "tag.peculiarpieces.deepslate_blocks" : "Deepslate",
   "tag.peculiarpieces.pressure_plates" : "Pressure Plates",
   "tag.peculiarpieces.elevators" : "Elevators",
@@ -174,6 +179,7 @@
   "tag.peculiarpieces.blackstone_blocks" : "Blackstone",
   "tag.peculiarpieces.sponge" : "Sponge",
   "tag.peculiarpieces.pelts" : "Pelts",
+  "tag.peculiarpieces.stone_blocks" : "Stone Blocks",
 
   "peculiarpieces.pearl.empty" : "Empty.",
   "peculiarpieces.transport_pearl.empty" : "%s: Empty.",

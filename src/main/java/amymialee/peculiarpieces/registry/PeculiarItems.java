@@ -27,6 +27,8 @@ public class PeculiarItems {
     public static final Item HANG_GLIDER = registerItem("hang_glider", MOD_ITEMS, new GliderItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item PACKED_POUCH = registerItem("packed_pouch", MOD_ITEMS, new PackedPouchItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item ENDER_POUCH = registerItem("ender_pouch", MOD_ITEMS, new EnderPouchItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item TOKEN_OF_UNDYING = registerItem("token_of_undying", MOD_ITEMS, new DispensableTrinketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item EVERLASTING_EMBLEM = registerItem("everlasting_emblem", MOD_ITEMS, new EverlastingEmblemItem(new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item MOUNTING_STICK = registerItem("mounting_stick", MOD_ITEMS, new MountingStickItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item FLIGHT_RING = registerItem("flight_ring", MOD_ITEMS, new FlightRingItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     //Shoes

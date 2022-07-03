@@ -1,0 +1,15 @@
+{
+  "name": "Block Breaker",
+  "icon": "peculiarpieces:block_breaker",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Block Breakers will simply break the block in front of them when they are activated, dropping any broken blocks to the floor."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:block_breaker"
+    }
+  ]
+}

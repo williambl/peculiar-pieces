@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.items;
 
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -35,12 +36,12 @@ public class SpawnpointPearlItem extends Item {
                                 player.moveToWorld(level);
                             }
                         }
-                        WarpManager.queueTeleport(user, spawnpoint.get());
+                        WarpManager.queueTeleport(WarpInstance.of(user).position(spawnpoint.get()).particles());
                     } else {
-                        WarpManager.queueTeleport(user, serverWorld.getSpawnPos());
+                        WarpManager.queueTeleport(WarpInstance.of(user).position(serverWorld.getSpawnPos()).particles());
                     }
                 } else {
-                    WarpManager.queueTeleport(user, serverWorld.getSpawnPos());
+                    WarpManager.queueTeleport(WarpInstance.of(user).position(serverWorld.getSpawnPos()).particles());
                 }
             }
         }

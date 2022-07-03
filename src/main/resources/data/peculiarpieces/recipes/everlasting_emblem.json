@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "ETE",
+    "GBG"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:end_crystal"
+    },
+    "E": {
+      "item": "minecraft:echo_shard"
+    },
+    "T": {
+      "item": "peculiarpieces:token_of_undying"
+    },
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:everlasting_emblem"
+  }
+}

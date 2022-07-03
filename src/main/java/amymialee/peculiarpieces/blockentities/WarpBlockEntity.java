@@ -6,6 +6,7 @@ import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
 import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LootableContainerBlockEntity;
@@ -43,19 +44,20 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
             NbtCompound compound = stack.getNbt();
             if (compound != null && compound.contains("pp:stone")) {
                 BlockPos pos = PositionPearlItem.readStone(stack);
-                WarpManager.queueTeleport(entity, Vec3d.ofBottomCenter(pos));
+                WarpManager.queueTeleport(WarpInstance.of(entity).position(pos).particles());
             }
         } else if (stack.isOf(PeculiarItems.CHECKPOINT_PEARL)) {
             if (entity instanceof PlayerEntity player && player instanceof ExtraPlayerDataWrapper checkPlayer) {
                 Vec3d checkpointPos = checkPlayer.getCheckpointPos();
                 if (checkpointPos != null) {
-                    WarpManager.queueTeleport(entity, checkpointPos);
+                    WarpManager.queueTeleport(WarpInstance.of(entity).position(checkpointPos).particles());
                     player.sendMessage(Text.translatable("%s.checkpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
                 }
             }
         } else if (stack.isOf(PeculiarItems.SKY_PEARL)) {
             if (world != null) {
-                WarpManager.queueTeleport(entity, new Vec3d(entity.getX(), world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, this.getPos()).getY(), entity.getZ()));
+                Vec3d vec3d = Vec3d.ofBottomCenter(pos);
+                WarpManager.queueTeleport(WarpInstance.of(entity).position(new Vec3d(vec3d.getX(), world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, this.getPos()).getY(), vec3d.getZ())).particles());
             }
         } else if (stack.isOf(PeculiarItems.SPAWNPOINT_PEARL)) {
             if (!entity.world.isClient) {
@@ -70,12 +72,12 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
                                     player.moveToWorld(level);
                                 }
                             }
-                            WarpManager.queueTeleport(entity, spawnpoint.get());
+                            WarpManager.queueTeleport(WarpInstance.of(entity).position(spawnpoint.get()).particles());
                         } else {
-                            WarpManager.queueTeleport(entity, serverWorld.getSpawnPos());
+                            WarpManager.queueTeleport(WarpInstance.of(entity).position(serverWorld.getSpawnPos()).particles());
                         }
                     } else {
-                        WarpManager.queueTeleport(entity, serverWorld.getSpawnPos());
+                        WarpManager.queueTeleport(WarpInstance.of(entity).position(serverWorld.getSpawnPos()).particles());
                     }
                     player.sendMessage(Text.translatable("%s.spawnpoint_returned".formatted(PeculiarPieces.MOD_ID)).formatted(Formatting.GRAY), true);
                 }

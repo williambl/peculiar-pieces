@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.items;
 
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -17,7 +18,7 @@ public class SkyPearlItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        WarpManager.queueTeleport(user, new Vec3d(user.getX(), world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, user.getBlockPos()).getY(), user.getZ()));
+        WarpManager.queueTeleport(WarpInstance.of(user).position(new Vec3d(user.getX(), world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, user.getBlockPos()).getY(), user.getZ())).particles());
         user.getItemCooldownManager().set(this, 4);
         return TypedActionResult.success(user.getStackInHand(hand));
     }

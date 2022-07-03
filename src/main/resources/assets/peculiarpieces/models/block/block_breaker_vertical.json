@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/orientable_vertical",
+  "textures": {
+    "front": "peculiarpieces:block/block_breaker_vertical",
+    "side": "minecraft:block/blast_furnace_top"
+  }
+}

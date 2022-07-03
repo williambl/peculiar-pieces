@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.items;
 
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
@@ -15,7 +16,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class PositionPearlItem extends Item {
         BlockPos pos = readStone(stack);
         if (!world.isClient && !pos.equals(BlockPos.ORIGIN)) {
             if (!user.isSneaking()) {
-                WarpManager.queueTeleport(user, Vec3d.ofBottomCenter(pos));
+                WarpManager.queueTeleport(WarpInstance.of(user).position(pos).particles());
             }
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));

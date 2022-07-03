@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "STS",
+    "SRS"
+  ],
+  "key": {
+    "S": {
+      "tag": "peculiarpieces:stone_blocks"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:block_breaker"
+  }
+}

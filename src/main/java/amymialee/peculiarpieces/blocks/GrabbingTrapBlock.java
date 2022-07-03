@@ -1,6 +1,7 @@
 package amymialee.peculiarpieces.blocks;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -37,7 +38,7 @@ public class GrabbingTrapBlock extends CarpetBlock {
         if (!state.get(POWERED) && !entity.isSneaking() && !entity.getType().isIn(PeculiarPieces.UNGRABBABLE)) {
             Vec3d trapPos = Vec3d.ofBottomCenter(pos).add(0, 0.0625, 0);
             if (distanceTo(trapPos, entity) > 0.01) {
-                WarpManager.queueTeleport(entity, trapPos);
+                WarpManager.queueTeleport(WarpInstance.of(entity).position(trapPos));
             }
         }
     }

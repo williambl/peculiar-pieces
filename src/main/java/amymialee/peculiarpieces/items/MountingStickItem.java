@@ -1,6 +1,7 @@
 package amymialee.peculiarpieces.items;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -48,7 +49,7 @@ public class MountingStickItem extends Item {
                 Entity passenger = user.getFirstPassenger();
                 if (passenger != null) {
                     passenger.dismountVehicle();
-                    WarpManager.queueTeleport(passenger, context.getHitPos());
+                    WarpManager.queueTeleport(WarpInstance.of(passenger).position(context.getHitPos()));
                 }
                 user.getItemCooldownManager().set(this, 4);
             }

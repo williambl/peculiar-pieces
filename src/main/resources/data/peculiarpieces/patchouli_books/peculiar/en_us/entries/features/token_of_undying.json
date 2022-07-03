@@ -1,0 +1,15 @@
+{
+  "name": "Token of Undying",
+  "icon": "peculiarpieces:token_of_undying",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Token of Undying is an improved Totem of Undying.$(br)It's effect is much more potent, but shorter lived.$(br)It can also be worn in it's own trinket slot.$(br)It will still break permanently on activation."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:token_of_undying"
+    }
+  ]
+}

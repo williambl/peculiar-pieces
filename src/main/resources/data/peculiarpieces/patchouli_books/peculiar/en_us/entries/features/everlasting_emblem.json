@@ -1,0 +1,15 @@
+{
+  "name": "Everlasting Emblem",
+  "icon": "peculiarpieces:everlasting_emblem",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "An Everlasting Emblem is a more renewable upgrade to a Token of Undying.$(br)This Emblem is much more resilient to damage and will not break when used, instead it will go on a long cooldown before functioning again."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:everlasting_emblem"
+    }
+  ]
+}

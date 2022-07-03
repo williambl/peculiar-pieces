@@ -1,6 +1,6 @@
 package amymialee.peculiarpieces.blocks;
 
-import amymialee.peculiarpieces.util.EntityPos;
+import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -26,7 +26,7 @@ public class RotatingElevatorBlock extends ElevatorBlock {
 
     @Override
     public void receiveTeleport(BlockState state, BlockPos pos, PlayerEntity player) {
-        WarpManager.queueTeleport(player, new EntityPos(pos.add(0, 1, 0), player.getPitch(), state.get(FACING).getOpposite().asRotation()));
+        WarpManager.queueTeleport(WarpInstance.of(player).position(pos.add(0, 1, 0)).yaw(state.get(FACING).getOpposite().asRotation()).particles());
     }
 
     @Override

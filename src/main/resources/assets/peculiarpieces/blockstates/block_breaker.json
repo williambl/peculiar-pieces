@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "peculiarpieces:block/block_breaker_vertical",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "peculiarpieces:block/block_breaker",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "peculiarpieces:block/block_breaker"
+    },
+    "facing=south": {
+      "model": "peculiarpieces:block/block_breaker",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "peculiarpieces:block/block_breaker_vertical"
+    },
+    "facing=west": {
+      "model": "peculiarpieces:block/block_breaker",
+      "y": 270
+    }
+  }
+}
