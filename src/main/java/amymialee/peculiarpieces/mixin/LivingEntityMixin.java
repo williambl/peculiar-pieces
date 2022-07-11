@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -58,16 +59,19 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @SuppressWarnings("ConstantConditions")
-    @Inject(method = "applyClimbingSpeed", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "applyClimbingSpeed", at = @At("HEAD"), cancellable = true)
     private void PeculiarPieces$MoreScaffolds(Vec3d motion, CallbackInfoReturnable<Vec3d> cir) {
         if (this.isClimbing()) {
             this.onLanding();
-            Vec3d vec3d = cir.getReturnValue();
+            double d = MathHelper.clamp(motion.x, -0.15f, 0.15f);
+            double e = MathHelper.clamp(motion.z, -0.15f, 0.15f);
             double g = Math.max(motion.y, -0.15f);
-            if (!(g < 0.0 && !this.getBlockStateAtPos().isIn(PeculiarPieces.SCAFFOLDING) && this.isHoldingOntoLadder() && ((Entity) this) instanceof PlayerEntity)) {
-                cir.setReturnValue(new Vec3d(vec3d.x, g, vec3d.z));
+            if (g < 0.0 && !this.getBlockStateAtPos().isIn(PeculiarPieces.SCAFFOLDING) && this.isHoldingOntoLadder() && ((Entity) this) instanceof PlayerEntity) {
+                g = 0.0;
             }
+            motion = new Vec3d(d, g, e);
         }
+        cir.setReturnValue(motion);
     }
 
     @Inject(method = "tryUseTotem", at = @At("RETURN"), cancellable = true)

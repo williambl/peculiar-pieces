@@ -23,6 +23,7 @@
     "PlayerEntityRendererMixin",
     "RedstoneWireBlockMixin",
     "ServerPlayerInteractionManagerMixin",
+    "ShearsItemMixin",
     "SheepEntityMixin",
     "SlimeEntityMixin",
     "StatusEffectInstanceAccessor"

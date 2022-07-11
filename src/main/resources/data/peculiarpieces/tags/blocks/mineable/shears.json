@@ -1,10 +1,6 @@
 {
   "replace": false,
   "values": [
-    "peculiarpieces:shock_absorber",
-    "peculiarpieces:burning_sponge",
-    "peculiarpieces:fast_target",
-    "peculiarpieces:dark_fast_target",
     "peculiarpieces:white_elevator",
     "peculiarpieces:orange_elevator",
     "peculiarpieces:magenta_elevator",
