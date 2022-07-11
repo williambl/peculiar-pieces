@@ -63,6 +63,7 @@ public class PeculiarPieces implements ModInitializer {
     public static final TagKey<EntityType<?>> MOUNT_BLACKLIST = TagKey.of(Registry.ENTITY_TYPE_KEY, id("mount_blacklist"));
     public static final TagKey<EntityType<?>> UNGRABBABLE = TagKey.of(Registry.ENTITY_TYPE_KEY, id("ungrabbable"));
     public static final TagKey<Block> WARP_BINDABLE = TagKey.of(Registry.BLOCK_KEY, id("warp_bindable"));
+    public static final TagKey<Block> SCAFFOLDING = TagKey.of(Registry.BLOCK_KEY, id("scaffolding"));
     public static final TagKey<Item> BARRIERS = TagKey.of(Registry.ITEM_KEY, id("barriers"));
     //Flight
     public static final StatusEffect FLIGHT_EFFECT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));

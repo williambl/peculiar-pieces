@@ -52,6 +52,7 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.TINTED_PLAYER_GLASS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.ENTITY_BARRIER, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.PLAYER_BARRIER, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.TOUGHENED_SCAFFOLDING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.ENTANGLED_SCAFFOLDING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(PeculiarBlocks.POTION_PAD, RenderLayer.getCutout());
 

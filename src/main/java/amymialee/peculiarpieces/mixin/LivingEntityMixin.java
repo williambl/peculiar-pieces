@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.mixin;
 
+import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketComponent;
@@ -17,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Pair;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -36,6 +38,10 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
+    @Shadow public abstract boolean isClimbing();
+
+    @Shadow public abstract boolean isHoldingOntoLadder();
+
     public LivingEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
@@ -49,6 +55,19 @@ public abstract class LivingEntityMixin extends Entity {
             }
         }
         return p;
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    @Inject(method = "applyClimbingSpeed", at = @At("RETURN"), cancellable = true)
+    private void PeculiarPieces$MoreScaffolds(Vec3d motion, CallbackInfoReturnable<Vec3d> cir) {
+        if (this.isClimbing()) {
+            this.onLanding();
+            Vec3d vec3d = cir.getReturnValue();
+            double g = Math.max(motion.y, -0.15f);
+            if (!(g < 0.0 && !this.getBlockStateAtPos().isIn(PeculiarPieces.SCAFFOLDING) && this.isHoldingOntoLadder() && ((Entity) this) instanceof PlayerEntity)) {
+                cir.setReturnValue(new Vec3d(vec3d.x, g, vec3d.z));
+            }
+        }
     }
 
     @Inject(method = "tryUseTotem", at = @At("RETURN"), cancellable = true)

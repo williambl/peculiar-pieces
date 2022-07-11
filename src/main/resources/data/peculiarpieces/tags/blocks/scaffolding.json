@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "peculiarpieces:midair_block",
+    "minecraft:scaffolding",
     "peculiarpieces:toughened_scaffolding",
     "peculiarpieces:entangled_scaffolding"
   ]

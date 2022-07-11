@@ -1,10 +1,10 @@
 {
     "parent": "block/block",
     "textures": {
-        "particle": "peculiarpieces:block/entangled_scaffolding_top",
-        "top": "peculiarpieces:block/entangled_scaffolding_top",
-        "side": "peculiarpieces:block/entangled_scaffolding_side",
-        "bottom": "peculiarpieces:block/entangled_scaffolding_bottom"
+        "particle": "peculiarpieces:block/toughened_scaffolding_top",
+        "top": "peculiarpieces:block/toughened_scaffolding_top",
+        "side": "peculiarpieces:block/toughened_scaffolding_side",
+        "bottom": "peculiarpieces:block/toughened_scaffolding_bottom"
     },
     "elements": [
         {
