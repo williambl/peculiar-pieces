@@ -1,0 +1,15 @@
+{
+  "name": "Shrieker Repair",
+  "icon": "minecraft:sculk_shrieker",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Sculk Shriekers normally cannot summon wardens when placed by a player.$(br)You can repair this summoning ability by using an echo shard on one of these weakened shriekers."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:sculk_shrieker"
+    }
+  ]
+}

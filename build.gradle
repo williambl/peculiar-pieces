@@ -46,6 +46,8 @@ dependencies {
     modImplementation ("dev.emi:emi:0.2.0+1.19") {
         transitive(false)
     }
+    implementation 'com.electronwill.night-config:toml:3.6.5'
+    modImplementation ("amymialee:kofi-table:1.0.1")
 }
 
 processResources {

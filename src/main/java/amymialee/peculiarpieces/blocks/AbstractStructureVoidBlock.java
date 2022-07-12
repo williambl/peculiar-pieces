@@ -10,7 +10,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 @SuppressWarnings("deprecation")
-public class AbstractStructureVoidBlock extends Block {
+public abstract class AbstractStructureVoidBlock extends Block {
     private static final VoxelShape SHAPE = Block.createCuboidShape(3.0D, 3.0D, 3.0D, 13.0D, 13.0D, 13.0D);
     private static final VoxelShape EMPTY = Block.createCuboidShape(0, 0, 0, 0, 0, 0);
 

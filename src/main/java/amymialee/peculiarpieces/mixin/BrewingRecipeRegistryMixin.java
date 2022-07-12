@@ -30,13 +30,6 @@ public class BrewingRecipeRegistryMixin {
         POTION_TYPES.add(Ingredient.ofItems(PeculiarItems.HIDDEN_POTION));
         ITEM_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(Items.POTION, Ingredient.ofItems(Items.AMETHYST_SHARD), PeculiarItems.HIDDEN_POTION));
         POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.FLIGHT, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_FLIGHT));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.SATURATION, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_SATURATION));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.SATURATION, Ingredient.ofItems(Items.GLOWSTONE_DUST), PeculiarPieces.STRONG_SATURATION));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.SATURATION, Ingredient.ofItems(Items.FERMENTED_SPIDER_EYE), PeculiarPieces.HUNGER));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.LONG_SATURATION, Ingredient.ofItems(Items.FERMENTED_SPIDER_EYE), PeculiarPieces.LONG_HUNGER));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.STRONG_SATURATION, Ingredient.ofItems(Items.FERMENTED_SPIDER_EYE), PeculiarPieces.STRONG_HUNGER));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.HUNGER, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_HUNGER));
-        POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.HUNGER, Ingredient.ofItems(Items.GLOWSTONE_DUST), PeculiarPieces.STRONG_HUNGER));
         POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(Potions.AWKWARD, Ingredient.ofItems(Items.GLOW_BERRIES), PeculiarPieces.GLOWING));
         POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.GLOWING, Ingredient.ofItems(Items.REDSTONE), PeculiarPieces.LONG_GLOWING));
         POTION_RECIPES.add(new BrewingRecipeRegistry.Recipe<>(PeculiarPieces.GLOWING, Ingredient.ofItems(Items.FERMENTED_SPIDER_EYE), PeculiarPieces.CONCEALMENT));

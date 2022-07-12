@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces.mixin;
 
+import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.client.HangGliderFeatureRenderer;
 import amymialee.peculiarpieces.items.GliderItem;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -30,7 +31,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
     }
 
     @Inject(method = "setupTransforms(Lnet/minecraft/client/network/AbstractClientPlayerEntity;Lnet/minecraft/client/util/math/MatrixStack;FFF)V", at = @At("HEAD"), cancellable = true)
-    protected void setupTransforms(AbstractClientPlayerEntity player, MatrixStack matrixStack, float f, float g, float h, CallbackInfo ci) {
+    protected void PeculiarPieces$GlidingHeadClip(AbstractClientPlayerEntity player, MatrixStack matrixStack, float f, float g, float h, CallbackInfo ci) {
         Vec3d velocity = player.getVelocity();
         if (GliderItem.isGliding(player) && velocity.getY() < 0) {
             player.bodyYaw = player.headYaw;
@@ -43,8 +44,10 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
     }
 
     @Inject(method = "getArmPose", at = @At("RETURN"), cancellable = true)
-    private static void getArmPose(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
-        if (GliderItem.hasGlider(player) && cir.getReturnValue() == BipedEntityModel.ArmPose.EMPTY) {
+    private static void PeculiarPieces$ArmPosing(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
+        if (player.hasStatusEffect(PeculiarPieces.CONCEALMENT_EFFECT) && !player.handSwinging && !player.isUsingItem()) {
+            cir.setReturnValue(BipedEntityModel.ArmPose.EMPTY);
+        } else if (GliderItem.hasGlider(player) && cir.getReturnValue() == BipedEntityModel.ArmPose.EMPTY) {
             cir.setReturnValue(BipedEntityModel.ArmPose.ITEM);
         }
     }

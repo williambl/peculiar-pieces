@@ -29,7 +29,9 @@
   "depends": {
     "fabric": "*",
     "trinkets": ">=3.0.0",
-    "visiblebarriers": ">=1.5.0"
+    "visiblebarriers": ">=1.5.0",
+    "kofitable": ">=1.0.0",
+    "patchouli": "*"
   },
   "custom": {
     "modmenu": {

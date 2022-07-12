@@ -24,9 +24,9 @@ public class HangGliderEntityModel<T extends LivingEntity> extends AnimalModel<T
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        Dilation dilation = new Dilation(1.5f);
-        modelPartData.addChild(GLIDER, ModelPartBuilder.create().uv(0, 0).cuboid(-16.0f, -12.0f, 2.0f, 32.0f, 32.0f, 0.0f, dilation), ModelTransform.NONE);
-        return TexturedModelData.of(modelData, 64, 32);
+        Dilation dilation = new Dilation(2f);
+        modelPartData.addChild(GLIDER, ModelPartBuilder.create().uv(0, 0).cuboid(-16.0f, -12.0f, 2.0f, 32.0f, 32.0f, 1.0f, dilation), ModelTransform.NONE);
+        return TexturedModelData.of(modelData, 128, 64);
     }
 
     @Override

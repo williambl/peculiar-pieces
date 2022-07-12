@@ -1,0 +1,15 @@
+{
+  "name": "Toughened Scaffolding",
+  "icon": "peculiarpieces:toughened_scaffolding",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Toughened Scaffolding is a reinforced variant of scaffolding, allowing it to reach much farther without any supports."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:toughened_scaffolding"
+    }
+  ]
+}

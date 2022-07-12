@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " AL",
+    "ACA",
+    "LA "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "L": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "minecraft:echo_shard"
+  }
+}

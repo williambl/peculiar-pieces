@@ -17,7 +17,7 @@ public class ShearsItemMixin extends Item {
     }
 
     @Inject(method = "getMiningSpeedMultiplier", at = @At("TAIL"), cancellable = true)
-    public void getMiningSpeedMultiplier(ItemStack stack, BlockState state, CallbackInfoReturnable<Float> cir) {
+    public void PeculiarPieces$ShearsMineable(ItemStack stack, BlockState state, CallbackInfoReturnable<Float> cir) {
         cir.setReturnValue(state.isIn(PeculiarPieces.SHEARS_MINEABLE) ? 12.0f : super.getMiningSpeedMultiplier(stack, state));
     }
 }

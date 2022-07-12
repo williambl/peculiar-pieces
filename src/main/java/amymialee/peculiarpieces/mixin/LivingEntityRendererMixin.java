@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class LivingEntityRendererMixin {
     @Redirect(method = "render(Lnet/minecraft/entity/LivingEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;isSpectator()Z"))
     private boolean PeculiarPieces$FeatureCleanse(LivingEntity instance) {
-        if (instance.hasStatusEffect(PeculiarPieces.CONCEALMENT_EFFECT)) {
+        if (instance.hasStatusEffect(PeculiarPieces.CONCEALMENT_EFFECT) && !instance.handSwinging && !instance.isUsingItem()) {
             return true;
         }
         return instance.isSpectator();

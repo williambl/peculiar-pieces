@@ -1,0 +1,15 @@
+{
+  "name": "Craftable Echo Shards",
+  "icon": "minecraft:echo_shard",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Echo Shards can now be crafted, making them easier to obtain for use in some of it's new recipes."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:echo_shard"
+    }
+  ]
+}

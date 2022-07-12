@@ -35,6 +35,18 @@ public class GliderItem extends Item {
         return off.getNbt() != null && off.getNbt().getBoolean("pp:gliding");
     }
 
+    public static ItemStack getGlider(PlayerEntity player) {
+        ItemStack main = player.getMainHandStack();
+        if (main.getNbt() != null && main.getNbt().getBoolean("pp:gliding")) {
+            return main;
+        }
+        ItemStack off = player.getOffHandStack();
+        if (off.getNbt() != null && off.getNbt().getBoolean("pp:gliding")) {
+            return off;
+        }
+        return null;
+    }
+
     public static boolean isGliding(PlayerEntity player) {
         if (!player.isOnGround() && !player.isSubmergedInWater() && !player.isSleeping()) {
             return hasGlider(player);

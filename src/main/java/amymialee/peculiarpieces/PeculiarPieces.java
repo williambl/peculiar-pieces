@@ -70,14 +70,6 @@ public class PeculiarPieces implements ModInitializer {
     public static final StatusEffect FLIGHT_EFFECT = Registry.register(Registry.STATUS_EFFECT, id("flight"), new FlightStatusEffect(StatusEffectCategory.BENEFICIAL, 6670591));
     public static final Potion FLIGHT = Registry.register(Registry.POTION, id("flight"), new Potion(new StatusEffectInstance(FLIGHT_EFFECT, 3600)));
     public static final Potion LONG_FLIGHT = Registry.register(Registry.POTION, id("long_flight"), new Potion("flight", new StatusEffectInstance(FLIGHT_EFFECT, 9600)));
-    //Saturation
-    public static final Potion SATURATION = Registry.register(Registry.POTION, id("saturation"), new Potion(new StatusEffectInstance(StatusEffects.SATURATION, 900)));
-    public static final Potion LONG_SATURATION = Registry.register(Registry.POTION, id("long_saturation"), new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, 1800)));
-    public static final Potion STRONG_SATURATION = Registry.register(Registry.POTION, id("strong_saturation"), new Potion("saturation", new StatusEffectInstance(StatusEffects.SATURATION, 450, 1)));
-    //Saturation
-    public static final Potion HUNGER = Registry.register(Registry.POTION, id("hunger"), new Potion(new StatusEffectInstance(StatusEffects.HUNGER, 900)));
-    public static final Potion LONG_HUNGER = Registry.register(Registry.POTION, id("long_hunger"), new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, 1800)));
-    public static final Potion STRONG_HUNGER = Registry.register(Registry.POTION, id("strong_hunger"), new Potion("hunger", new StatusEffectInstance(StatusEffects.HUNGER, 450, 1)));
     //Glowing
     public static final Potion GLOWING = Registry.register(Registry.POTION, id("glowing"), new Potion(new StatusEffectInstance(StatusEffects.GLOWING, 3600)));
     public static final Potion LONG_GLOWING = Registry.register(Registry.POTION, id("long_glowing"), new Potion("glowing", new StatusEffectInstance(StatusEffects.GLOWING, 9600)));
