@@ -81,9 +81,11 @@
   "block.peculiarpieces.shock_absorber" : "Shock Absorber",
   "block.peculiarpieces.burning_sponge" : "Burning Sponge",
   "block.peculiarpieces.block_breaker" : "Block Breaker",
+  "block.peculiarpieces.fish_tank" : "Fish Tank",
 
   "peculiarpieces.container.warp_block" : "Warp Block",
   "peculiarpieces.container.potion_pad" : "Potion Pad",
+  "peculiarpieces.container.fish_tank" : "Fish Tank",
 
   "item.peculiarpieces.peculiar_book" : "Peculiar Pieces",
   "item.peculiarpieces.checkpoint_pearl" : "Checkpoint Pearl",
