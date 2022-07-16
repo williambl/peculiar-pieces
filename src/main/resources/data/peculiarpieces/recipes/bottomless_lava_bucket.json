@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CBC",
+    "PHP"
+  ],
+  "key": {
+    "B": {
+      "item": "peculiarpieces:bottomless_bucket"
+    },
+    "C": {
+      "item": "minecraft:blaze_rod"
+    },
+    "P": {
+      "item": "minecraft:lava_bucket"
+    },
+    "H": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:bottomless_lava_bucket"
+  }
+}

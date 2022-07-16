@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CBC",
+    "PHP"
+  ],
+  "key": {
+    "B": {
+      "item": "peculiarpieces:bottomless_bucket"
+    },
+    "C": {
+      "item": "minecraft:emerald"
+    },
+    "P": {
+      "item": "minecraft:milk_bucket"
+    },
+    "H": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:bottomless_milk_bucket"
+  }
+}

@@ -3,6 +3,7 @@ package amymialee.peculiarpieces.registry;
 import amymialee.peculiarpieces.PeculiarPieces;
 import amymialee.peculiarpieces.items.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtil;
@@ -30,6 +31,10 @@ public class PeculiarItems {
     public static final Item TOKEN_OF_UNDYING = registerItem("token_of_undying", MOD_ITEMS, new DispensableTrinketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item EVERLASTING_EMBLEM = registerItem("everlasting_emblem", MOD_ITEMS, new EverlastingEmblemItem(new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item MOUNTING_STICK = registerItem("mounting_stick", MOD_ITEMS, new MountingStickItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item BOTTOMLESS_BUCKET = registerItem("bottomless_bucket", MOD_ITEMS, new BottomlessBucketItem(Fluids.EMPTY, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item BOTTOMLESS_WATER_BUCKET = registerItem("bottomless_water_bucket", MOD_ITEMS, new BottomlessBucketItem(Fluids.WATER, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item BOTTOMLESS_LAVA_BUCKET = registerItem("bottomless_lava_bucket", MOD_ITEMS, new BottomlessBucketItem(Fluids.LAVA, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item BOTTOMLESS_MILK_BUCKET = registerItem("bottomless_milk_bucket", MOD_ITEMS, new BottomlessMilkBucketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item FLIGHT_RING = registerItem("flight_ring", MOD_ITEMS, new FlightRingItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     //Shoes
     public static final Item SLIPPERY_SHOES = registerItem("slippery_shoes", MOD_ITEMS, new DispensableTrinketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));

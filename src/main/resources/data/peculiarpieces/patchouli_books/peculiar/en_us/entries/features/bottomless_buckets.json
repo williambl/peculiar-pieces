@@ -1,0 +1,31 @@
+{
+  "name": "Bottomless Buckets",
+  "icon": "peculiarpieces:bottomless_bucket",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Using a Heart of the Sea you can craft Bottomless Buckets, these buckets act differently depending on their contents."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bottomless_bucket",
+      "text": "Empty Buckets can consume an infinite amount of liquid, losing it permanently.$(br)Useful to clear out annoying water sources or for nether mining."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bottomless_water_bucket",
+      "text": "Bottomless Water Buckets can place an infinite amount of water, without ever running dry."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bottomless_milk_bucket",
+      "text": "Bottomless Milk Buckets come with an endless amount of milk, allowing you to clear harmful effects as often as you wish."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bottomless_lava_bucket",
+      "text": "Bottomless Lava Buckets act as an endless source of lava.$(br)Expensive to craft but allowing for infinite fuel and obsidian."
+    }
+  ]
+}
