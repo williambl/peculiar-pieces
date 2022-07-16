@@ -1,0 +1,15 @@
+{
+  "name": "Redstone Static",
+  "icon": "peculiarpieces:redstone_static",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "When a Redstone Static is powered it will emit a signal equal to it's static level.$(br)The strength of the incoming signal does not matter.$(br)The static level can be raised with right click and lowered with shift right click."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:redstone_static"
+    }
+  ]
+}

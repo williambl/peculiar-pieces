@@ -1,34 +1,421 @@
 {
   "variants": {
-    "facing=east,powered=false": {
+    "facing=east,powered=false,hurdle=0": {
       "y": 270,
-      "model": "minecraft:block/comparator"
+      "model": "peculiarpieces:block/redstone_hurdle_0"
     },
-    "facing=east,powered=true": {
+    "facing=east,powered=true,hurdle=0": {
       "y": 270,
-      "model": "minecraft:block/comparator_on"
+      "model": "peculiarpieces:block/redstone_hurdle_powered_0"
+    },"facing=east,powered=false,hurdle=1": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_1"
     },
-    "facing=north,powered=false": {
+    "facing=east,powered=true,hurdle=1": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_1"
+    },"facing=east,powered=false,hurdle=2": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_2"
+    },
+    "facing=east,powered=true,hurdle=2": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_2"
+    },"facing=east,powered=false,hurdle=3": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_3"
+    },
+    "facing=east,powered=true,hurdle=3": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_3"
+    },"facing=east,powered=false,hurdle=4": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_4"
+    },
+    "facing=east,powered=true,hurdle=4": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_4"
+    },"facing=east,powered=false,hurdle=5": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_5"
+    },
+    "facing=east,powered=true,hurdle=5": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_5"
+    },"facing=east,powered=false,hurdle=6": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_6"
+    },
+    "facing=east,powered=true,hurdle=6": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_6"
+    },"facing=east,powered=false,hurdle=7": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_7"
+    },
+    "facing=east,powered=true,hurdle=7": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_7"
+    },"facing=east,powered=false,hurdle=8": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_8"
+    },
+    "facing=east,powered=true,hurdle=8": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_8"
+    },"facing=east,powered=false,hurdle=9": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_9"
+    },
+    "facing=east,powered=true,hurdle=9": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_9"
+    },"facing=east,powered=false,hurdle=10": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_10"
+    },
+    "facing=east,powered=true,hurdle=10": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_10"
+    },"facing=east,powered=false,hurdle=11": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_11"
+    },
+    "facing=east,powered=true,hurdle=11": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_11"
+    },"facing=east,powered=false,hurdle=12": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_12"
+    },
+    "facing=east,powered=true,hurdle=12": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_12"
+    },"facing=east,powered=false,hurdle=13": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_13"
+    },
+    "facing=east,powered=true,hurdle=13": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_13"
+    },"facing=east,powered=false,hurdle=14": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_14"
+    },
+    "facing=east,powered=true,hurdle=14": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_14"
+    },"facing=east,powered=false,hurdle=15": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_15"
+    },
+    "facing=east,powered=true,hurdle=15": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_15"
+    },"facing=north,powered=false,hurdle=0": {
       "y": 180,
-      "model": "minecraft:block/comparator"
+      "model": "peculiarpieces:block/redstone_hurdle_0"
     },
-    "facing=north,powered=true": {
+    "facing=north,powered=true,hurdle=0": {
       "y": 180,
-      "model": "minecraft:block/comparator_on"
+      "model": "peculiarpieces:block/redstone_hurdle_powered_0"
+    },"facing=north,powered=false,hurdle=1": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_1"
     },
-    "facing=south,powered=false": {
-      "model": "minecraft:block/comparator"
+    "facing=north,powered=true,hurdle=1": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_1"
+    },"facing=north,powered=false,hurdle=2": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_2"
     },
-    "facing=south,powered=true": {
-      "model": "minecraft:block/comparator_on"
+    "facing=north,powered=true,hurdle=2": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_2"
+    },"facing=north,powered=false,hurdle=3": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_3"
     },
-    "facing=west,powered=false": {
+    "facing=north,powered=true,hurdle=3": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_3"
+    },"facing=north,powered=false,hurdle=4": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_4"
+    },
+    "facing=north,powered=true,hurdle=4": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_4"
+    },"facing=north,powered=false,hurdle=5": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_5"
+    },
+    "facing=north,powered=true,hurdle=5": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_5"
+    },"facing=north,powered=false,hurdle=6": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_6"
+    },
+    "facing=north,powered=true,hurdle=6": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_6"
+    },"facing=north,powered=false,hurdle=7": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_7"
+    },
+    "facing=north,powered=true,hurdle=7": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_7"
+    },"facing=north,powered=false,hurdle=8": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_8"
+    },
+    "facing=north,powered=true,hurdle=8": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_8"
+    },"facing=north,powered=false,hurdle=9": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_9"
+    },
+    "facing=north,powered=true,hurdle=9": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_9"
+    },"facing=north,powered=false,hurdle=10": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_10"
+    },
+    "facing=north,powered=true,hurdle=10": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_10"
+    },"facing=north,powered=false,hurdle=11": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_11"
+    },
+    "facing=north,powered=true,hurdle=11": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_11"
+    },"facing=north,powered=false,hurdle=12": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_12"
+    },
+    "facing=north,powered=true,hurdle=12": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_12"
+    },"facing=north,powered=false,hurdle=13": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_13"
+    },
+    "facing=north,powered=true,hurdle=13": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_13"
+    },"facing=north,powered=false,hurdle=14": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_14"
+    },
+    "facing=north,powered=true,hurdle=14": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_14"
+    },"facing=north,powered=false,hurdle=15": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_15"
+    },
+    "facing=north,powered=true,hurdle=15": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_15"
+    },"facing=south,powered=false,hurdle=0": {
+      "model": "peculiarpieces:block/redstone_hurdle_0"
+    },
+    "facing=south,powered=true,hurdle=0": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_0"
+    },"facing=south,powered=false,hurdle=1": {
+      "model": "peculiarpieces:block/redstone_hurdle_1"
+    },
+    "facing=south,powered=true,hurdle=1": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_1"
+    },"facing=south,powered=false,hurdle=2": {
+      "model": "peculiarpieces:block/redstone_hurdle_2"
+    },
+    "facing=south,powered=true,hurdle=2": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_2"
+    },"facing=south,powered=false,hurdle=3": {
+      "model": "peculiarpieces:block/redstone_hurdle_3"
+    },
+    "facing=south,powered=true,hurdle=3": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_3"
+    },"facing=south,powered=false,hurdle=4": {
+      "model": "peculiarpieces:block/redstone_hurdle_4"
+    },
+    "facing=south,powered=true,hurdle=4": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_4"
+    },"facing=south,powered=false,hurdle=5": {
+      "model": "peculiarpieces:block/redstone_hurdle_5"
+    },
+    "facing=south,powered=true,hurdle=5": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_5"
+    },"facing=south,powered=false,hurdle=6": {
+      "model": "peculiarpieces:block/redstone_hurdle_6"
+    },
+    "facing=south,powered=true,hurdle=6": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_6"
+    },"facing=south,powered=false,hurdle=7": {
+      "model": "peculiarpieces:block/redstone_hurdle_7"
+    },
+    "facing=south,powered=true,hurdle=7": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_7"
+    },"facing=south,powered=false,hurdle=8": {
+      "model": "peculiarpieces:block/redstone_hurdle_8"
+    },
+    "facing=south,powered=true,hurdle=8": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_8"
+    },"facing=south,powered=false,hurdle=9": {
+      "model": "peculiarpieces:block/redstone_hurdle_9"
+    },
+    "facing=south,powered=true,hurdle=9": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_9"
+    },"facing=south,powered=false,hurdle=10": {
+      "model": "peculiarpieces:block/redstone_hurdle_10"
+    },
+    "facing=south,powered=true,hurdle=10": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_10"
+    },"facing=south,powered=false,hurdle=11": {
+      "model": "peculiarpieces:block/redstone_hurdle_11"
+    },
+    "facing=south,powered=true,hurdle=11": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_11"
+    },"facing=south,powered=false,hurdle=12": {
+      "model": "peculiarpieces:block/redstone_hurdle_12"
+    },
+    "facing=south,powered=true,hurdle=12": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_12"
+    },"facing=south,powered=false,hurdle=13": {
+      "model": "peculiarpieces:block/redstone_hurdle_13"
+    },
+    "facing=south,powered=true,hurdle=13": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_13"
+    },"facing=south,powered=false,hurdle=14": {
+      "model": "peculiarpieces:block/redstone_hurdle_14"
+    },
+    "facing=south,powered=true,hurdle=14": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_14"
+    },"facing=south,powered=false,hurdle=15": {
+      "model": "peculiarpieces:block/redstone_hurdle_15"
+    },
+    "facing=south,powered=true,hurdle=15": {
+      "model": "peculiarpieces:block/redstone_hurdle_powered_15"
+    },"facing=west,powered=false,hurdle=0": {
       "y": 90,
-      "model": "minecraft:block/comparator"
+      "model": "peculiarpieces:block/redstone_hurdle_0"
     },
-    "facing=west,powered=true": {
+    "facing=west,powered=true,hurdle=0": {
       "y": 90,
-      "model": "minecraft:block/comparator_on"
+      "model": "peculiarpieces:block/redstone_hurdle_powered_0"
+    },"facing=west,powered=false,hurdle=1": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_1"
+    },
+    "facing=west,powered=true,hurdle=1": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_1"
+    },"facing=west,powered=false,hurdle=2": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_2"
+    },
+    "facing=west,powered=true,hurdle=2": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_2"
+    },"facing=west,powered=false,hurdle=3": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_3"
+    },
+    "facing=west,powered=true,hurdle=3": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_3"
+    },"facing=west,powered=false,hurdle=4": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_4"
+    },
+    "facing=west,powered=true,hurdle=4": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_4"
+    },"facing=west,powered=false,hurdle=5": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_5"
+    },
+    "facing=west,powered=true,hurdle=5": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_5"
+    },"facing=west,powered=false,hurdle=6": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_6"
+    },
+    "facing=west,powered=true,hurdle=6": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_6"
+    },"facing=west,powered=false,hurdle=7": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_7"
+    },
+    "facing=west,powered=true,hurdle=7": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_7"
+    },"facing=west,powered=false,hurdle=8": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_8"
+    },
+    "facing=west,powered=true,hurdle=8": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_8"
+    },"facing=west,powered=false,hurdle=9": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_9"
+    },
+    "facing=west,powered=true,hurdle=9": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_9"
+    },"facing=west,powered=false,hurdle=10": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_10"
+    },
+    "facing=west,powered=true,hurdle=10": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_10"
+    },"facing=west,powered=false,hurdle=11": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_11"
+    },
+    "facing=west,powered=true,hurdle=11": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_11"
+    },"facing=west,powered=false,hurdle=12": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_12"
+    },
+    "facing=west,powered=true,hurdle=12": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_12"
+    },"facing=west,powered=false,hurdle=13": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_13"
+    },
+    "facing=west,powered=true,hurdle=13": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_13"
+    },"facing=west,powered=false,hurdle=14": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_14"
+    },
+    "facing=west,powered=true,hurdle=14": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_14"
+    },"facing=west,powered=false,hurdle=15": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_15"
+    },
+    "facing=west,powered=true,hurdle=15": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_hurdle_powered_15"
     }
   }
 }

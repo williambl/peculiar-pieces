@@ -126,9 +126,9 @@ public class PeculiarBlocks {
     //Redstone Items
     public static final Block REDSTONE_CLAMP = registerBlock("redstone_clamp", PeculiarItems.CREATIVE_ITEMS, new RedstoneClampBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
     public static final Block REDSTONE_FILTER = registerBlock("redstone_filter", PeculiarItems.CREATIVE_ITEMS, new RedstoneFilterBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
-    public static final Block REDSTONE_HURDLE = registerBlock("redstone_hurdle", PeculiarItems.CREATIVE_ITEMS, new RedstoneHurdleBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
-    public static final Block REDSTONE_STATIC = registerBlock("redstone_static", PeculiarItems.CREATIVE_ITEMS, new RedstoneStaticBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
-    public static final Block REDSTONE_MONO = registerBlock("redstone_mono", PeculiarItems.CREATIVE_ITEMS, new RedstoneMonoBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
+    public static final Block REDSTONE_HURDLE = registerBlock("redstone_hurdle", PeculiarItems.MOD_ITEMS, new RedstoneHurdleBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
+    public static final Block REDSTONE_STATIC = registerBlock("redstone_static", PeculiarItems.MOD_ITEMS, new RedstoneStaticBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
+    public static final Block REDSTONE_MONO = registerBlock("redstone_mono", PeculiarItems.MOD_ITEMS, new RedstoneMonoBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
     public static final Block REDSTONE_RANDOM = registerBlock("redstone_random", PeculiarItems.CREATIVE_ITEMS, new RedstoneRandomizerBlock(FabricBlockSettings.of(Material.DECORATION).breakInstantly().sounds(BlockSoundGroup.WOOD)));
 
 

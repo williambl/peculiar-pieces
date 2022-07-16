@@ -1,0 +1,15 @@
+{
+  "name": "Redstone Hurdle",
+  "icon": "peculiarpieces:redstone_hurdle",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Redstone Hurdle will only allow a signal through if it is stronger than it's hurdle level.$(br)The hurdle level can be raised with right click and lowered with shift right click."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:redstone_hurdle"
+    }
+  ]
+}

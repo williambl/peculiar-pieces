@@ -1,6 +1,6 @@
 {
   "name": "Redstone Devices",
-  "icon": "peculiarpieces:redstone_mono",
+  "icon": "peculiarpieces:redstone_clamp",
   "category": "peculiarpieces:creative",
   "pages": [
     {
@@ -18,18 +18,6 @@
       "item": "peculiarpieces:redstone_filter",
       "link_recipe": true,
       "text": "A Redstone Filter will only allow signal through if it matches it's filter level exactly.$(br)The filter level can be raised with right click and lowered with shift right click."
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "peculiarpieces:redstone_hurdle",
-      "link_recipe": true,
-      "text": "A Redstone Hurdle will only allow a signal through if it is stronger than it's hurdle level.$(br)The hurdle level can be raised with right click and lowered with shift right click."
-    },
-    {
-      "type": "patchouli:spotlight",
-      "item": "peculiarpieces:redstone_static",
-      "link_recipe": true,
-      "text": "When a Redstone Static is powered it will emit a signal equal to it's static level.$(br)The strength of the incoming signal does not matter.$(br)The static level can be raised with right click and lowered with shift right click."
     },
     {
       "type": "patchouli:spotlight",
