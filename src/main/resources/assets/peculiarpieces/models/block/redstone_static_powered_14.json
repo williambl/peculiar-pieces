@@ -7,7 +7,7 @@
 		"4": "peculiarpieces:block/static_14",
 		"5": "block/redstone_torch",
 		"slab": "block/smooth_stone",
-		"particle": "block/redstone_torch"
+		"particle": "block/smooth_stone"
 	},
 	"elements": [
 		{

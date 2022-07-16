@@ -6,7 +6,8 @@
 		"3": "peculiarpieces:block/static",
 		"4": "peculiarpieces:block/static_11",
 		"slab": "block/smooth_stone",
-		"unlit": "block/redstone_torch_off"
+		"unlit": "block/redstone_torch_off",
+		"particle": "block/smooth_stone"
 	},
 	"elements": [
 		{
