@@ -1,0 +1,15 @@
+{
+  "name": "Redstone Mono",
+  "icon": "peculiarpieces:redstone_mono",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Redstone Mono acts as a monostable circuit in a single block, outputting a 1 tick signal for any signal input.$(br)The signal output will be as strong as the input."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:redstone_mono"
+    }
+  ]
+}

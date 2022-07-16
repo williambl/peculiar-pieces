@@ -1,34 +1,64 @@
 {
   "variants": {
-    "facing=east,powered=false": {
+    "facing=east,powered=false,expired=false": {
       "y": 270,
-      "model": "minecraft:block/comparator"
+      "model": "peculiarpieces:block/redstone_mono"
     },
-    "facing=east,powered=true": {
+    "facing=east,powered=true,expired=false": {
       "y": 270,
-      "model": "minecraft:block/comparator_on"
+      "model": "peculiarpieces:block/redstone_mono_powered"
     },
-    "facing=north,powered=false": {
+    "facing=east,powered=false,expired=true": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_mono_expired"
+    },
+    "facing=east,powered=true,expired=true": {
+      "y": 270,
+      "model": "peculiarpieces:block/redstone_mono_powered_expired"
+    },
+    "facing=north,powered=false,expired=false": {
       "y": 180,
-      "model": "minecraft:block/comparator"
+      "model": "peculiarpieces:block/redstone_mono"
     },
-    "facing=north,powered=true": {
+    "facing=north,powered=true,expired=false": {
       "y": 180,
-      "model": "minecraft:block/comparator_on"
+      "model": "peculiarpieces:block/redstone_mono_powered"
     },
-    "facing=south,powered=false": {
-      "model": "minecraft:block/comparator"
+    "facing=north,powered=false,expired=true": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_mono_expired"
     },
-    "facing=south,powered=true": {
-      "model": "minecraft:block/comparator_on"
+    "facing=north,powered=true,expired=true": {
+      "y": 180,
+      "model": "peculiarpieces:block/redstone_mono_powered_expired"
     },
-    "facing=west,powered=false": {
+    "facing=south,powered=false,expired=false": {
+      "model": "peculiarpieces:block/redstone_mono"
+    },
+    "facing=south,powered=true,expired=false": {
+      "model": "peculiarpieces:block/redstone_mono_powered"
+    },
+    "facing=south,powered=false,expired=true": {
+      "model": "peculiarpieces:block/redstone_mono_expired"
+    },
+    "facing=south,powered=true,expired=true": {
+      "model": "peculiarpieces:block/redstone_mono_powered_expired"
+    },
+    "facing=west,powered=false,expired=false": {
       "y": 90,
-      "model": "minecraft:block/comparator"
+      "model": "peculiarpieces:block/redstone_mono"
     },
-    "facing=west,powered=true": {
+    "facing=west,powered=true,expired=false": {
       "y": 90,
-      "model": "minecraft:block/comparator_on"
+      "model": "peculiarpieces:block/redstone_mono_powered"
+    },
+    "facing=west,powered=false,expired=true": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_mono_expired"
+    },
+    "facing=west,powered=true,expired=true": {
+      "y": 90,
+      "model": "peculiarpieces:block/redstone_mono_powered_expired"
     }
   }
 }

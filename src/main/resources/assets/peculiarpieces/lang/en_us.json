@@ -111,6 +111,7 @@
   "item.peculiarpieces.bottomless_water_bucket" : "Bottomless Water Bucket",
   "item.peculiarpieces.bottomless_lava_bucket" : "Bottomless Lava Bucket",
   "item.peculiarpieces.bottomless_milk_bucket" : "Bottomless Milk Bucket",
+  "item.peculiarpieces.player_compass" : "Player Compass",
 
   "item.peculiarpieces.hidden_potion.effect.empty": "Uncraftable Hidden Potion",
   "item.peculiarpieces.hidden_potion.effect.water": "Hidden Water Bottle",

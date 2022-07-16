@@ -1,0 +1,16 @@
+{
+  "name": "Player Compass",
+  "icon": "peculiarpieces:player_compass",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Ever having trouble tracking down some sneaky scoundrels? You can use a Player Compass to keep track of their location.$(br)All it takes to start using a Player Compass is to shift click it on them, however this will draw attention to yourself so be ready to make a quick getaway!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:player_compass",
+      "text": "It has trouble tracking those who are invisible or concealed."
+    }
+  ]
+}

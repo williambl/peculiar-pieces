@@ -33,12 +33,6 @@
     },
     {
       "type": "patchouli:spotlight",
-      "item": "peculiarpieces:redstone_mono",
-      "link_recipe": true,
-      "text": "A Redstone Mono will release a 1 tick pulse when powered, and will not send another signal until unpowered. The pulse sent will be the same strength as the signal received."
-    },
-    {
-      "type": "patchouli:spotlight",
       "item": "peculiarpieces:redstone_random",
       "link_recipe": true,
       "text": "A Redstone Random will send a random signal between 0 and the signal received.$(br)The strength will be randomized every time it is unpowered and repowered.$(br)It can be right clicked to toggle the minimum between 0 and 1."
