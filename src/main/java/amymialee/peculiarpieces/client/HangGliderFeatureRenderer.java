@@ -33,7 +33,7 @@ public class HangGliderFeatureRenderer<T extends PlayerEntity, M extends EntityM
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T playerEntity, float f, float g, float h, float j, float k, float l) {
         if (GliderItem.hasGlider(playerEntity)) {
             matrixStack.push();
-            matrixStack.translate(0.0, 0.0, 0.125);
+            matrixStack.translate(0.0, 0.0, (GliderItem.isGliding(playerEntity) && GliderItem.isDescending(playerEntity) ? 0 : 1) * 0.1);
             this.getContextModel().copyStateTo(this.glider);
             this.glider.setAngles(playerEntity, f, g, j, k, l);
             Identifier identifier = SKIN;
