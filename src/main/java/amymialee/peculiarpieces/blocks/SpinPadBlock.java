@@ -1,0 +1,118 @@
+package amymialee.peculiarpieces.blocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CarpetBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+@SuppressWarnings("deprecation")
+public class SpinPadBlock extends CarpetBlock {
+    public static final IntProperty POWER = IntProperty.of("power", 0, 3);
+    public static final BooleanProperty POWERED = Properties.POWERED;
+    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    private final boolean inverted;
+
+    public SpinPadBlock(boolean inverted, Settings settings) {
+        super(settings);
+        this.inverted = inverted;
+        this.setDefaultState(this.stateManager.getDefaultState().with(POWER, 0).with(POWERED, false).with(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        ItemStack stack = super.getPickStack(world, pos, state);
+        stack.getOrCreateNbt().putInt("pp:variant", state.get(POWER));
+        return stack;
+    }
+
+    @Override
+    public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
+        for (int i : POWER.getValues()) {
+            ItemStack stack = new ItemStack(this);
+            stack.getOrCreateNbt().putInt("pp:variant", i);
+            stacks.add(stack);
+        }
+    }
+
+    @Override
+    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {}
+
+    @Override
+    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        if (!state.get(POWERED)) {
+            Direction direction = state.get(FACING);
+            if (!(direction == null)) {
+                float power = (state.get(POWER) + 1) * 5f;
+                entity.setHeadYaw(entity.getHeadYaw() + (inverted ? -1 : 1) * power);
+                entity.setYaw(entity.getYaw() + (inverted ? -1 : 1) * power);
+            }
+        }
+        super.onEntityCollision(state, world, pos, entity);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!player.getAbilities().allowModifyWorld || !player.isSneaking()) {
+            return ActionResult.PASS;
+        }
+        world.setBlockState(pos, state.cycle(POWER), Block.NOTIFY_ALL);
+        world.playSound(player, pos, SoundEvents.BLOCK_COMPARATOR_CLICK, SoundCategory.BLOCKS, 0.3f, (float) (3 * state.get(POWER)) / 15);
+        return ActionResult.success(world.isClient);
+    }
+
+    @Override
+    @Nullable
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        ItemStack stack = ctx.getStack();
+        BlockState state = this.getDefaultState().with(POWERED, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos())).with(FACING, ctx.getPlayerFacing());
+        if (stack.hasNbt() && stack.getNbt() != null) {
+            return state.with(POWER, Math.min(3, stack.getNbt().getInt("pp:variant")));
+        }
+        return state;
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        boolean bl = world.isReceivingRedstonePower(pos);
+        if (bl != state.get(POWERED)) {
+            world.setBlockState(pos, state.with(POWERED, bl), Block.NOTIFY_ALL);
+        }
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(POWER, POWERED, FACING);
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
+        return state.with(FACING, rotation.rotate(state.get(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState state, BlockMirror mirror) {
+        return state.rotate(mirror.getRotation(state.get(FACING)));
+    }
+}
