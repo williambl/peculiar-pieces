@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IDI",
+    "B B",
+    "IDI"
+  ],
+  "key": {
+    "D": {
+      "tag": "peculiarpieces:deepslate_blocks"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:big_barrel"
+  }
+}

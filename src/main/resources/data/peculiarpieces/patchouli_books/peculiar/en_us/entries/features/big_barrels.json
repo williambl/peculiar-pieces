@@ -1,0 +1,15 @@
+{
+  "name": "Deep Barrels",
+  "icon": "peculiarpieces:big_barrel",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A simple upgrade to Barrels, allowing them a capacity equal to that of a double chest!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:big_barrel"
+    }
+  ]
+}

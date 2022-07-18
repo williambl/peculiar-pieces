@@ -36,6 +36,7 @@ public class PeculiarItems {
     public static final Item BOTTOMLESS_LAVA_BUCKET = registerItem("bottomless_lava_bucket", MOD_ITEMS, new BottomlessBucketItem(Fluids.LAVA, new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item BOTTOMLESS_MILK_BUCKET = registerItem("bottomless_milk_bucket", MOD_ITEMS, new BottomlessMilkBucketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item PLAYER_COMPASS = registerItem("player_compass", MOD_ITEMS, new PlayerCompassItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item REACHING_REMOTE = registerItem("reaching_remote", MOD_ITEMS, new ReachingRemoteItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item FLIGHT_RING = registerItem("flight_ring", MOD_ITEMS, new FlightRingItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     //Shoes
     public static final Item SLIPPERY_SHOES = registerItem("slippery_shoes", MOD_ITEMS, new DispensableTrinketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));

@@ -1,6 +1,7 @@
 package amymialee.peculiarpieces.registry;
 
 import amymialee.peculiarpieces.PeculiarPieces;
+import amymialee.peculiarpieces.blockentities.BigBarrelBlockEntity;
 import amymialee.peculiarpieces.blockentities.BigDispenserBlockEntity;
 import amymialee.peculiarpieces.blockentities.BigDropperBlockEntity;
 import amymialee.peculiarpieces.blockentities.EntangledScaffoldingBlockEntity;
@@ -74,6 +75,7 @@ public class PeculiarBlocks {
     public static final Block FAST_TARGET_BLOCK = registerBlock("fast_target", PeculiarItems.MOD_ITEMS, new FastTargetBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.OFF_WHITE).strength(0.5f).sounds(BlockSoundGroup.GRASS)));
     public static final Block DARK_FAST_TARGET_BLOCK = registerBlock("dark_fast_target", PeculiarItems.MOD_ITEMS, new FastTargetBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.OFF_WHITE).strength(0.5f).sounds(BlockSoundGroup.GRASS)));
     //Gadgets
+    public static final Block BIG_BARREL = registerBlock("big_barrel", PeculiarItems.MOD_ITEMS, new BigBarrelBlock(FabricBlockSettings.copy(Blocks.BARREL)));
     public static final Block BIG_DROPPER = registerBlock("big_dropper", PeculiarItems.MOD_ITEMS, new BigDropperBlock(FabricBlockSettings.copy(Blocks.DROPPER)));
     public static final Block BIG_DISPENSER = registerBlock("big_dispenser", PeculiarItems.MOD_ITEMS, new BigDispenserBlock(FabricBlockSettings.copy(Blocks.DISPENSER)));
     public static final Block IGNITION = registerBlock("ignition", PeculiarItems.MOD_ITEMS, new IgnitionBlock(FabricBlockSettings.copy(Blocks.DROPPER)));
@@ -135,6 +137,7 @@ public class PeculiarBlocks {
     // Block Entities
     public static BlockEntityType<WarpBlockEntity> WARP_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "warp_block", FabricBlockEntityTypeBuilder.create(WarpBlockEntity::new, WARP_BLOCK).build(null));
     public static BlockEntityType<EntangledScaffoldingBlockEntity> ENTANGLED_SCAFFOLDING_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "entangled_scaffolding", FabricBlockEntityTypeBuilder.create(EntangledScaffoldingBlockEntity::new, ENTANGLED_SCAFFOLDING).build(null));
+    public static BlockEntityType<BigBarrelBlockEntity> BIG_BARREL_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_barrel", FabricBlockEntityTypeBuilder.create(BigBarrelBlockEntity::new, BIG_BARREL).build(null));
     public static BlockEntityType<BigDropperBlockEntity> BIG_DROPPER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dropper", FabricBlockEntityTypeBuilder.create(BigDropperBlockEntity::new, BIG_DROPPER).build(null));
     public static BlockEntityType<BigDispenserBlockEntity> BIG_DISPENSER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dispenser", FabricBlockEntityTypeBuilder.create(BigDispenserBlockEntity::new, BIG_DISPENSER).build(null));
     public static BlockEntityType<PotionPadBlockEntity> POTION_PAD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "potion_pad", FabricBlockEntityTypeBuilder.create(PotionPadBlockEntity::new, POTION_PAD).build(null));

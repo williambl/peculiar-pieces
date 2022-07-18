@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "peculiarpieces:item/reaching_remote_button",
+    "layer1": "peculiarpieces:item/reaching_remote"
+  }
+}

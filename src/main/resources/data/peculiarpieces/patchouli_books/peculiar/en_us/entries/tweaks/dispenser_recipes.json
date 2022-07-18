@@ -1,0 +1,16 @@
+{
+  "name": "Dispenser Recipes",
+  "icon": "minecraft:dispenser",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Dispensers no longer require a bow to craft each one, they can be made with the same materials and a dropper instead.$(br)The same applies to Deep Dispensers with Deep Droppers."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:dispenser_bow",
+      "recipe2": "peculiarpieces:dispenser_string"
+    }
+  ]
+}

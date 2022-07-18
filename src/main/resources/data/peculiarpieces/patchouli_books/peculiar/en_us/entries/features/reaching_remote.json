@@ -1,0 +1,15 @@
+{
+  "name": "Reaching Remote",
+  "icon": "peculiarpieces:reaching_remote",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A Reaching Remote can be used to interact with a block from a long distance away.$(br)Select a position by shift clicking on a block.$(br)This is very useful to active remote redstone devices.$(br)Many containers will not allow themselves to be opened from a distance however, and will close instantly."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:reaching_remote"
+    }
+  ]
+}

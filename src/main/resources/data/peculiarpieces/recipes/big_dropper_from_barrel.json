@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dropper"
+    },
+    {
+      "item": "peculiarpieces:big_barrel"
+    }
+  ],
+  "result": {
+    "item": "peculiarpieces:big_dropper"
+  }
+}
