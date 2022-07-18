@@ -5,6 +5,7 @@ import amymialee.peculiarpieces.blockentities.BigBarrelBlockEntity;
 import amymialee.peculiarpieces.blockentities.BigDispenserBlockEntity;
 import amymialee.peculiarpieces.blockentities.BigDropperBlockEntity;
 import amymialee.peculiarpieces.blockentities.EntangledScaffoldingBlockEntity;
+import amymialee.peculiarpieces.blockentities.PedestalBlockEntity;
 import amymialee.peculiarpieces.blockentities.PotionPadBlockEntity;
 import amymialee.peculiarpieces.blockentities.WarpBlockEntity;
 import amymialee.peculiarpieces.blocks.*;
@@ -80,6 +81,19 @@ public class PeculiarBlocks {
     public static final Block BIG_DISPENSER = registerBlock("big_dispenser", PeculiarItems.MOD_ITEMS, new BigDispenserBlock(FabricBlockSettings.copy(Blocks.DISPENSER)));
     public static final Block IGNITION = registerBlock("ignition", PeculiarItems.MOD_ITEMS, new IgnitionBlock(FabricBlockSettings.copy(Blocks.DROPPER)));
     public static final Block BLOCK_BREAKER = registerBlock("block_breaker", PeculiarItems.MOD_ITEMS, new BlockBreakerBlock(FabricBlockSettings.copy(Blocks.DISPENSER)));
+    //Pedestals
+    public static final Block OAK_PEDESTAL = registerBlock("oak_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block BIRCH_PEDESTAL = registerBlock("birch_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block SPRUCE_PEDESTAL = registerBlock("spruce_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block JUNGLE_PEDESTAL = registerBlock("jungle_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block ACACIA_PEDESTAL = registerBlock("acacia_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block DARK_OAK_PEDESTAL = registerBlock("dark_oak_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block CRIMSON_PEDESTAL = registerBlock("crimson_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block WARPED_PEDESTAL = registerBlock("warped_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block MANGROVE_PEDESTAL = registerBlock("mangrove_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block STONE_PEDESTAL = registerBlock("stone_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block DEEPSLATE_PEDESTAL = registerBlock("deepslate_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    public static final Block BLACKSTONE_PEDESTAL = registerBlock("blackstone_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
     //Elevators
     public static final Block WHITE_ELEVATOR = registerBlock("white_elevator", PeculiarItems.MOD_ITEMS, new ElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.WHITE).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
     public static final Block ORANGE_ELEVATOR = registerBlock("orange_elevator", PeculiarItems.MOD_ITEMS, new ElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.ORANGE).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
@@ -141,6 +155,7 @@ public class PeculiarBlocks {
     public static BlockEntityType<BigDropperBlockEntity> BIG_DROPPER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dropper", FabricBlockEntityTypeBuilder.create(BigDropperBlockEntity::new, BIG_DROPPER).build(null));
     public static BlockEntityType<BigDispenserBlockEntity> BIG_DISPENSER_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "big_dispenser", FabricBlockEntityTypeBuilder.create(BigDispenserBlockEntity::new, BIG_DISPENSER).build(null));
     public static BlockEntityType<PotionPadBlockEntity> POTION_PAD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "potion_pad", FabricBlockEntityTypeBuilder.create(PotionPadBlockEntity::new, POTION_PAD).build(null));
+    public static BlockEntityType<PedestalBlockEntity> PEDESTAL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "pedestal", FabricBlockEntityTypeBuilder.create(PedestalBlockEntity::new, OAK_PEDESTAL, BIRCH_PEDESTAL, SPRUCE_PEDESTAL, JUNGLE_PEDESTAL, ACACIA_PEDESTAL, DARK_OAK_PEDESTAL, CRIMSON_PEDESTAL, WARPED_PEDESTAL, MANGROVE_PEDESTAL, STONE_PEDESTAL, DEEPSLATE_PEDESTAL, BLACKSTONE_PEDESTAL).build(null));
 
     public static void init() {}
 

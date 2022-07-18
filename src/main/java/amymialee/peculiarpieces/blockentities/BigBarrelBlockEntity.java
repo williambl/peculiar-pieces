@@ -60,7 +60,7 @@ public class BigBarrelBlockEntity extends LootableContainerBlockEntity {
     }
 
     protected Text getContainerName() {
-        return Text.translatable("container.barrel");
+        return Text.translatable("peculiarpieces.container.big_barrel");
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {

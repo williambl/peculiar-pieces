@@ -29,6 +29,6 @@ public class BigDropperBlockEntity extends DispenserBlockEntity {
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.dropper");
+        return Text.translatable("peculiarpieces.container.big_dropper");
     }
 }

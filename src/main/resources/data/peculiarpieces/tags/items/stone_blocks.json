@@ -3,6 +3,7 @@
   "values": [
     "minecraft:stone",
     "minecraft:stone_bricks",
+    "minecraft:smooth_stone",
     "minecraft:chiseled_stone_bricks"
   ]
 }

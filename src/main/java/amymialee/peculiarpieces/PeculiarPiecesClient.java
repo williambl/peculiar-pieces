@@ -1,16 +1,21 @@
 package amymialee.peculiarpieces;
 
+import amymialee.peculiarpieces.blockentities.PedestalBlockEntity;
 import amymialee.peculiarpieces.blocks.RedstoneStaticBlock;
 import amymialee.peculiarpieces.client.HangGliderEntityModel;
+import amymialee.peculiarpieces.client.PedestalBlockEntityRenderer;
 import amymialee.peculiarpieces.items.PlayerCompassItem;
 import amymialee.peculiarpieces.items.TransportPearlItem;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.PackedPouchScreen;
+import amymialee.peculiarpieces.screens.PedestalScreen;
 import amymialee.peculiarpieces.screens.PotionPadScreen;
 import amymialee.peculiarpieces.screens.WarpScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -19,8 +24,10 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.item.DyeableItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
 public class PeculiarPiecesClient implements ClientModInitializer {
@@ -62,6 +69,7 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         HandledScreens.register(PeculiarPieces.WARP_SCREEN_HANDLER, WarpScreen::new);
         HandledScreens.register(PeculiarPieces.POTION_PAD_SCREEN_HANDLER, PotionPadScreen::new);
         HandledScreens.register(PeculiarPieces.BUSTLING_SCREEN_HANDLER, PackedPouchScreen::new);
+        HandledScreens.register(PeculiarPieces.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(HANG_GLIDER, HangGliderEntityModel::getTexturedModelData);
 
@@ -72,6 +80,22 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : PotionUtil.getColor(stack), PeculiarItems.HIDDEN_POTION);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), PeculiarItems.PACKED_POUCH, PeculiarItems.REACHING_REMOTE);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : 16560501, PeculiarItems.PLAYER_COMPASS);
+
+        BlockEntityRendererRegistry.register(PeculiarBlocks.PEDESTAL_BLOCK_ENTITY, PedestalBlockEntityRenderer::new);
+
+        ClientPlayNetworking.registerGlobalReceiver(PedestalBlockEntity.PEDESTAL_SYNC, ((client, handler, buf, responseSender) -> {
+            BlockPos pos = buf.readBlockPos();
+            ItemStack stack1 = buf.readItemStack();
+            ItemStack stack2 = buf.readItemStack();
+            client.execute(() -> {
+                if (client.world != null) {
+                    if (client.world.getBlockEntity(pos) instanceof PedestalBlockEntity pedestal) {
+                        pedestal.setStack(0, stack1);
+                        pedestal.setStack(1, stack2);
+                    }
+                }
+            });
+        }));
     }
 
     static {

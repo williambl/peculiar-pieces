@@ -1,0 +1,48 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"3": "block/polished_blackstone",
+		"4": "block/chiseled_polished_blackstone",
+		"5": "block/blackstone_top",
+		"8": "block/polished_blackstone_bricks"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 2, 14],
+			"faces": {
+				"north": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"east": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"south": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"west": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"up": {"uv": [2, 2, 14, 14], "texture": "#3"},
+				"down": {"uv": [2, 2, 14, 14], "texture": "#5"}
+			}
+		},
+		{
+			"from": [2, 14, 2],
+			"to": [14, 16, 14],
+			"faces": {
+				"north": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"east": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"south": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"west": {"uv": [2, 14, 14, 16], "texture": "#4"},
+				"up": {"uv": [2, 2, 14, 14], "texture": "#3"},
+				"down": {"uv": [2, 2, 14, 14], "texture": "#5"}
+			}
+		},
+		{
+			"from": [3, 2, 3],
+			"to": [13, 14, 13],
+			"faces": {
+				"north": {"uv": [3, 2, 13, 14], "texture": "#8"},
+				"east": {"uv": [3, 2, 13, 14], "texture": "#8"},
+				"south": {"uv": [3, 2, 13, 14], "texture": "#8"},
+				"west": {"uv": [3, 2, 13, 14], "texture": "#8"},
+				"up": {"uv": [0, 0, 0, 0], "texture": "#8"},
+				"down": {"uv": [0, 0, 0, 0], "texture": "#8"}
+			}
+		}
+	]
+}

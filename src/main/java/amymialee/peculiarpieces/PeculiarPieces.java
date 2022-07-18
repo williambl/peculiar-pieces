@@ -9,6 +9,7 @@ import amymialee.peculiarpieces.effects.OpenStatusEffect;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.PackedPouchScreenHandler;
+import amymialee.peculiarpieces.screens.PedestalScreenHandler;
 import amymialee.peculiarpieces.screens.PotionPadScreenHandler;
 import amymialee.peculiarpieces.screens.WarpScreenHandler;
 import amymialee.peculiarpieces.util.ExtraPlayerDataWrapper;
@@ -59,6 +60,7 @@ public class PeculiarPieces implements ModInitializer {
     public static final ScreenHandlerType<WarpScreenHandler> WARP_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "warp_block", new ScreenHandlerType<>(WarpScreenHandler::new));
     public static final ScreenHandlerType<PotionPadScreenHandler> POTION_PAD_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "potion_pad", new ScreenHandlerType<>(PotionPadScreenHandler::new));
     public static final ScreenHandlerType<PackedPouchScreenHandler> BUSTLING_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "bustling_bundle", new ScreenHandlerType<>((a, b) -> new PackedPouchScreenHandler(a, b, PeculiarItems.PACKED_POUCH.getDefaultStack().copy())));
+    public static final ScreenHandlerType<PedestalScreenHandler> PEDESTAL_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, "pedestal", new ScreenHandlerType<>(PedestalScreenHandler::new));
     //Tags
     public static final TagKey<EntityType<?>> MOUNT_BLACKLIST = TagKey.of(Registry.ENTITY_TYPE_KEY, id("mount_blacklist"));
     public static final TagKey<EntityType<?>> UNGRABBABLE = TagKey.of(Registry.ENTITY_TYPE_KEY, id("ungrabbable"));

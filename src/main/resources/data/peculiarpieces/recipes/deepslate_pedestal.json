@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SLS",
+    " B ",
+    "SLS"
+  ],
+  "key": {
+    "S": {
+      "tag": "peculiarpieces:deepslate_slabs"
+    },
+    "L": {
+      "tag": "peculiarpieces:deepslate_blocks"
+    },
+    "B": {
+      "item": "minecraft:barrel"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:deepslate_pedestal"
+  }
+}
