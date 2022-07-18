@@ -18,6 +18,7 @@
     "ItemStackMixin",
     "LivingEntityMixin",
     "LivingEntityRendererMixin",
+    "MobEntityMixin",
     "PlayerEntityMixin",
     "PlayerEntityModelMixin",
     "PlayerEntityRendererMixin",

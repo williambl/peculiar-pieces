@@ -1,0 +1,15 @@
+{
+  "name": "Stronger Leads",
+  "icon": "minecraft:lead",
+  "category": "peculiarpieces:tweaks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Leads can now be used on more mobs, including hostile mobs."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:lead"
+    }
+  ]
+}
