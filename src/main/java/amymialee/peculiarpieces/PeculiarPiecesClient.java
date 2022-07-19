@@ -2,6 +2,7 @@ package amymialee.peculiarpieces;
 
 import amymialee.peculiarpieces.blockentities.PedestalBlockEntity;
 import amymialee.peculiarpieces.blocks.RedstoneStaticBlock;
+import amymialee.peculiarpieces.client.FlagBlockEntityRenderer;
 import amymialee.peculiarpieces.client.HangGliderEntityModel;
 import amymialee.peculiarpieces.client.PedestalBlockEntityRenderer;
 import amymialee.peculiarpieces.items.PlayerCompassItem;
@@ -32,6 +33,7 @@ import net.minecraft.util.math.MathHelper;
 
 public class PeculiarPiecesClient implements ClientModInitializer {
     public static final EntityModelLayer HANG_GLIDER = new EntityModelLayer(PeculiarPieces.id("hang_glider"), "main");
+    public static final EntityModelLayer FLAG = new EntityModelLayer(PeculiarPieces.id("flag"), "main");
 
     @Override
     public void onInitializeClient() {
@@ -72,6 +74,7 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         HandledScreens.register(PeculiarPieces.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
 
         EntityModelLayerRegistry.registerModelLayer(HANG_GLIDER, HangGliderEntityModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(FLAG, FlagBlockEntityRenderer::getTexturedModelData);
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> tintIndex == 1 ? (state.get(RedstoneStaticBlock.POWERED) ? 16711680 : 2621440) : -1, PeculiarBlocks.REDSTONE_STATIC);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex != 1 ? -1 : 2621440, PeculiarBlocks.REDSTONE_STATIC);
@@ -82,6 +85,7 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : 16560501, PeculiarItems.PLAYER_COMPASS);
 
         BlockEntityRendererRegistry.register(PeculiarBlocks.PEDESTAL_BLOCK_ENTITY, PedestalBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(PeculiarBlocks.FLAG_BLOCK_ENTITY, FlagBlockEntityRenderer::new);
 
         ClientPlayNetworking.registerGlobalReceiver(PedestalBlockEntity.PEDESTAL_SYNC, ((client, handler, buf, responseSender) -> {
             BlockPos pos = buf.readBlockPos();

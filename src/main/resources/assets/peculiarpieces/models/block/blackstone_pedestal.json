@@ -5,7 +5,8 @@
 		"3": "block/polished_blackstone",
 		"4": "block/chiseled_polished_blackstone",
 		"5": "block/blackstone_top",
-		"8": "block/polished_blackstone_bricks"
+		"8": "block/polished_blackstone_bricks",
+		"particle": "block/polished_blackstone"
 	},
 	"elements": [
 		{

@@ -20,6 +20,9 @@
     "peculiarpieces:entity_glass",
     "peculiarpieces:tinted_entity_glass",
     "peculiarpieces:player_glass",
-    "peculiarpieces:tinted_player_glass"
+    "peculiarpieces:tinted_player_glass",
+    "peculiarpieces:stone_pedestal",
+    "peculiarpieces:deepslate_pedestal",
+    "peculiarpieces:blackstone_pedestal"
   ]
 }

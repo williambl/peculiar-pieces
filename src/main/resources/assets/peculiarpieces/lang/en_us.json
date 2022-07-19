@@ -94,6 +94,7 @@
   "block.peculiarpieces.stone_pedestal" : "Stone Pedestal",
   "block.peculiarpieces.deepslate_pedestal" : "Deepslate Pedestal",
   "block.peculiarpieces.blackstone_pedestal" : "Blackstone Pedestal",
+  "block.peculiarpieces.flag" : "Flag",
 
   "peculiarpieces.container.warp_block" : "Warp Block",
   "peculiarpieces.container.big_barrel" : "Deep Barrel",

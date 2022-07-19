@@ -1,6 +1,16 @@
 {
   "replace": false,
   "values": [
-    "peculiarpieces:big_barrel"
+    "peculiarpieces:big_barrel",
+    "peculiarpieces:flag",
+    "peculiarpieces:oak_pedestal",
+    "peculiarpieces:birch_pedestal",
+    "peculiarpieces:spruce_pedestal",
+    "peculiarpieces:jungle_pedestal",
+    "peculiarpieces:acacia_pedestal",
+    "peculiarpieces:dark_oak_pedestal",
+    "peculiarpieces:crimson_pedestal",
+    "peculiarpieces:warped_pedestal",
+    "peculiarpieces:mangrove_pedestal"
   ]
 }

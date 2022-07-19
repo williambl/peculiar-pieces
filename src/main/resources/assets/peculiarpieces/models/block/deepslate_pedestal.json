@@ -4,7 +4,8 @@
 	"textures": {
 		"4": "block/deepslate_tiles",
 		"5": "block/polished_deepslate",
-		"6": "block/reinforced_deepslate_top"
+		"6": "block/reinforced_deepslate_top",
+		"particle": "block/deepslate_tiles"
 	},
 	"elements": [
 		{
