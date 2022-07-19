@@ -96,9 +96,9 @@
   "block.peculiarpieces.blackstone_pedestal" : "Blackstone Pedestal",
 
   "peculiarpieces.container.warp_block" : "Warp Block",
-  "peculiarpieces.container.big_barrel" : "Warp Big Barrel",
-  "peculiarpieces.container.big_dropper" : "Big Dropper",
-  "peculiarpieces.container.big_dispenser" : "Big Dispenser",
+  "peculiarpieces.container.big_barrel" : "Deep Barrel",
+  "peculiarpieces.container.big_dropper" : "Deep Dropper",
+  "peculiarpieces.container.big_dispenser" : "Deep Dispenser",
   "peculiarpieces.container.potion_pad" : "Potion Pad",
   "peculiarpieces.container.pedestal" : "Pedestal",
 
