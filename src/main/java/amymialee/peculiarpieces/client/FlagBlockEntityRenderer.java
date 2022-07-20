@@ -67,6 +67,8 @@ public class FlagBlockEntityRenderer implements BlockEntityRenderer<FlagBlockEnt
                         direction = direction.getOpposite();
                     }
                     matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(direction.asRotation() + 90));
+                    var offset = flagBlockEntity.getOffset();
+                    matrixStack.translate(offset / 3.0, 0.0, 0.0);
                     this.flag.roll = (float) Math.toRadians(202.5f);
                     this.flag.pivotX = 6;
                     this.flag.pitch = (float) Math.toRadians(0f);

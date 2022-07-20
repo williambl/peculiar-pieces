@@ -17,8 +17,10 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
     public static final String TEXTURE_KEY = "Texture";
     @Nullable
     private Text customName;
-    private String texture;
 
+    private double offset;
+
+    private String texture;
     public FlagBlockEntity(BlockPos pos, BlockState state) {
         super(PeculiarBlocks.FLAG_BLOCK_ENTITY, pos, state);
     }
@@ -26,6 +28,7 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
     public void readFrom(ItemStack stack) {
         this.texture = getTexture(stack);
         this.customName = stack.hasCustomName() ? stack.getName() : null;
+        this.offset = 0.0;
     }
 
     @Nullable
@@ -45,6 +48,9 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
         if (this.customName != null) {
             nbt.putString("CustomName", Text.Serializer.toJson(this.customName));
         }
+        if (this.offset != 0) {
+            nbt.putDouble("Offset", this.offset);
+        }
     }
 
     public void readNbt(NbtCompound nbt) {
@@ -54,6 +60,9 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
         }
         if (nbt.contains(TEXTURE_KEY, NbtElement.STRING_TYPE)) {
             this.texture = nbt.getString(TEXTURE_KEY);
+        }
+        if (nbt.contains("Offset")) {
+            this.offset = nbt.getDouble("Offset");
         }
     }
 
@@ -97,5 +106,13 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
 
     public void setTexture(String texture) {
         this.texture = texture;
+    }
+
+    public double getOffset() {
+        return this.offset;
+    }
+
+    public void setOffset(double offset) {
+        this.offset = offset;
     }
 }

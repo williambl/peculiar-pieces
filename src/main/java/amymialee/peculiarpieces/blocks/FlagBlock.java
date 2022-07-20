@@ -2,12 +2,7 @@ package amymialee.peculiarpieces.blocks;
 
 import amymialee.peculiarpieces.blockentities.FlagBlockEntity;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -65,7 +60,10 @@ public class FlagBlock extends BlockWithEntity {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (world.isClient) {
-            world.getBlockEntity(pos, PeculiarBlocks.FLAG_BLOCK_ENTITY).ifPresent(blockEntity -> blockEntity.readFrom(itemStack));
+            world.getBlockEntity(pos, PeculiarBlocks.FLAG_BLOCK_ENTITY).ifPresent(blockEntity -> {
+                blockEntity.readFrom(itemStack);
+                blockEntity.setOffset(this.calculateOffset(world, pos, state));
+            });
         } else if (itemStack.hasCustomName()) {
             world.getBlockEntity(pos, PeculiarBlocks.FLAG_BLOCK_ENTITY).ifPresent(blockEntity -> blockEntity.setCustomName(itemStack.getName()));
         }
@@ -184,8 +182,12 @@ public class FlagBlock extends BlockWithEntity {
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (getDirection(state).getOpposite() == direction && !state.canPlaceAt(world, pos)) {
-            return Blocks.AIR.getDefaultState();
+        if (getDirection(state).getOpposite() == direction) {
+            if (!state.canPlaceAt(world, pos)) {
+                return Blocks.AIR.getDefaultState();
+            }
+
+            world.getBlockEntity(pos, PeculiarBlocks.FLAG_BLOCK_ENTITY).ifPresent(blockEntity -> blockEntity.setOffset(this.calculateOffset(world, pos, state)));
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
@@ -203,6 +205,39 @@ public class FlagBlock extends BlockWithEntity {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(ROTATION, FACE);
+    }
+
+    private int calculateOffset(WorldAccess world, BlockPos flagPos, BlockState flagState) {
+        var flagMount = flagState.get(FACE);
+        if (flagMount != FlagMountLocation.WALL) {
+            return 0;
+        }
+
+        Direction dir = getDirection(flagState);
+        return this.calculateOffset(world, flagPos.offset(dir.getOpposite()), dir);
+    }
+
+    private int calculateOffset(WorldAccess world, BlockPos mountingBlockPos, Direction mountingDir) {
+        var state = world.getBlockState(mountingBlockPos);
+        if (state.isSideSolid(world, mountingBlockPos, mountingDir, SideShapeType.CENTER)) {
+            return 0;
+        }
+
+        var shape = state.getCollisionShape(world, mountingBlockPos);
+        if (shape.isEmpty()) {
+            return 0;
+        }
+
+        double maxInDirection = switch (mountingDir) {
+            case NORTH, EAST -> 1 - shape.getMax(mountingDir.getAxis());
+            default -> shape.getMin(mountingDir.getAxis());
+        };
+
+        if (maxInDirection > 1 || maxInDirection < 0) {
+            return 0;
+        }
+
+        return (int) Math.ceil(maxInDirection);
     }
 
     public enum FlagMountLocation implements StringIdentifiable {
