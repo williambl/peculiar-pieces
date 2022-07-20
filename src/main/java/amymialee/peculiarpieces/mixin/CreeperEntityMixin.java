@@ -26,10 +26,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@SuppressWarnings("WrongEntityDataParameterClass")
 @Mixin(CreeperEntity.class)
 public class CreeperEntityMixin extends HostileEntity {
     @Shadow @Final private static TrackedData<Boolean> IGNITED;
+    @SuppressWarnings("WrongEntityDataParameterClass")
     private static final TrackedData<Boolean> DEFUSED = DataTracker.registerData(CreeperEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world) {

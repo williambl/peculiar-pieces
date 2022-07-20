@@ -12,7 +12,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class WallFacingBlock extends FacingBlock {
     protected WallFacingBlock(Settings settings) {
         super(settings);

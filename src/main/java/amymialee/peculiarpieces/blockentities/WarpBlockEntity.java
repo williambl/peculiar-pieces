@@ -40,7 +40,7 @@ public class WarpBlockEntity extends LootableContainerBlockEntity {
 
     public void onEntityCollided(Entity entity) {
         ItemStack stack = inventory.get(0);
-        if (stack.isOf(PeculiarItems.POS_PEARL) || stack.isOf(PeculiarItems.CONSUMABLE_POS_PEARL)) {
+        if (stack.isOf(PeculiarItems.POS_PEARL) || stack.isOf(PeculiarItems.POS_PAPER)) {
             NbtCompound compound = stack.getNbt();
             if (compound != null && compound.contains("pp:stone")) {
                 BlockPos pos = PositionPearlItem.readStone(stack);

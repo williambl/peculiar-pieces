@@ -64,4 +64,3 @@ public class CustomScaffoldingItem extends BlockItem {
         return false;
     }
 }
-

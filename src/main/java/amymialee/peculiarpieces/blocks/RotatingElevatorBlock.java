@@ -15,7 +15,6 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
-@SuppressWarnings("deprecation")
 public class RotatingElevatorBlock extends ElevatorBlock {
     private static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 

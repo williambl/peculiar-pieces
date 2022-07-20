@@ -17,7 +17,6 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.GameMode;
 
-@SuppressWarnings("deprecation")
 public class GameModeBlockerBlock extends Block {
     private final GameMode gameMode;
 

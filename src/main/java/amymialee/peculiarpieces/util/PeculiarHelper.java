@@ -18,7 +18,6 @@ public class PeculiarHelper {
         return input;
     }
 
-    @SuppressWarnings("RedundantIfStatement")
     public static boolean shouldFly(PlayerEntity player) {
         if (player.isCreative() || player.isSpectator()) {
             return true;
@@ -27,10 +26,7 @@ public class PeculiarHelper {
             return true;
         }
         Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-        if (optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.FLIGHT_RING)) {
-            return true;
-        }
-        return false;
+        return optionalComponent.isPresent() && optionalComponent.get().isEquipped(PeculiarItems.FLIGHT_RING);
     }
 
     public static void updateFlight(PlayerEntity player) {

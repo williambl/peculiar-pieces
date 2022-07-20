@@ -12,7 +12,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.GameMode;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class GameModeSetterBlock extends AbstractStructureVoidBlock {
     private final GameMode gameMode;
 

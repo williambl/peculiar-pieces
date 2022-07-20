@@ -31,7 +31,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class EntangledScaffoldingBlock extends BlockWithEntity implements Waterloggable {
     private static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0);
     private static final VoxelShape OUTLINE_SHAPE = VoxelShapes.fullCube().offset(0.0, -1.0, 0.0);
@@ -142,6 +141,6 @@ public class EntangledScaffoldingBlock extends BlockWithEntity implements Waterl
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return EntangledScaffoldingBlock.checkType(type, PeculiarBlocks.ENTANGLED_SCAFFOLDING_BLOCK_ENTITY, EntangledScaffoldingBlockEntity::tick);
+        return EntangledScaffoldingBlock.checkType(type, PeculiarBlocks.ENTANGLED_SCAFFOLDING_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> EntangledScaffoldingBlockEntity.tick(world1, pos, blockEntity));
     }
 }

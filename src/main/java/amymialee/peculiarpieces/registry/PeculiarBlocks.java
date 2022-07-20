@@ -37,7 +37,7 @@ import net.minecraft.world.GameMode;
 
 import java.util.ArrayList;
 
-@SuppressWarnings({"unused", "SameParameterValue"})
+@SuppressWarnings("unused")
 public class PeculiarBlocks {
     // Blocks
     //Torch Levers

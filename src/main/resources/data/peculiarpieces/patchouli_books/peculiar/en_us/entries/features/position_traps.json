@@ -1,0 +1,15 @@
+{
+  "name": "Position Traps",
+  "icon": "peculiarpieces:position_trap",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Position Traps can be bound to any location just like position paper, but after being bound to a location and used, it will be thrown onto the floor.$(br)Anyone who picks it up when thrown this way will be teleported to it's destination.$(br)The trap will also disguise itself as any item held in the offhand when thrown.$(br)This fake item takes a long time to despawn and can take more damage."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:position_trap"
+    }
+  ]
+}

@@ -10,7 +10,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-@SuppressWarnings("deprecation")
 public class SolidGlassBlock extends AbstractGlassBlock {
     private final boolean tinted;
     private final boolean inverted;

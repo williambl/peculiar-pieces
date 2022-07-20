@@ -5,9 +5,11 @@ import amymialee.peculiarpieces.blocks.RedstoneStaticBlock;
 import amymialee.peculiarpieces.client.FlagBlockEntityRenderer;
 import amymialee.peculiarpieces.client.HangGliderEntityModel;
 import amymialee.peculiarpieces.client.PedestalBlockEntityRenderer;
+import amymialee.peculiarpieces.client.TeleportItemEntityRenderer;
 import amymialee.peculiarpieces.items.PlayerCompassItem;
 import amymialee.peculiarpieces.items.TransportPearlItem;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
+import amymialee.peculiarpieces.registry.PeculiarEntities;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.PackedPouchScreen;
 import amymialee.peculiarpieces.screens.PedestalScreen;
@@ -19,6 +21,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.CompassAnglePredicateProvider;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
@@ -76,6 +79,8 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(HANG_GLIDER, HangGliderEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(FLAG, FlagBlockEntityRenderer::getTexturedModelData);
 
+        EntityRendererRegistry.register(PeculiarEntities.TELEPORT_ITEM_ENTITY, TeleportItemEntityRenderer::new);
+
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> tintIndex == 1 ? (state.get(RedstoneStaticBlock.POWERED) ? 16711680 : 2621440) : -1, PeculiarBlocks.REDSTONE_STATIC);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex != 1 ? -1 : 2621440, PeculiarBlocks.REDSTONE_STATIC);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> MathHelper.hsvToRgb(((float)(TransportPearlItem.getSlot(stack) + 1) / 8), 1.0F, 1.0F), PeculiarItems.TRANS_PEARL);
@@ -84,7 +89,7 @@ public class PeculiarPiecesClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), PeculiarItems.PACKED_POUCH, PeculiarItems.REACHING_REMOTE);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> tintIndex > 0 ? -1 : 16560501, PeculiarItems.PLAYER_COMPASS);
 
-        BlockEntityRendererRegistry.register(PeculiarBlocks.PEDESTAL_BLOCK_ENTITY, PedestalBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(PeculiarBlocks.PEDESTAL_BLOCK_ENTITY, ctx -> new PedestalBlockEntityRenderer());
         BlockEntityRendererRegistry.register(PeculiarBlocks.FLAG_BLOCK_ENTITY, FlagBlockEntityRenderer::new);
 
         ClientPlayNetworking.registerGlobalReceiver(PedestalBlockEntity.PEDESTAL_SYNC, ((client, handler, buf, responseSender) -> {

@@ -34,7 +34,7 @@ public class EntangledScaffoldingBlockEntity extends BlockEntity {
         }
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, EntangledScaffoldingBlockEntity blockEntity) {
+    public static void tick(World world, BlockPos pos, EntangledScaffoldingBlockEntity blockEntity) {
         if (blockEntity.owner == null) {
             PlayerEntity newOwner = world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 32, false);
             if (newOwner != null) {

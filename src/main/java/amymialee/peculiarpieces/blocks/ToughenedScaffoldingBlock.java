@@ -26,9 +26,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-import java.util.Iterator;
-
-@SuppressWarnings("deprecation")
 public class ToughenedScaffoldingBlock extends Block implements Waterloggable {
     private static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0);
     private static final VoxelShape OUTLINE_SHAPE = VoxelShapes.fullCube().offset(0.0, -1.0, 0.0);
@@ -146,7 +143,6 @@ public class ToughenedScaffoldingBlock extends Block implements Waterloggable {
         return distance > 0 && !world.getBlockState(pos.down()).isOf(this);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     public static int calculateDistance(BlockView world, BlockPos pos) {
         BlockState blockState2;
         BlockPos.Mutable mutable = pos.mutableCopy().move(Direction.DOWN);
@@ -157,11 +153,11 @@ public class ToughenedScaffoldingBlock extends Block implements Waterloggable {
         } else if (blockState.isSideSolidFullSquare(world, mutable, Direction.UP)) {
             return 0;
         }
-        Iterator<Direction> iterator = Direction.Type.HORIZONTAL.iterator();
-        while (iterator.hasNext() &&
-                (!(blockState2 = world.getBlockState(mutable.set(pos, iterator.next()))).isIn(PeculiarPieces.SCAFFOLDING) ||
-                        (blockState2.contains(DISTANCE) && ((i = Math.min(i, blockState2.get(DISTANCE) + 1)) != 1)) ||
-                        (blockState2.contains(ScaffoldingBlock.DISTANCE) && ((i = Math.min(i, blockState2.get(ScaffoldingBlock.DISTANCE) + 1)) != 1)))) {}
+        for (Direction direction : Direction.Type.HORIZONTAL) {
+            if (!(!(blockState2 = world.getBlockState(mutable.set(pos, direction))).isIn(PeculiarPieces.SCAFFOLDING) || (blockState2.contains(DISTANCE) && ((i = Math.min(i, blockState2.get(DISTANCE) + 1)) != 1)) || (blockState2.contains(ScaffoldingBlock.DISTANCE) && ((i = Math.min(i, blockState2.get(ScaffoldingBlock.DISTANCE) + 1)) != 1)))) {
+                break;
+            }
+        }
         return i;
     }
 }

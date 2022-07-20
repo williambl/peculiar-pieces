@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class RedstoneClampBlock extends AbstractRedstoneComparisonBlock {
     public static final IntProperty CLAMP = IntProperty.of("clamp", 0, 15);
 

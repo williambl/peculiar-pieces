@@ -23,7 +23,7 @@ public class WarpScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 0, 80, 20) {
             @Override
             public boolean canInsert(ItemStack stack) {
-                return ((stack.isOf(PeculiarItems.POS_PEARL) || (playerInventory.player.getAbilities().creativeMode && stack.isOf(PeculiarItems.CONSUMABLE_POS_PEARL))) && (stack.hasNbt() && stack.getNbt() != null && stack.getNbt().contains("pp:stone")))
+                return ((stack.isOf(PeculiarItems.POS_PEARL) || (playerInventory.player.getAbilities().creativeMode && stack.isOf(PeculiarItems.POS_PAPER))) && (stack.hasNbt() && stack.getNbt() != null && stack.getNbt().contains("pp:stone")))
                         || stack.isOf(PeculiarItems.CHECKPOINT_PEARL) || stack.isOf(PeculiarItems.SPAWNPOINT_PEARL) || stack.isOf(PeculiarItems.SKY_PEARL);
             }
         });

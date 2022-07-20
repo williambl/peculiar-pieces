@@ -23,6 +23,4 @@ public class SlimeItem extends Item {
         }
         return super.useOnBlock(context);
     }
-
-
 }

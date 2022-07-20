@@ -14,7 +14,7 @@
     },
     {
       "type": "patchouli:crafting",
-      "recipe": "peculiarpieces:consumable_position_pearl",
+      "recipe": "peculiarpieces:position_paper",
       "text": "Position Paper can be used to store a location and teleport to it. It can be set to any position with shift right click and then warp there with right click."
     },
     {

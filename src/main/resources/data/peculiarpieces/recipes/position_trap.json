@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "TGT",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "item": "peculiarpieces:position_paper"
+    },
+    "T": {
+      "item": "minecraft:tripwire_hook"
+    },
+    "G": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:position_trap",
+    "count": 2
+  }
+}

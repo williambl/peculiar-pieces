@@ -61,7 +61,6 @@ public abstract class LivingEntityMixin extends Entity {
         return p;
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Inject(method = "applyClimbingSpeed", at = @At("HEAD"), cancellable = true)
     private void PeculiarPieces$MoreScaffolds(Vec3d motion, CallbackInfoReturnable<Vec3d> cir) {
         if (this.isClimbing()) {
@@ -69,8 +68,8 @@ public abstract class LivingEntityMixin extends Entity {
             double d = MathHelper.clamp(motion.x, -0.15f, 0.15f);
             double e = MathHelper.clamp(motion.z, -0.15f, 0.15f);
             double g = Math.max(motion.y, -0.15f);
-            if (g < 0.0 && !this.getBlockStateAtPos().isIn(PeculiarPieces.SCAFFOLDING) && this.isHoldingOntoLadder() && ((Entity) this) instanceof PlayerEntity) {
-                g = 0.0;
+            if (g < 0.0 && !this.getBlockStateAtPos().isIn(PeculiarPieces.SCAFFOLDING)) {
+                this.isHoldingOntoLadder();
             }
             motion = new Vec3d(d, g, e);
         }

@@ -16,7 +16,6 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.List;
 
-@SuppressWarnings("deprecation")
 public class OpenPressurePlate extends PressurePlateBlock {
     private final boolean invis;
     private final int weight;

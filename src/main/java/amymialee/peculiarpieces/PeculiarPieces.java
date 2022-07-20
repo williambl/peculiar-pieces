@@ -7,6 +7,7 @@ import amymialee.peculiarpieces.callbacks.PlayerJumpConsumingBlock;
 import amymialee.peculiarpieces.effects.FlightStatusEffect;
 import amymialee.peculiarpieces.effects.OpenStatusEffect;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
+import amymialee.peculiarpieces.registry.PeculiarEntities;
 import amymialee.peculiarpieces.registry.PeculiarItems;
 import amymialee.peculiarpieces.screens.PackedPouchScreenHandler;
 import amymialee.peculiarpieces.screens.PedestalScreenHandler;
@@ -48,7 +49,7 @@ import net.minecraft.world.GameRules;
 import java.util.Collection;
 import java.util.Random;
 
-@SuppressWarnings({"UnusedReturnValue", "SameParameterValue", "unused"})
+@SuppressWarnings("unused")
 public class PeculiarPieces implements ModInitializer {
     public static final String MOD_ID = "peculiarpieces";
     public static final Random RANDOM = new Random();
@@ -91,6 +92,7 @@ public class PeculiarPieces implements ModInitializer {
     public void onInitialize() {
         PeculiarItems.init();
         PeculiarBlocks.init();
+        PeculiarEntities.init();
         CommandRegistrationCallback.EVENT.register((dispatcher, access, environment) -> dispatcher.register(
                 literal("peculiar")
                         .then(literal("checkpoint"))

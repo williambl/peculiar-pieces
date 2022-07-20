@@ -23,7 +23,7 @@ public class SculkShriekerBlockMixin {
     @Shadow @Final public static BooleanProperty CAN_SUMMON;
 
     @Unique
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult ignoredHit) {
         if (!state.get(CAN_SUMMON) && player.getAbilities().allowModifyWorld) {
             ItemStack stack = player.getStackInHand(hand);
             if (stack.isOf(Items.ECHO_SHARD)) {

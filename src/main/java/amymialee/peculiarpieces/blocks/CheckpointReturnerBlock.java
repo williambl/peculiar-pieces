@@ -13,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class CheckpointReturnerBlock extends AbstractStructureVoidBlock {
     public CheckpointReturnerBlock(Settings settings) {
         super(settings);

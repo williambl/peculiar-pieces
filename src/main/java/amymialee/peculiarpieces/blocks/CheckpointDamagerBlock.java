@@ -14,7 +14,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class CheckpointDamagerBlock extends AbstractStructureVoidBlock {
     public CheckpointDamagerBlock(Settings settings) {
         super(settings);

@@ -32,7 +32,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class BottomlessBucketItem extends Item implements FluidModificationItem {
     private final Fluid fluid;
 

@@ -25,7 +25,7 @@ public abstract class AbstractRedstoneComparisonBlock extends AbstractRedstoneGa
 
     @Override
     protected abstract int getOutputLevel(BlockView world, BlockPos pos, BlockState state);
-    
+
     @Override
     protected boolean isValidInput(BlockState state) {
         return RepeaterBlock.isRedstoneGate(state);

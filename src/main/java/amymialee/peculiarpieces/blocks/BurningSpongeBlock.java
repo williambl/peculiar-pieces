@@ -19,7 +19,6 @@ import net.minecraft.world.WorldEvents;
 
 import java.util.LinkedList;
 
-@SuppressWarnings("deprecation")
 public class BurningSpongeBlock extends Block {
     public BurningSpongeBlock(AbstractBlock.Settings settings) {
         super(settings);

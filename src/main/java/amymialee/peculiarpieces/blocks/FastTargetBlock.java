@@ -22,7 +22,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
-@SuppressWarnings("deprecation")
 public class FastTargetBlock extends Block {
     private static final IntProperty POWER = Properties.POWER;
 

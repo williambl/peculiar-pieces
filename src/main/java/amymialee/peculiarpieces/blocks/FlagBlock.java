@@ -35,7 +35,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class FlagBlock extends BlockWithEntity {
     public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
     public static final IntProperty ROTATION = Properties.ROTATION;

@@ -8,7 +8,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class CheckpointBlock extends AbstractStructureVoidBlock {
     public CheckpointBlock(Settings settings) {
         super(settings);

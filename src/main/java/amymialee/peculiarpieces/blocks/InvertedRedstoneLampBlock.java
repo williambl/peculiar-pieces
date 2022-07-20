@@ -13,7 +13,6 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class InvertedRedstoneLampBlock extends Block {
     public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 

@@ -5,7 +5,6 @@ import amymialee.peculiarpieces.util.WarpInstance;
 import amymialee.peculiarpieces.util.WarpManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CarpetBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -17,8 +16,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
-public class GrabbingTrapBlock extends CarpetBlock {
+public class GrabbingTrapBlock extends AbstractFlatBlock {
     public static final BooleanProperty POWERED = Properties.POWERED;
 
     public GrabbingTrapBlock(Settings settings) {

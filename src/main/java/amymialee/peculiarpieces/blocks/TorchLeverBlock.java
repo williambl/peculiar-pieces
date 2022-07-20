@@ -24,7 +24,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
-@SuppressWarnings("deprecation")
 public class TorchLeverBlock extends WallFacingBlock {
     public static final BooleanProperty POWERED = Properties.POWERED;
     protected static final VoxelShape NORTH_WALL_SHAPE = Block.createCuboidShape(5.5, 3.0, 11.0, 10.5, 13.0, 16.0);

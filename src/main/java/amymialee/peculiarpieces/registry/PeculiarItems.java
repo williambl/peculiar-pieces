@@ -44,7 +44,8 @@ public class PeculiarItems {
     public static final Item BOUNCY_BOOTS = registerItem("bouncy_boots", MOD_ITEMS, new DispensableTrinketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item STEADY_SNEAKERS = registerItem("steady_sneakers", MOD_ITEMS, new DispensableTrinketItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     //Pearls
-    public static final Item CONSUMABLE_POS_PEARL = registerItem("consumable_position_pearl", MOD_ITEMS, new ConsumablePositionPearlItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item POS_PAPER = registerItem("position_paper", MOD_ITEMS, new PositionPaperItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
+    public static final Item POS_TRAP = registerItem("position_trap", MOD_ITEMS, new PositionTrapItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item POS_PEARL = registerItem("position_pearl", MOD_ITEMS, new PositionPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item TRANS_PEARL = registerItem("transport_pearl", MOD_ITEMS, new TransportPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));
     public static final Item SPAWNPOINT_PEARL = registerItem("spawnpoint_pearl", MOD_ITEMS, new SpawnpointPearlItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(PeculiarPieces.PIECES_GROUP)));

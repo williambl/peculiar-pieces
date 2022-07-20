@@ -5,7 +5,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("unused")
 public class WarpInstance {
     private final Entity entity;
     @Nullable

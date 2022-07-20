@@ -11,7 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class ShockAbsorberBlock extends Block {
     public static final BooleanProperty POWERED = Properties.POWERED;
 

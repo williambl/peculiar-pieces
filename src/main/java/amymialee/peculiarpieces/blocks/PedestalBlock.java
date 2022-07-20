@@ -26,7 +26,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class PedestalBlock extends BlockWithEntity {
     public static final BooleanProperty POWERED = Properties.POWERED;
     private static final VoxelShape BOTTOM_SHAPE = Block.createCuboidShape(2.0, 0.0, 2.0, 14.0, 2.0, 14.0);

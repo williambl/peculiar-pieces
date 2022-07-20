@@ -10,7 +10,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-@SuppressWarnings("deprecation")
 public class CheckpointRemoverBlock extends AbstractStructureVoidBlock {
     public CheckpointRemoverBlock(Settings settings) {
         super(settings);

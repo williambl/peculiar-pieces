@@ -13,7 +13,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-@SuppressWarnings("deprecation")
 public class EntityBarrierBlock extends Block {
     private final boolean player;
 

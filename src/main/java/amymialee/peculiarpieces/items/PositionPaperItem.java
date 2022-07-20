@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ConsumablePositionPearlItem extends Item {
-    public ConsumablePositionPearlItem(Settings settings) {
+public class PositionPaperItem extends Item {
+    public PositionPaperItem(Settings settings) {
         super(settings);
     }
 
@@ -28,9 +28,11 @@ public class ConsumablePositionPearlItem extends Item {
     public ActionResult useOnBlock(ItemUsageContext context) {
         PlayerEntity player = context.getPlayer();
         ItemStack stack = context.getStack();
-        if (player != null && player.isSneaking() && (stack.getNbt() == null || (NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone")).equals(BlockPos.ORIGIN)) || player.isCreative())) {
-            writeStone(stack, context.getBlockPos().add(0, 1, 0));
-            player.getItemCooldownManager().set(this, 20);
+        if (player != null && player.isSneaking()) {
+            if ((stack.getNbt() == null || NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone")).equals(BlockPos.ORIGIN))) {
+                writeStone(stack, context.getBlockPos().add(0, 1, 0));
+                player.getItemCooldownManager().set(this, 20);
+            }
         }
         return super.useOnBlock(context);
     }
@@ -38,6 +40,9 @@ public class ConsumablePositionPearlItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
+        if (user.isSneaking()) {
+            return TypedActionResult.consume(stack);
+        }
         BlockPos pos = readStone(stack);
         if (pos.getSquaredDistance(0, 0, 0) > 1) {
             if (!world.isClient && !pos.equals(BlockPos.ORIGIN)) {
@@ -59,6 +64,11 @@ public class ConsumablePositionPearlItem extends Item {
             return NbtHelper.toBlockPos(stack.getNbt().getCompound("pp:stone"));
         }
         return BlockPos.ORIGIN;
+    }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return (stack.getNbt() != null && stack.getNbt().contains("pp:stone")) || super.hasGlint(stack);
     }
 
     @Override
