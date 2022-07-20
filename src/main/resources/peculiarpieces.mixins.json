@@ -33,5 +33,9 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "BuiltinModelItemRendererMixin",
+    "ItemRendererMixin"
+  ]
 }

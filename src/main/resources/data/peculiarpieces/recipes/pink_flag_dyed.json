@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "peculiarpieces:flag"
+    },
+    {
+      "item": "minecraft:pink_dye"
+    }
+  ],
+  "result": {
+    "item": "peculiarpieces:flag",
+    "data": {
+        "BlockEntityTag": {
+            "Texture": "pink",
+            "id": "minecraft:flag"
+        }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SWW",
+    "SWW",
+    "S  "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:light_blue_wool"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:flag",
+    "data": {
+        "BlockEntityTag": {
+            "Texture": "light_blue",
+            "id": "minecraft:flag"
+        }
+    }
+  }
+}

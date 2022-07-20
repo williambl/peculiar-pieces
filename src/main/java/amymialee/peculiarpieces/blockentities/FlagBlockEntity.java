@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.text.Text;
 import net.minecraft.util.Nameable;
@@ -13,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 public class FlagBlockEntity extends BlockEntity implements Nameable {
-    public static final String COLOR_KEY = "Color";
+    public static final String TEXTURE_KEY = "Texture";
     @Nullable
     private Text customName;
     private String texture;
@@ -30,10 +31,51 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
     @Nullable
     public static String getTexture(ItemStack stack) {
         NbtCompound nbtCompound = BlockItem.getBlockEntityNbt(stack);
-        if (nbtCompound != null && nbtCompound.contains(COLOR_KEY)) {
-            return nbtCompound.getString(COLOR_KEY);
+        if (nbtCompound != null && nbtCompound.contains(TEXTURE_KEY, NbtElement.STRING_TYPE)) {
+            return nbtCompound.getString(TEXTURE_KEY);
         }
         return null;
+    }
+
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        if (this.texture != null) {
+            nbt.putString(TEXTURE_KEY, texture);
+        }
+        if (this.customName != null) {
+            nbt.putString("CustomName", Text.Serializer.toJson(this.customName));
+        }
+    }
+
+    public void readNbt(NbtCompound nbt) {
+        super.readNbt(nbt);
+        if (nbt.contains("CustomName", 8)) {
+            this.customName = Text.Serializer.fromJson(nbt.getString("CustomName"));
+        }
+        if (nbt.contains(TEXTURE_KEY, NbtElement.STRING_TYPE)) {
+            this.texture = nbt.getString(TEXTURE_KEY);
+        }
+    }
+
+    public BlockEntityUpdateS2CPacket toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    public NbtCompound toInitialChunkDataNbt() {
+        return this.createNbt();
+    }
+
+    public ItemStack getPickStack() {
+        ItemStack itemStack = new ItemStack(PeculiarBlocks.FLAG);
+        if (this.texture != null) {
+            NbtCompound nbtCompound = new NbtCompound();
+            nbtCompound.putString(TEXTURE_KEY, texture);
+            BlockItem.setBlockEntityNbt(itemStack, this.getType(), nbtCompound);
+        }
+        if (this.customName != null) {
+            itemStack.setCustomName(this.customName);
+        }
+        return itemStack;
     }
 
     public Text getName() {
@@ -49,59 +91,11 @@ public class FlagBlockEntity extends BlockEntity implements Nameable {
         this.customName = customName;
     }
 
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        if (this.texture != null) {
-            nbt.putString(COLOR_KEY, texture);
-        }
-        if (this.customName != null) {
-            nbt.putString("CustomName", Text.Serializer.toJson(this.customName));
-        }
+    public String getTexture() {
+        return texture;
     }
 
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        if (nbt.contains("CustomName", 8)) {
-            this.customName = Text.Serializer.fromJson(nbt.getString("CustomName"));
-        }
-        if (nbt.contains(COLOR_KEY)) {
-            this.texture = nbt.getString(COLOR_KEY);
-        }
-    }
-
-    public BlockEntityUpdateS2CPacket toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
-    }
-
-    public NbtCompound toInitialChunkDataNbt() {
-        return this.createNbt();
-    }
-//
-//    public static void loadFromItemStack(ItemStack stack) {
-//        NbtCompound nbtCompound = BlockItem.getBlockEntityNbt(stack);
-//        if (nbtCompound != null && nbtCompound.contains("Patterns", 9)) {
-//            NbtList nbtList = nbtCompound.getList("Patterns", 10);
-//            if (!nbtList.isEmpty()) {
-//                nbtList.remove(nbtList.size() - 1);
-//                if (nbtList.isEmpty()) {
-//                    nbtCompound.remove("Patterns");
-//                }
-//
-//                BlockItem.setBlockEntityNbt(stack, BlockEntityType.BANNER, nbtCompound);
-//            }
-//        }
-//    }
-
-    public ItemStack getPickStack() {
-        ItemStack itemStack = new ItemStack(PeculiarBlocks.FLAG);
-        if (this.texture != null) {
-            NbtCompound nbtCompound = new NbtCompound();
-            nbtCompound.putString(COLOR_KEY, texture);
-            BlockItem.setBlockEntityNbt(itemStack, this.getType(), nbtCompound);
-        }
-        if (this.customName != null) {
-            itemStack.setCustomName(this.customName);
-        }
-        return itemStack;
+    public void setTexture(String texture) {
+        this.texture = texture;
     }
 }

@@ -12,14 +12,20 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
@@ -27,7 +33,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
@@ -74,6 +79,24 @@ public class FlagBlock extends BlockWithEntity {
     }
 
     @Override
+    public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
+        for (DyeColor color : DyeColor.values()) {
+            addStack(color.getName().toLowerCase(), stacks);
+        }
+        for (ExtraFlag flag : ExtraFlag.values()) {
+            addStack(flag.name().toLowerCase(), stacks);
+        }
+    }
+
+    public void addStack(String name, DefaultedList<ItemStack> stacks) {
+        ItemStack stack = new ItemStack(this);
+        NbtCompound nbtCompound = new NbtCompound();
+        nbtCompound.putString(FlagBlockEntity.TEXTURE_KEY, name);
+        BlockItem.setBlockEntityNbt(stack, PeculiarBlocks.FLAG_BLOCK_ENTITY, nbtCompound);
+        stacks.add(stack);
+    }
+
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if (state.get(FACE) == WallMountLocation.WALL) {
             switch (getDirection(state)) {
@@ -94,28 +117,7 @@ public class FlagBlock extends BlockWithEntity {
         return VERTICAL_SHAPE;
     }
 
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        switch (state.get(FACE)) {
-            case CEILING -> {
-                return canPlaceAt(world, pos, Direction.UP);
-            }
-            case WALL -> {
-                return canPlaceAt(world, pos, getDirection(state).getOpposite());
-            }
-            case FLOOR -> {
-                return canPlaceAt(world, pos, Direction.DOWN);
-            }
-        }
-        return false;
-    }
-
-    public static boolean canPlaceAt(WorldView world, BlockPos pos, Direction direction) {
-        BlockPos blockPos = pos.offset(direction);
-        return world.getBlockState(blockPos).isSideSolidFullSquare(world, blockPos, direction.getOpposite());
-    }
-
-    protected static Direction getDirection(BlockState state) {
+    public static Direction getDirection(BlockState state) {
         switch (state.get(ROTATION)) {
             case 15, 0, 1, 2 -> {
                 return Direction.SOUTH;
@@ -135,13 +137,26 @@ public class FlagBlock extends BlockWithEntity {
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        if (ctx.getSide().getAxis() != Direction.Axis.Y) {
+            switch (ctx.getSide()) {
+                case SOUTH -> {
+                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 0);
+                }
+                case WEST -> {
+                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 4);
+                }
+                case NORTH -> {
+                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 8);
+                }
+                case EAST -> {
+                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 12);
+                }
+            }
+        }
         for (Direction direction : ctx.getPlacementDirections()) {
-            BlockState blockState = direction.getAxis() == Direction.Axis.Y ?
-                    this.getDefaultState()
-                            .with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR)
-                            .with(ROTATION, MathHelper.floor((double)((180.0f + ctx.getPlayerYaw()) * 16.0f / 360.0f) + 0.5) & 0xF) :
-                    this.getDefaultState().with(FACE, WallMountLocation.WALL)
-                            .with(ROTATION, MathHelper.floor((double)((180.0f + ctx.getPlayerYaw()) * 16.0f / 360.0f) + 0.5) & 0xF);
+            BlockState blockState = this.getDefaultState()
+                    .with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR)
+                    .with(ROTATION, MathHelper.floor((double)((180.0f + ctx.getPlayerYaw()) * 16.0f / 360.0f) + 0.5) & 0xF);
             if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
             return blockState;
         }
@@ -174,5 +189,35 @@ public class FlagBlock extends BlockWithEntity {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(ROTATION, FACE);
+    }
+
+    public enum ExtraFlag implements StringIdentifiable {
+        PRIDE("pride"),
+        LESBIAN("lesbian"),
+        GAY("gay"),
+        BI("bi"),
+        TRANS("trans"),
+        PAN("pan"),
+        NB("nb"),
+        ARO("aro"),
+        ACE("ace"),
+        INTER("inter"),
+        LABRYS("labrys"),
+        TEMPLATE("template");
+
+        private final String name;
+
+        ExtraFlag(String name) {
+            this.name = name;
+        }
+
+        public String toString() {
+            return this.asString();
+        }
+
+        @Override
+        public String asString() {
+            return this.name;
+        }
     }
 }

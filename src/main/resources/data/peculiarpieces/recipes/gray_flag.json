@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SWW",
+    "SWW",
+    "S  "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "minecraft:gray_wool"
+    }
+  },
+  "result": {
+    "item": "peculiarpieces:flag",
+    "data": {
+        "BlockEntityTag": {
+            "Texture": "gray",
+            "id": "minecraft:flag"
+        }
+    }
+  }
+}

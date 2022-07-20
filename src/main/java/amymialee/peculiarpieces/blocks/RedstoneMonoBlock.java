@@ -57,6 +57,6 @@ public class RedstoneMonoBlock extends AbstractRedstoneComparisonBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, EXPIRED, POWERED);
+        builder.add(FACING, POWERED, EXPIRED);
     }
 }

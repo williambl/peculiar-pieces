@@ -2,19 +2,36 @@
 	"type": "minecraft:block",
 	"pools": [
 		{
-			"rolls": 1.0,
 			"bonus_rolls": 0.0,
-			"entries": [
-				{
-					"type": "minecraft:item",
-					"name": "peculiarpieces:flag"
-				}
-			],
 			"conditions": [
 				{
 					"condition": "minecraft:survives_explosion"
 				}
-			]
+			],
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:copy_name",
+							"source": "block_entity"
+						},
+						{
+							"function": "minecraft:copy_nbt",
+							"ops": [
+								{
+									"op": "replace",
+									"source": "Texture",
+									"target": "BlockEntityTag.Texture"
+								}
+							],
+							"source": "block_entity"
+						}
+					],
+					"name": "peculiarpieces:flag"
+				}
+			],
+			"rolls": 1.0
 		}
 	]
 }

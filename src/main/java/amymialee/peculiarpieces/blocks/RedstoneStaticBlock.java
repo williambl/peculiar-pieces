@@ -43,6 +43,6 @@ public class RedstoneStaticBlock extends AbstractRedstoneComparisonBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, STATIC, POWERED);
+        builder.add(FACING, POWERED, STATIC);
     }
 }

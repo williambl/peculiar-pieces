@@ -47,6 +47,6 @@ public class RedstoneFilterBlock extends AbstractRedstoneComparisonBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, FILTER, POWERED);
+        builder.add(FACING, POWERED, FILTER);
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.MutableText;
@@ -73,7 +74,7 @@ public class TransportPearlItem extends Item {
         {
             NbtCompound nbtCompound = stack.getSubNbt("display");
             if (nbtCompound != null) {
-                if (nbtCompound.contains("Name")) {
+                if (nbtCompound.contains("Name", NbtElement.STRING_TYPE)) {
                     MutableText text = Text.Serializer.fromJson(nbtCompound.getString("Name"));
                     if (text != null ) {
                         mainCompound.putString("pp:stone_name_%d".formatted(getSlot(stack)), text.getString());

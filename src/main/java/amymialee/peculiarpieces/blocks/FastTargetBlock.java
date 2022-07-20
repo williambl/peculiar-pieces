@@ -1,23 +1,17 @@
 package amymialee.peculiarpieces.blocks;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -31,26 +25,10 @@ import net.minecraft.world.WorldAccess;
 @SuppressWarnings("deprecation")
 public class FastTargetBlock extends Block {
     private static final IntProperty POWER = Properties.POWER;
-    public static final BooleanProperty MAX = BooleanProperty.of("max");
 
-    public FastTargetBlock(AbstractBlock.Settings settings) {
+    public FastTargetBlock(FabricBlockSettings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(POWER, 0));
-    }
-
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.canModifyBlocks()) {
-            if (world.isClient) {
-                return ActionResult.SUCCESS;
-            }
-            BlockState blockState = state.cycle(MAX);
-            world.setBlockState(pos, blockState, Block.NO_REDRAW);
-            float f = blockState.get(MAX) ? 0.6f : 0.5f;
-            world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 0.3f, f);
-            return ActionResult.CONSUME;
-        }
-        return super.onUse(state, world, pos, player, hand, hit);
     }
 
     @Override
@@ -64,7 +42,7 @@ public class FastTargetBlock extends Block {
     }
 
     private static int trigger(WorldAccess world, BlockState state, BlockHitResult hitResult) {
-        int i = state.get(MAX) ? 15 : calculatePower(hitResult, hitResult.getPos());
+        int i = calculatePower(hitResult, hitResult.getPos());
         if (!world.getBlockTickScheduler().isQueued(hitResult.getBlockPos(), state.getBlock())) {
             setPower(world, state, i, hitResult.getBlockPos());
         }
@@ -105,7 +83,7 @@ public class FastTargetBlock extends Block {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(POWER, MAX);
+        builder.add(POWER);
     }
 
     @Override

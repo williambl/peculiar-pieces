@@ -11,6 +11,7 @@ import amymialee.peculiarpieces.blockentities.PotionPadBlockEntity;
 import amymialee.peculiarpieces.blockentities.WarpBlockEntity;
 import amymialee.peculiarpieces.blocks.*;
 import amymialee.peculiarpieces.items.CustomScaffoldingItem;
+import amymialee.peculiarpieces.items.FlagBlockItem;
 import amymialee.peculiarpieces.items.MidairBlockItem;
 import amymialee.peculiarpieces.items.ToggleableBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -95,6 +96,8 @@ public class PeculiarBlocks {
     public static final Block STONE_PEDESTAL = registerBlock("stone_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
     public static final Block DEEPSLATE_PEDESTAL = registerBlock("deepslate_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
     public static final Block BLACKSTONE_PEDESTAL = registerBlock("blackstone_pedestal", PeculiarItems.MOD_ITEMS, new PedestalBlock(FabricBlockSettings.copy(Blocks.BARREL)));
+    //Flags
+    public static final Block FLAG = registerBlock("flag", PeculiarItems.MOD_ITEMS, new FlagBlockItem(new FlagBlock(FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0f).sounds(BlockSoundGroup.WOOD)), new FabricItemSettings().group(PeculiarPieces.PIECES_GROUP)));
     //Elevators
     public static final Block WHITE_ELEVATOR = registerBlock("white_elevator", PeculiarItems.MOD_ITEMS, new ElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.WHITE).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
     public static final Block ORANGE_ELEVATOR = registerBlock("orange_elevator", PeculiarItems.MOD_ITEMS, new ElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.ORANGE).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
@@ -129,9 +132,6 @@ public class PeculiarBlocks {
     public static final Block GREEN_ROTATING_ELEVATOR = registerBlock("green_rotating_elevator", PeculiarItems.MOD_ITEMS, new RotatingElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.GREEN).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
     public static final Block RED_ROTATING_ELEVATOR = registerBlock("red_rotating_elevator", PeculiarItems.MOD_ITEMS, new RotatingElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.RED).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
     public static final Block BLACK_ROTATING_ELEVATOR = registerBlock("black_rotating_elevator", PeculiarItems.MOD_ITEMS, new RotatingElevatorBlock(FabricBlockSettings.of(Material.WOOL, MapColor.BLACK).strength(0.8f).sounds(BlockSoundGroup.LODESTONE)));
-    //Flags
-    public static final Block FLAG = registerBlock("flag", PeculiarItems.MOD_ITEMS, new FlagBlock(FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0f).sounds(BlockSoundGroup.WOOD)));
-
 
     // Creative Items
     //Checkpoints
@@ -149,7 +149,6 @@ public class PeculiarBlocks {
     public static final Block SURVIVOR_BLOCKER = registerBlock("survivor_blocker", PeculiarItems.CREATIVE_ITEMS, new BlockItem(new GameModeBlockerBlock(GameMode.SURVIVAL, FabricBlockSettings.of(Material.BARRIER).strength(-1.0f, 3600000.8f).noCollision()), new FabricItemSettings().rarity(Rarity.EPIC).group(PeculiarPieces.CREATIVE_GROUP)));
     public static final Block SURVIVOR_BARRIER = registerBlock("survivor_barrier", PeculiarItems.CREATIVE_ITEMS, new BlockItem(new GameModeBarrierBlock(GameMode.SURVIVAL, FabricBlockSettings.of(Material.BARRIER).strength(-1.0f, 3600000.8f).nonOpaque().solidBlock(PeculiarBlocks::never).suffocates(PeculiarBlocks::never).blockVision(PeculiarBlocks::never)), new FabricItemSettings().rarity(Rarity.EPIC).group(PeculiarPieces.CREATIVE_GROUP)));
     public static final Block SURVIVOR_SETTER = registerBlock("survivor_setter", PeculiarItems.CREATIVE_ITEMS, new BlockItem(new GameModeSetterBlock(GameMode.SURVIVAL, FabricBlockSettings.of(Material.BARRIER).strength(-1.0f, 3600000.8f).noCollision()), new FabricItemSettings().rarity(Rarity.EPIC).group(PeculiarPieces.CREATIVE_GROUP)));
-
 
     // Block Entities
     public static BlockEntityType<WarpBlockEntity> WARP_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "warp_block", FabricBlockEntityTypeBuilder.create(WarpBlockEntity::new, WARP_BLOCK).build(null));

@@ -1,0 +1,40 @@
+{
+  "name": "Pride Flags",
+  "icon": "peculiarpieces:flag{BlockEntityTag:{\"Texture\":\"pride\",\"id\":\"minecraft:flag\"}}",
+  "category": "peculiarpieces:features",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Pride Flags can be made with a flag and a few dyes!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:pride_flag"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:lesbian_flag",
+      "recipe2": "peculiarpieces:gay_flag"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:bi_flag",
+      "recipe2": "peculiarpieces:trans_flag"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:pan_flag",
+      "recipe2": "peculiarpieces:nb_flag"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:aro_flag",
+      "recipe2": "peculiarpieces:ace_flag"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "peculiarpieces:inter_flag",
+      "recipe2": "peculiarpieces:labrys_flag"
+    }
+  ]
+}

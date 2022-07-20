@@ -47,6 +47,6 @@ public class RedstoneHurdleBlock extends AbstractRedstoneComparisonBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, HURDLE, POWERED);
+        builder.add(FACING, POWERED, HURDLE);
     }
 }

@@ -43,6 +43,6 @@ public class RedstoneClampBlock extends AbstractRedstoneComparisonBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, CLAMP, POWERED);
+        builder.add(FACING, POWERED, CLAMP);
     }
 }
