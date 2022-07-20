@@ -4,14 +4,13 @@ import amymialee.peculiarpieces.blockentities.FlagBlockEntity;
 import amymialee.peculiarpieces.registry.PeculiarBlocks;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemPlacementContext;
@@ -36,17 +35,21 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
 public class FlagBlock extends BlockWithEntity {
-    public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
+    public static final EnumProperty<FlagMountLocation> FACE = EnumProperty.of("face", FlagMountLocation.class);
     public static final IntProperty ROTATION = Properties.ROTATION;
     protected static final VoxelShape NORTH_WALL_SHAPE = Block.createCuboidShape(6, 1, 11, 10, 16, 16);
     protected static final VoxelShape SOUTH_WALL_SHAPE = Block.createCuboidShape(6, 1, 0, 10, 16, 5);
     protected static final VoxelShape WEST_WALL_SHAPE = Block.createCuboidShape(11, 1, 6, 16, 16, 10);
     protected static final VoxelShape EAST_WALL_SHAPE = Block.createCuboidShape(0, 1, 6, 5, 16, 10);
+    protected static final VoxelShape FLAT_NORTH_WALL_SHAPE = Block.createCuboidShape(0, 1, 15, 16, 15, 16);
+    protected static final VoxelShape FLAT_SOUTH_WALL_SHAPE = Block.createCuboidShape(0, 1, 0, 16, 15, 1);
+    protected static final VoxelShape FLAT_WEST_WALL_SHAPE = Block.createCuboidShape(15, 1, 0, 16, 15, 16);
+    protected static final VoxelShape FLAT_EAST_WALL_SHAPE = Block.createCuboidShape(0, 1, 0, 1, 15, 16);
     protected static final VoxelShape VERTICAL_SHAPE = Block.createCuboidShape(6, 0, 6, 10, 16, 10);
 
     public FlagBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(ROTATION, 0).with(FACE, WallMountLocation.FLOOR));
+        this.setDefaultState(this.stateManager.getDefaultState().with(ROTATION, 0).with(FACE, FlagMountLocation.FLOOR));
     }
 
     @Override
@@ -97,7 +100,7 @@ public class FlagBlock extends BlockWithEntity {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(FACE) == WallMountLocation.WALL) {
+        if (state.get(FACE) == FlagMountLocation.WALL) {
             switch (getDirection(state)) {
                 case EAST -> {
                     return EAST_WALL_SHAPE;
@@ -110,6 +113,22 @@ public class FlagBlock extends BlockWithEntity {
                 }
                 case NORTH -> {
                     return NORTH_WALL_SHAPE;
+                }
+            }
+        }
+        if (state.get(FACE) == FlagMountLocation.FLAT) {
+            switch (getDirection(state)) {
+                case EAST -> {
+                    return FLAT_EAST_WALL_SHAPE;
+                }
+                case WEST -> {
+                    return FLAT_WEST_WALL_SHAPE;
+                }
+                case SOUTH -> {
+                    return FLAT_SOUTH_WALL_SHAPE;
+                }
+                case NORTH -> {
+                    return FLAT_NORTH_WALL_SHAPE;
                 }
             }
         }
@@ -136,35 +155,31 @@ public class FlagBlock extends BlockWithEntity {
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        PlayerEntity player = ctx.getPlayer();
         if (ctx.getSide().getAxis() != Direction.Axis.Y) {
             switch (ctx.getSide()) {
                 case SOUTH -> {
-                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 0);
+                    return this.getDefaultState().with(FACE, (player != null && player.isSneaking()) ? FlagMountLocation.FLAT : FlagMountLocation.WALL).with(ROTATION, 0);
                 }
                 case WEST -> {
-                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 4);
+                    return this.getDefaultState().with(FACE, (player != null && player.isSneaking()) ? FlagMountLocation.FLAT : FlagMountLocation.WALL).with(ROTATION, 4);
                 }
                 case NORTH -> {
-                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 8);
+                    return this.getDefaultState().with(FACE, (player != null && player.isSneaking()) ? FlagMountLocation.FLAT : FlagMountLocation.WALL).with(ROTATION, 8);
                 }
                 case EAST -> {
-                    return this.getDefaultState().with(FACE, WallMountLocation.WALL).with(ROTATION, 12);
+                    return this.getDefaultState().with(FACE, (player != null && player.isSneaking()) ? FlagMountLocation.FLAT : FlagMountLocation.WALL).with(ROTATION, 12);
                 }
             }
         }
         for (Direction direction : ctx.getPlacementDirections()) {
             BlockState blockState = this.getDefaultState()
-                    .with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR)
-                    .with(ROTATION, MathHelper.floor((double)((180.0f + ctx.getPlayerYaw()) * 16.0f / 360.0f) + 0.5) & 0xF);
+                    .with(FACE, direction == Direction.UP ? FlagMountLocation.CEILING : FlagMountLocation.FLOOR)
+                    .with(ROTATION, MathHelper.floor((double)((180.0f + ((player != null && player.isSneaking() ? 90 : 0) + ctx.getPlayerYaw())) * 16.0f / 360.0f) + 0.5) & 0xF);
             if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
             return blockState;
         }
         return null;
-    }
-
-    @Override
-    public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.MODEL;
     }
 
     @Override
@@ -188,6 +203,24 @@ public class FlagBlock extends BlockWithEntity {
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(ROTATION, FACE);
+    }
+
+    public enum FlagMountLocation implements StringIdentifiable {
+        FLOOR("floor"),
+        WALL("wall"),
+        FLAT("flat"),
+        CEILING("ceiling");
+
+        private final String name;
+
+        FlagMountLocation(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String asString() {
+            return this.name;
+        }
     }
 
     public enum ExtraFlag implements StringIdentifiable {

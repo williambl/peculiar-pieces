@@ -1,3 +1,47 @@
 {
-  "parent": "peculiarpieces:block/flag_vertical"
+  "parent": "builtin/entity",
+  "gui_light": "front",
+  "textures": {
+    "particle": "minecraft:block/dark_oak_log"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [0, 20, 0],
+      "translation": [0, 0, -0.25],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, -160, 0],
+      "translation": [0, 0, -0.25],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, -15, 0],
+      "translation": [-2, 1.75, -2.25],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 165, 0],
+      "translation": [-2, 1.75, -2.25],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.25, 0.25, 0.25]
+    },
+    "gui": {
+      "rotation": [30, -25, 0],
+      "translation": [-6.25, 1, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "head": {
+      "rotation": [0, -180, 0],
+      "translation": [0, 14.5, 0]
+    },
+    "fixed": {
+      "rotation": [0, -180, 0],
+      "translation": [7, 0, 0],
+      "scale": [0.65, 0.65, 0.65]
+    }
+  }
 }

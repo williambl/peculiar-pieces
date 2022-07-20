@@ -63,11 +63,8 @@ public class PeculiarItems {
         return item;
     }
 
-    public static ItemStack getRecipeKindIcon(ArrayList<Item> arrayList) {
-        if (arrayList.size() == 1) {
-            return arrayList.get(0).getDefaultStack();
-        }
-        return arrayList.get(PeculiarPieces.RANDOM.nextInt(arrayList.size() - 1)).getDefaultStack();
+    public static ItemStack getPeculiarIcon() {
+        return PeculiarItems.PECULIAR_BOOK.getDefaultStack();
     }
 
     public static ItemStack getCreativeIcon() {

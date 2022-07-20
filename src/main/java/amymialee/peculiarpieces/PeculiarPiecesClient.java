@@ -1,5 +1,6 @@
 package amymialee.peculiarpieces;
 
+import amymialee.peculiarpieces.blockentities.FlagBlockEntity;
 import amymialee.peculiarpieces.blockentities.PedestalBlockEntity;
 import amymialee.peculiarpieces.blocks.RedstoneStaticBlock;
 import amymialee.peculiarpieces.client.FlagBlockEntityRenderer;
@@ -19,9 +20,11 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.CompassAnglePredicateProvider;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
@@ -37,6 +40,7 @@ import net.minecraft.util.math.MathHelper;
 public class PeculiarPiecesClient implements ClientModInitializer {
     public static final EntityModelLayer HANG_GLIDER = new EntityModelLayer(PeculiarPieces.id("hang_glider"), "main");
     public static final EntityModelLayer FLAG = new EntityModelLayer(PeculiarPieces.id("flag"), "main");
+    private final FlagBlockEntity renderFlag = new FlagBlockEntity(BlockPos.ORIGIN, PeculiarBlocks.FLAG.getDefaultState());
 
     @Override
     public void onInitializeClient() {
@@ -105,6 +109,11 @@ public class PeculiarPiecesClient implements ClientModInitializer {
                 }
             });
         }));
+
+        BuiltinItemRendererRegistry.INSTANCE.register(PeculiarBlocks.FLAG, (stack, mode, matrixStack, vertexConsumerProvider, light, overlay) -> {
+            this.renderFlag.readFrom(stack);
+            MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(renderFlag, matrixStack, vertexConsumerProvider, light, overlay);
+        });
     }
 
     static {

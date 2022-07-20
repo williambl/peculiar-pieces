@@ -19,6 +19,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.text.Text;
@@ -81,10 +82,6 @@ public class TeleportItemEntity extends Entity {
     @Override
     public void tick() {
         super.tick();
-        int delay = this.getDelay();
-        if (delay > 0 && delay != CANNOT_PICK_UP_DELAY) {
-            this.setDelay(delay - 1);
-        }
         this.prevX = this.getX();
         this.prevY = this.getY();
         this.prevZ = this.getZ();
@@ -126,6 +123,13 @@ public class TeleportItemEntity extends Entity {
         if (!this.world.isClient && this.getVelocity().subtract(vec3d).lengthSquared() > 0.01) {
             this.velocityDirty = true;
         }
+        int delay = this.getDelay();
+        if (delay > 0 && delay != CANNOT_PICK_UP_DELAY) {
+            this.setDelay(delay - 1);
+            if (this.getDelay() == 0 && this.world instanceof ServerWorld serverWorld) {
+                serverWorld.spawnParticles(ParticleTypes.SMOKE, getX(), getY() + 0.1f, getZ(), 16, 0.1, 0.1, 0.1, 0.05f);
+            }
+        }
         if (!this.world.isClient && this.itemAge >= DESPAWN_AGE) {
             this.discard();
         }
@@ -152,16 +156,14 @@ public class TeleportItemEntity extends Entity {
             this.emitGameEvent(GameEvent.ENTITY_DAMAGE, source.getAttacker());
         }
         if (this.health <= 0) {
-            if (!this.world.isClient()) {
-                double r = this.getPos().getX() + 0.5;
-                double s = this.getPos().getY();
-                double d = this.getPos().getZ() + 0.5;
-                for (int t = 0; t < 8; ++t) {
-                    this.world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(PeculiarItems.POS_PAPER)), r, s, d, random.nextGaussian() * 0.15, random.nextDouble() * 0.2, random.nextGaussian() * 0.15);
-                }
+            if (world instanceof ServerWorld serverWorld) {
+                double r = this.getPos().getX();
+                double s = this.getPos().getY() + 0.1f;
+                double d = this.getPos().getZ();
+                serverWorld.spawnParticles(new ItemStackParticleEffect(ParticleTypes.ITEM, new ItemStack(PeculiarItems.POS_TRAP)), r, s, d, 32, 0, 0, 0, random.nextGaussian() * 0.15);
                 for (double e = 0.0; e < Math.PI * 2; e += 0.15707963267948966) {
-                    this.world.addParticle(ParticleTypes.PORTAL, r + Math.cos(e) * 5.0, s - 0.4, d + Math.sin(e) * 5.0, Math.cos(e) * -5.0, 0.0, Math.sin(e) * -5.0);
-                    this.world.addParticle(ParticleTypes.PORTAL, r + Math.cos(e) * 5.0, s - 0.4, d + Math.sin(e) * 5.0, Math.cos(e) * -7.0, 0.0, Math.sin(e) * -7.0);
+                    serverWorld.spawnParticles(ParticleTypes.PORTAL, r + Math.cos(e) * 0.2f, s, d + Math.sin(e) * 0.2f, 2, 0, 0, 0, Math.cos(e) * -5.0);
+                    serverWorld.spawnParticles(ParticleTypes.PORTAL, r + Math.cos(e) * 0.2f, s, d + Math.sin(e) * 0.2f, 2, 0, 0, 0, Math.sin(e) * -7.0);
                 }
             }
             this.discard();

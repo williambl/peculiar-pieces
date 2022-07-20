@@ -23,13 +23,11 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 
 public class BigBarrelBlockEntity extends LootableContainerBlockEntity {
-    private final ViewerCountManager stateManager;
-    private DefaultedList<ItemStack> inventory;
+    private final ViewerCountManager stateManager = new BigBarrelViewerManager();
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(size(), ItemStack.EMPTY);
 
     public BigBarrelBlockEntity(BlockPos pos, BlockState state) {
         super(PeculiarBlocks.BIG_BARREL_ENTITY, pos, state);
-        this.inventory = DefaultedList.ofSize(size(), ItemStack.EMPTY);
-        this.stateManager = new BigBarrelViewerManager();
     }
 
     protected void writeNbt(NbtCompound nbt) {
@@ -106,12 +104,14 @@ public class BigBarrelBlockEntity extends LootableContainerBlockEntity {
             BigBarrelBlockEntity.this.playSound(state, SoundEvents.BLOCK_BARREL_OPEN);
             BigBarrelBlockEntity.this.setOpen(state, true);
         }
+
         protected void onContainerClose(World world, BlockPos pos, BlockState state) {
             BigBarrelBlockEntity.this.playSound(state, SoundEvents.BLOCK_BARREL_CLOSE);
             BigBarrelBlockEntity.this.setOpen(state, false);
         }
-        protected void onViewerCountUpdate(World world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
-        }
+
+        protected void onViewerCountUpdate(World world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {}
+
         protected boolean isPlayerViewing(PlayerEntity player) {
             if (player.currentScreenHandler instanceof GenericContainerScreenHandler) {
                 Inventory inventory = ((GenericContainerScreenHandler)player.currentScreenHandler).getInventory();

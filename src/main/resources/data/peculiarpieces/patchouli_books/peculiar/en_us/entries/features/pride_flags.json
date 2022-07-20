@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Pride Flags can be made with a flag and a few dyes!"
+      "text": "Pride Flags can be made with a flag and a few dyes!$(br)They can be placed flat against the wall by crouching while placing them."
     },
     {
       "type": "patchouli:crafting",

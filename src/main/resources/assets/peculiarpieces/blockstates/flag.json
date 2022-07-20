@@ -1,70 +1,7 @@
 {
   "variants": {
-    "face=floor": {
-      "model": "peculiarpieces:block/flag_vertical"
-    },
-    "face=ceiling": {
-      "model": "peculiarpieces:block/flag_vertical"
-    },
-    "face=wall,rotation=15": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 90
-    },
-    "face=wall,rotation=0": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 90
-    },
-    "face=wall,rotation=1": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 90
-    },
-    "face=wall,rotation=2": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 90
-    },
-    "face=wall,rotation=3": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 180
-    },
-    "face=wall,rotation=4": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 180
-    },
-    "face=wall,rotation=5": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 180
-    },
-    "face=wall,rotation=6": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 180
-    },
-    "face=wall,rotation=7": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 270
-    },
-    "face=wall,rotation=8": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 270
-    },
-    "face=wall,rotation=9": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 270
-    },
-    "face=wall,rotation=10": {
-      "model": "peculiarpieces:block/flag_wall",
-      "y": 270
-    },
-    "face=wall,rotation=11": {
-      "model": "peculiarpieces:block/flag_wall"
-    },
-    "face=wall,rotation=12": {
-      "model": "peculiarpieces:block/flag_wall"
-    },
-    "face=wall,rotation=13": {
-      "model": "peculiarpieces:block/flag_wall"
-    },
-    "face=wall,rotation=14": {
-      "model": "peculiarpieces:block/flag_wall"
+    "": {
+      "model": "peculiarpieces:block/flag"
     }
   }
 }
